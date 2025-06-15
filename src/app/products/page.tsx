@@ -132,25 +132,6 @@ const tiers = [
   },
 ];
 
-// 案例研究
-const caseStudies = [
-  {
-    name: "科技创新公司",
-    description: "使用AI IDE后，科技创新公司的开发团队将项目开发周期缩短了30%，同时减少了15%的代码缺陷。",
-    imageUrl: "/images/case-study-1.jpg",
-  },
-  {
-    name: "金融科技企业",
-    description: "金融科技企业采用AI IDE后，新员工培训时间减少50%，代码审查效率提升40%，安全合规性显著增强。",
-    imageUrl: "/images/case-study-2.jpg",
-  },
-  {
-    name: "教育科技公司",
-    description: "教育科技公司借助AI IDE实现了跨团队协作，提高了代码重用率，降低了35%的维护成本。",
-    imageUrl: "/images/case-study-3.jpg",
-  },
-];
-
 export default function ProductsPage() {
   const [selectedTab, setSelectedTab] = useState("ai-features");
   
@@ -322,48 +303,6 @@ export default function ProductsPage() {
                       </li>
                     ))}
                   </ul>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-
-        {/* 案例研究 */}
-        <div id="case-studies" className="bg-white py-24 sm:py-32">
-          <div className="mx-auto max-w-7xl px-6 lg:px-8">
-            <div className="mx-auto max-w-2xl text-center">
-              <h2 className="text-base font-semibold leading-7 text-blue-600">成功案例</h2>
-              <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-                客户如何使用AI IDE取得成功
-              </p>
-              <p className="mt-6 text-lg leading-8 text-gray-600">
-                了解各行业客户如何利用AI IDE提高开发效率，降低成本，加速创新。
-              </p>
-            </div>
-            <div className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-8 sm:mt-20 lg:mx-0 lg:max-w-none lg:grid-cols-3">
-              {caseStudies.map((study) => (
-                <div key={study.name} className="flex flex-col overflow-hidden rounded-lg shadow-lg">
-                  <div className="flex-shrink-0">
-                    <div className="h-48 w-full relative">
-                      <Image
-                        className="h-48 w-full object-cover"
-                        src={study.imageUrl}
-                        alt={study.name}
-                        fill
-                      />
-                    </div>
-                  </div>
-                  <div className="flex flex-1 flex-col justify-between bg-white p-6">
-                    <div className="flex-1">
-                      <h3 className="text-xl font-semibold text-gray-900">{study.name}</h3>
-                      <p className="mt-3 text-base text-gray-500">{study.description}</p>
-                    </div>
-                    <div className="mt-6">
-                      <a href="#" className="text-base font-semibold text-blue-600 hover:text-blue-500">
-                        阅读完整案例 →
-                      </a>
-                    </div>
-                  </div>
                 </div>
               ))}
             </div>

@@ -14,57 +14,6 @@ const stats = [
   { name: '每日生成代码', value: '1,000,000+ 行' },
 ];
 
-const teams = [
-  {
-    name: '领导团队',
-    description: '我们的领导团队由业内资深专家组成，拥有丰富的技术和管理经验。',
-    people: [
-      {
-        name: '张伟',
-        role: '创始人兼CEO',
-        imageUrl: '/images/team/ceo.jpg',
-        bio: '前Google高级工程师，拥有超过15年软件开发和人工智能领域经验。曾领导多个大型技术项目，对AI在软件开发中的应用有深入研究。',
-      },
-      {
-        name: '李明',
-        role: '首席技术官 (CTO)',
-        imageUrl: '/images/team/cto.jpg',
-        bio: '人工智能和编程语言专家，曾在微软研究院工作，领导过多个AI编程辅助工具的研发工作。拥有计算机科学博士学位。',
-      },
-      {
-        name: '王芳',
-        role: '产品副总裁',
-        imageUrl: '/images/team/vp-product.jpg',
-        bio: '拥有超过10年产品管理经验，曾在多家顶级科技公司负责开发者工具产品线。对用户体验和产品设计有独到见解。',
-      },
-    ],
-  },
-  {
-    name: '工程团队',
-    description: '我们的工程团队由经验丰富的软件工程师组成，专注于构建高性能、可靠的AI编程工具。',
-    people: [
-      {
-        name: '赵强',
-        role: '工程总监',
-        imageUrl: '/images/team/engineering-director.jpg',
-        bio: '前阿里巴巴技术专家，拥有丰富的大型分布式系统开发经验，专注于系统架构设计和性能优化。',
-      },
-      {
-        name: '钱丽',
-        role: 'AI研究主管',
-        imageUrl: '/images/team/ai-lead.jpg',
-        bio: '机器学习和自然语言处理专家，曾参与多个大型语言模型的研发，对代码生成和理解有深入研究。',
-      },
-      {
-        name: '孙伟',
-        role: '前端技术负责人',
-        imageUrl: '/images/team/frontend-lead.jpg',
-        bio: '拥有8年前端开发经验，专注于构建高性能、易用的开发者工具界面，对开发体验有深刻理解。',
-      },
-    ],
-  }
-];
-
 const values = [
   {
     name: '开发者至上',
@@ -169,45 +118,6 @@ export default function AboutPage() {
                   — 张伟, AI IDE创始人兼CEO
                 </div>
               </div>
-            </div>
-          </div>
-        </div>
-
-        {/* 团队介绍 */}
-        <div className="bg-white py-24 sm:py-32">
-          <div className="mx-auto max-w-7xl px-6 lg:px-8">
-            <div className="mx-auto max-w-2xl lg:text-center">
-              <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">认识我们的团队</h2>
-              <p className="mt-6 text-lg leading-8 text-gray-600">
-                我们的团队由来自行业顶尖公司的专业人士组成，拥有丰富的技术和产品经验。我们对AI和软件开发充满热情，致力于构建下一代开发工具。
-              </p>
-            </div>
-            <div className="mx-auto mt-16 max-w-7xl">
-              {teams.map((team) => (
-                <div key={team.name} className="mb-16 sm:mb-20 lg:mb-24">
-                  <h3 className="text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl">{team.name}</h3>
-                  <p className="mt-2 text-lg leading-8 text-gray-600">{team.description}</p>
-                  <ul role="list" className="mt-8 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
-                    {team.people.map((person) => (
-                      <li key={person.name} className="bg-white p-6 shadow-sm border border-gray-200 rounded-xl">
-                        <div className="flex items-center gap-x-6">
-                          <div className="h-16 w-16 rounded-full overflow-hidden bg-gray-100">
-                            {/* 这里使用占位图像 */}
-                            <div className="h-full w-full flex items-center justify-center bg-blue-100 text-blue-800 font-bold text-xl">
-                              {person.name.substring(0, 1)}
-                            </div>
-                          </div>
-                          <div>
-                            <h4 className="text-base font-semibold leading-7 tracking-tight text-gray-900">{person.name}</h4>
-                            <p className="text-sm font-semibold leading-6 text-blue-600">{person.role}</p>
-                          </div>
-                        </div>
-                        <p className="mt-4 text-sm leading-6 text-gray-600">{person.bio}</p>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              ))}
             </div>
           </div>
         </div>

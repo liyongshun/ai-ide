@@ -1,9 +1,13 @@
+"use client";
+
 import { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import Footer from "@/components/Footer";
+import { useToast } from "@/components/ToastContext";
+import { useState } from "react";
 
-export const metadata: Metadata = {
+const PAGE_METADATA = {
   title: "下载 AI IDE - 人工智能辅助开发工具",
   description: "下载最新版本的AI IDE，体验AI辅助编程的无限可能",
 };
@@ -12,44 +16,44 @@ const downloadOptions = [
   {
     name: "Windows",
     description: "适用于 Windows 10 及以上版本",
-    href: "#",
+    href: "/download/windows",
     icon: (
       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
         <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 3v11.25A2.25 2.25 0 006 16.5h2.25M3.75 3h-1.5m1.5 0h16.5m0 0h1.5m-1.5 0v11.25A2.25 2.25 0 0118 16.5h-2.25m-7.5 0h7.5m-7.5 0l-1 3m8.5-3l1 3m0 0l.5 1.5m-.5-1.5h-9.5m0 0l-.5 1.5m.75-9l3-3 2.148 2.148A12.061 12.061 0 0116.5 7.605" />
       </svg>
     ),
     versions: [
-      { name: "AI IDE v2.5.0 - Windows 64位", size: "187 MB", href: "#" },
-      { name: "AI IDE v2.5.0 - Windows 32位", size: "173 MB", href: "#" },
+      { name: "AI IDE v2.5.0 - Windows 64位", size: "187 MB", href: "/download/files/ai-ide-v2.5.0-win64.exe" },
+      { name: "AI IDE v2.5.0 - Windows 32位", size: "173 MB", href: "/download/files/ai-ide-v2.5.0-win32.exe" },
     ],
   },
   {
     name: "macOS",
     description: "适用于 macOS 11.0 及以上版本",
-    href: "#",
+    href: "/download/macos",
     icon: (
       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
         <path strokeLinecap="round" strokeLinejoin="round" d="M9 17.25v1.007a3 3 0 01-.879 2.122L7.5 21h9l-.621-.621A3 3 0 0115 18.257V17.25m6-12V15a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 15V5.25m18 0A2.25 2.25 0 0018.75 3H5.25A2.25 2.25 0 003 5.25m18 0V12a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 12V5.25" />
       </svg>
     ),
     versions: [
-      { name: "AI IDE v2.5.0 - Intel芯片", size: "195 MB", href: "#" },
-      { name: "AI IDE v2.5.0 - Apple Silicon", size: "192 MB", href: "#" },
+      { name: "AI IDE v2.5.0 - Intel芯片", size: "195 MB", href: "/download/files/ai-ide-v2.5.0-intel.dmg" },
+      { name: "AI IDE v2.5.0 - Apple Silicon", size: "192 MB", href: "/download/files/ai-ide-v2.5.0-arm64.dmg" },
     ],
   },
   {
     name: "Linux",
     description: "适用于主流Linux发行版",
-    href: "#",
+    href: "/download/linux",
     icon: (
       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
         <path strokeLinecap="round" strokeLinejoin="round" d="M5.25 14.25h13.5m-13.5 0a3 3 0 01-3-3m3 3a3 3 0 100 6h13.5a3 3 0 100-6m-16.5-3a3 3 0 013-3h13.5a3 3 0 013 3m-19.5 0a4.5 4.5 0 01.9-2.7L5.737 5.1a3.375 3.375 0 012.7-1.35h7.126c1.062 0 2.062.5 2.7 1.35l2.587 3.45a4.5 4.5 0 01.9 2.7m0 0a3 3 0 01-3 3m0 3h.008v.008h-.008v-.008zm0-6h.008v.008h-.008v-.008zm-3 6h.008v.008h-.008v-.008zm0-6h.008v.008h-.008v-.008z" />
       </svg>
     ),
     versions: [
-      { name: "AI IDE v2.5.0 - Debian/Ubuntu (.deb)", size: "183 MB", href: "#" },
-      { name: "AI IDE v2.5.0 - Red Hat/Fedora (.rpm)", size: "185 MB", href: "#" },
-      { name: "AI IDE v2.5.0 - 通用 Linux (.tar.gz)", size: "180 MB", href: "#" },
+      { name: "AI IDE v2.5.0 - Debian/Ubuntu (.deb)", size: "183 MB", href: "/download/files/ai-ide-v2.5.0.deb" },
+      { name: "AI IDE v2.5.0 - Red Hat/Fedora (.rpm)", size: "185 MB", href: "/download/files/ai-ide-v2.5.0.rpm" },
+      { name: "AI IDE v2.5.0 - 通用 Linux (.tar.gz)", size: "180 MB", href: "/download/files/ai-ide-v2.5.0.tar.gz" },
     ],
   },
 ];
@@ -72,6 +76,21 @@ const systemRequirements = {
 };
 
 export default function DownloadPage() {
+  const { showToast } = useToast();
+  const [downloadCount, setDownloadCount] = useState(0);
+
+  // 处理下载按钮点击
+  const handleDownload = (version: string, href: string) => {
+    // 这里可以添加下载统计或其他处理
+    setDownloadCount(prev => prev + 1);
+    showToast({
+      message: `正在开始下载 ${version}`,
+      type: 'success',
+      duration: 3000
+    });
+    // 实际应用中可以在此处进行下载链接重定向或其他操作
+  };
+
   return (
     <>
       <div className="bg-white">
@@ -178,12 +197,12 @@ export default function DownloadPage() {
                               <p className="text-sm font-medium leading-6 text-gray-900">{version.name}</p>
                               <p className="text-xs leading-5 text-gray-500">{version.size}</p>
                             </div>
-                            <a
-                              href={version.href}
+                            <button
+                              onClick={() => handleDownload(version.name, version.href)}
                               className="rounded-md bg-blue-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
                             >
                               下载
-                            </a>
+                            </button>
                           </li>
                         ))}
                       </ul>

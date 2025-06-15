@@ -30,15 +30,28 @@ export function Tabs({ defaultValue, children, className, ...props }: TabsProps)
 
 interface TabsListProps extends React.HTMLAttributes<HTMLDivElement> {
   children: React.ReactNode;
+  activeTab?: string;
+  setActiveTab?: React.Dispatch<React.SetStateAction<string>>;
 }
 
-export function TabsList({ children, className, ...props }: TabsListProps) {
+export function TabsList({ children, className, activeTab, setActiveTab, ...props }: TabsListProps) {
+  // 将TabsList的子元素复制并传递activeTab和setActiveTab
+  const childrenWithProps = React.Children.map(children, child => {
+    if (React.isValidElement(child)) {
+      return React.cloneElement(child as React.ReactElement<any>, {
+        activeTab,
+        setActiveTab,
+      });
+    }
+    return child;
+  });
+  
   return (
     <div 
       className={`inline-flex h-10 items-center justify-center rounded-lg bg-gray-100 p-1 text-gray-500 mb-4 ${className || ''}`} 
       {...props}
     >
-      {children}
+      {childrenWithProps}
     </div>
   );
 }
@@ -71,9 +84,10 @@ interface TabsContentProps extends React.HTMLAttributes<HTMLDivElement> {
   value: string;
   activeTab?: string;
   children: React.ReactNode;
+  setActiveTab?: React.Dispatch<React.SetStateAction<string>>;
 }
 
-export function TabsContent({ value, activeTab, children, className, ...props }: TabsContentProps) {
+export function TabsContent({ value, activeTab, setActiveTab, children, className, ...props }: TabsContentProps) {
   if (activeTab !== value) return null;
   
   return (

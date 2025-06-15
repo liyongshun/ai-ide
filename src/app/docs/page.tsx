@@ -1,9 +1,24 @@
+"use client";
+
 import Link from 'next/link';
 import { Metadata } from 'next';
+import { useRouter } from 'next/navigation';
+import { useState, useEffect, useRef, useCallback } from 'react';
+import ErrorBoundary from '@/components/ErrorBoundary';
+import LoadingSpinner from '@/components/LoadingSpinner';
 
-export const metadata: Metadata = {
+// 客户端组件中不能导出metadata，使用独立的常量
+const PAGE_METADATA = {
   title: 'AI IDE 文档中心',
   description: '了解如何使用AI IDE提升你的开发效率，包括安装指南、特性介绍和API参考。',
+};
+
+// 搜索结果类型
+type SearchResult = {
+  title: string;
+  path: string;
+  description: string;
+  category: string;
 };
 
 const docCategories = [
@@ -85,8 +100,131 @@ const docCategories = [
   },
 ];
 
+// 将searchableContent移到组件外部，避免每次渲染都创建新对象
+const searchableContent: SearchResult[] = [
+  // 入门指南
+  {
+    title: '安装指南',
+    path: '/docs/getting-started/installation',
+    description: '如何在各种操作系统上安装和配置AI IDE',
+    category: '入门指南',
+  },
+  {
+    title: '快速开始',
+    path: '/docs/getting-started/quick-start',
+    description: '快速上手AI IDE的基本功能和使用方法',
+    category: '入门指南',
+  },
+  {
+    title: '界面概览',
+    path: '/docs/getting-started/interface-overview',
+    description: '了解AI IDE的界面布局和主要功能区域',
+    category: '入门指南',
+  },
+  // 核心功能
+  {
+    title: 'AI代码补全',
+    path: '/docs/features/code-completion',
+    description: '使用AI智能补全功能加速您的编码过程',
+    category: '核心功能',
+  },
+  {
+    title: 'AI代码生成',
+    path: '/docs/features/code-generation',
+    description: '通过自然语言描述自动生成代码片段和功能',
+    category: '核心功能',
+  },
+  {
+    title: 'AI代码解释',
+    path: '/docs/features/code-explanation',
+    description: '让AI帮助您理解复杂的代码逻辑和实现',
+    category: '核心功能',
+  },
+  // API参考
+  {
+    title: 'AI服务API',
+    path: '/docs/api/ai-service',
+    description: '与AI IDE的AI服务交互的API参考文档',
+    category: 'API参考',
+  },
+  {
+    title: '插件开发API',
+    path: '/docs/api/plugin-development',
+    description: '开发AI IDE插件的API参考指南',
+    category: 'API参考',
+  },
+];
+
 export default function DocsPage() {
-  return (
+  const router = useRouter();
+  const [searchQuery, setSearchQuery] = useState('');
+  const [debouncedQuery, setDebouncedQuery] = useState('');
+  const [searchResults, setSearchResults] = useState<SearchResult[]>([]);
+  const [isSearching, setIsSearching] = useState(false);
+  const searchInputRef = useRef<HTMLInputElement>(null);
+
+  // 执行搜索逻辑 - 移除对searchableContent的依赖
+  const performSearch = useCallback((query: string) => {
+    if (!query.trim()) {
+      setSearchResults([]);
+      return;
+    }
+
+    setIsSearching(true);
+    
+    // 模拟异步搜索，实际项目中可能是API调用
+    setTimeout(() => {
+      const normalizedQuery = query.toLowerCase().trim();
+      const results = searchableContent.filter(
+        item =>
+          item.title.toLowerCase().includes(normalizedQuery) ||
+          item.description.toLowerCase().includes(normalizedQuery) ||
+          item.category.toLowerCase().includes(normalizedQuery)
+      );
+      
+      setSearchResults(results);
+      setIsSearching(false);
+    }, 100);
+  }, []); // 移除searchableContent依赖
+
+  // 处理搜索框输入变化
+  const handleSearchInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value;
+    setSearchQuery(value);
+  };
+
+  // 处理搜索框按下回车
+  const handleSearchKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === 'Enter') {
+      performSearch(searchQuery);
+    }
+  };
+
+  // 清除搜索
+  const clearSearch = () => {
+    setSearchQuery('');
+    setDebouncedQuery('');
+    setSearchResults([]);
+    if (searchInputRef.current) {
+      searchInputRef.current.focus();
+    }
+  };
+
+  // 使用防抖处理搜索查询
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setDebouncedQuery(searchQuery);
+    }, 300);
+
+    return () => clearTimeout(timer);
+  }, [searchQuery]);
+
+  // 当防抖查询变化时执行搜索
+  useEffect(() => {
+    performSearch(debouncedQuery);
+  }, [debouncedQuery, performSearch]);
+
+  const DocsContent = () => (
     <div>
       <div className="mb-12">
         <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">
@@ -106,43 +244,95 @@ export default function DocsPage() {
             </svg>
           </div>
           <input
+            ref={searchInputRef}
             type="text"
-            className="block w-full rounded-lg border border-gray-300 bg-white py-2 pl-10 pr-3 text-gray-900 focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
+            className="block w-full rounded-lg border border-gray-300 bg-white py-2 pl-10 pr-10 text-gray-900 focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
             placeholder="搜索文档..."
+            value={searchQuery}
+            onChange={handleSearchInputChange}
+            onKeyDown={handleSearchKeyDown}
           />
+          {searchQuery && (
+            <button 
+              className="absolute inset-y-0 right-0 flex items-center pr-3 text-gray-400 hover:text-gray-600"
+              onClick={clearSearch}
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+          )}
         </div>
       </div>
 
-      {/* 文档分类 */}
-      <div className="grid grid-cols-1 gap-y-12 gap-x-6 sm:grid-cols-2 lg:grid-cols-3">
-        {docCategories.map((category) => (
-          <div key={category.name} className="group relative">
-            <div className="inline-flex rounded-lg bg-blue-50 p-3 text-blue-700">
-              {category.icon}
-            </div>
-            <h3 className="mt-4 text-lg font-semibold leading-8 tracking-tight text-gray-900">
-              <Link href={category.href} className="hover:text-blue-600">
-                {category.name}
-              </Link>
-            </h3>
-            <p className="mt-2 text-sm text-gray-600">
-              {category.description}
+      {/* 搜索结果 */}
+      {searchQuery && (
+        <div className="mb-12">
+          <div className="flex justify-between items-center mb-4">
+            <h2 className="text-xl font-semibold">搜索结果</h2>
+            <p className="text-sm text-gray-500">
+              {isSearching ? '搜索中...' : `找到 ${searchResults.length} 个结果`}
             </p>
-            <ul className="mt-3 space-y-1">
-              {category.links.map((link) => (
-                <li key={link.name}>
-                  <Link href={link.href} className="text-sm text-blue-600 hover:underline">
-                    {link.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-            <Link href={category.href} className="mt-4 block text-sm font-medium text-blue-600 hover:underline">
-              查看全部 →
-            </Link>
           </div>
-        ))}
-      </div>
+          
+          {isSearching ? (
+            <LoadingSpinner text="正在搜索..." />
+          ) : searchResults.length > 0 ? (
+            <div className="space-y-4">
+              {searchResults.map((result) => (
+                <div key={result.path} className="bg-white p-4 rounded-lg border border-gray-200 hover:border-blue-300 hover:shadow-md transition-all">
+                  <Link href={result.path} className="block">
+                    <h3 className="text-lg font-semibold text-blue-600">{result.title}</h3>
+                    <p className="text-sm text-gray-500 mb-1">分类：{result.category}</p>
+                    <p className="text-gray-600">{result.description}</p>
+                  </Link>
+                </div>
+              ))}
+            </div>
+          ) : (
+            <div className="text-center py-8 bg-gray-50 rounded-lg border border-gray-200">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-12 h-12 mx-auto text-gray-400 mb-3">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M15.182 16.318A4.486 4.486 0 0012.016 15a4.486 4.486 0 00-3.198 1.318M21 12a9 9 0 11-18 0 9 9 0 0118 0zM9.75 9.75c0 .414-.168.75-.375.75S9 10.164 9 9.75 9.168 9 9.375 9s.375.336.375.75zm-.375 0h.008v.015h-.008V9.75zm5.625 0c0 .414-.168.75-.375.75s-.375-.336-.375-.75.168-.75.375-.75.375.336.375.75zm-.375 0h.008v.015h-.008V9.75z" />
+              </svg>
+              <p className="text-gray-600 font-medium">没有找到与 "{searchQuery}" 相关的文档</p>
+              <p className="text-gray-500 text-sm mt-2">尝试使用不同的关键词，或浏览下方的文档分类</p>
+            </div>
+          )}
+        </div>
+      )}
+
+      {/* 当没有搜索时显示文档分类 */}
+      {!searchQuery && (
+        <div className="grid grid-cols-1 gap-y-12 gap-x-6 sm:grid-cols-2 lg:grid-cols-3">
+          {docCategories.map((category) => (
+            <div key={category.name} className="group relative">
+              <div className="inline-flex rounded-lg bg-blue-50 p-3 text-blue-700">
+                {category.icon}
+              </div>
+              <h3 className="mt-4 text-lg font-semibold leading-8 tracking-tight text-gray-900">
+                <Link href={category.href} className="hover:text-blue-600">
+                  {category.name}
+                </Link>
+              </h3>
+              <p className="mt-2 text-sm text-gray-600">
+                {category.description}
+              </p>
+              <ul className="mt-3 space-y-1">
+                {category.links.map((link) => (
+                  <li key={link.name}>
+                    <Link href={link.href} className="text-sm text-blue-600 hover:underline">
+                      {link.name}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+              <Link href={category.href} className="mt-4 block text-sm font-medium text-blue-600 hover:underline">
+                查看全部 →
+              </Link>
+            </div>
+          ))}
+        </div>
+      )}
 
       {/* 帮助与支持 */}
       <div className="mt-16 rounded-2xl bg-gray-50 p-8">
@@ -172,5 +362,11 @@ export default function DocsPage() {
         </div>
       </div>
     </div>
+  );
+
+  return (
+    <ErrorBoundary>
+      <DocsContent />
+    </ErrorBoundary>
   );
 } 

@@ -67,8 +67,13 @@ export default function DocsLayout({
     <div className="flex flex-col min-h-screen bg-white">
       <div className="flex flex-1">
         {/* 左侧边栏 - 桌面版 */}
-        <aside className="hidden lg:fixed lg:inset-y-0 lg:left-0 lg:z-10 lg:block lg:w-64 lg:border-r lg:border-gray-200 lg:bg-white lg:pb-10">
+        <aside className="hidden lg:block lg:w-64 lg:fixed lg:inset-y-0 lg:z-10 lg:border-r lg:border-gray-200 lg:bg-white lg:overflow-y-auto">
           <div className="flex h-16 items-center justify-between border-b border-gray-200 px-6">
+            <Link href="/" className="text-lg font-semibold text-gray-900 hover:text-blue-600">
+              AI IDE
+            </Link>
+          </div>
+          <div className="h-16 flex items-center px-6 border-b border-gray-200">
             <div className="text-lg font-semibold text-gray-900">文档</div>
           </div>
           <nav className="space-y-1 px-4 pt-6">
@@ -108,17 +113,25 @@ export default function DocsLayout({
           <div className="fixed inset-0 z-20 bg-gray-500 bg-opacity-75 lg:hidden" onClick={() => setMobileMenuOpen(false)}>
             <aside className="fixed inset-y-0 left-0 z-30 w-64 overflow-y-auto bg-white pb-10">
               <div className="flex h-16 items-center justify-between border-b border-gray-200 px-6">
-                <div className="text-lg font-semibold text-gray-900">文档</div>
+                <Link href="/" className="text-lg font-semibold text-gray-900 hover:text-blue-600">
+                  AI IDE
+                </Link>
                 <button
                   type="button"
                   className="-mr-2 flex h-10 w-10 items-center justify-center rounded-md text-gray-500 hover:text-gray-600"
-                  onClick={() => setMobileMenuOpen(false)}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setMobileMenuOpen(false);
+                  }}
                 >
                   <span className="sr-only">关闭侧边栏</span>
                   <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
                   </svg>
                 </button>
+              </div>
+              <div className="h-16 flex items-center px-6 border-b border-gray-200">
+                <div className="text-lg font-semibold text-gray-900">文档</div>
               </div>
               <nav className="space-y-1 px-4 pt-6">
                 {sidebarNavigation.map((category) => {
@@ -140,7 +153,10 @@ export default function DocsLayout({
                                   : 'text-gray-700 hover:bg-gray-50 hover:text-gray-900'
                                 }
                               `}
-                              onClick={() => setMobileMenuOpen(false)}
+                              onClick={(e) => {
+                                e.stopPropagation();
+                                setMobileMenuOpen(false);
+                              }}
                             >
                               {item.name}
                             </Link>
@@ -156,21 +172,26 @@ export default function DocsLayout({
         )}
 
         {/* 主内容区 */}
-        <div className="flex flex-1 flex-col lg:pl-64 bg-white">
+        <div className="flex flex-1 flex-col lg:pl-64">
           {/* 移动端顶部导航 */}
           <div className="sticky top-0 z-10 lg:hidden">
             <div className="flex h-16 items-center justify-between border-b border-gray-200 bg-white px-4">
-              <div className="text-lg font-semibold text-gray-900">文档</div>
-              <button
-                type="button"
-                className="text-gray-500 hover:text-gray-600 focus:outline-none"
-                onClick={() => setMobileMenuOpen(true)}
-              >
-                <span className="sr-only">打开侧边栏</span>
-                <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-                </svg>
-              </button>
+              <Link href="/" className="text-lg font-semibold text-gray-900 hover:text-blue-600">
+                AI IDE
+              </Link>
+              <div className="flex items-center">
+                <div className="text-lg font-semibold text-gray-900 mr-4">文档</div>
+                <button
+                  type="button"
+                  className="text-gray-500 hover:text-gray-600 focus:outline-none"
+                  onClick={() => setMobileMenuOpen(true)}
+                >
+                  <span className="sr-only">打开侧边栏</span>
+                  <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                  </svg>
+                </button>
+              </div>
             </div>
           </div>
 
@@ -180,11 +201,11 @@ export default function DocsLayout({
               {children}
             </div>
           </main>
+          
+          {/* 页脚 */}
+          <Footer />
         </div>
       </div>
-      
-      {/* 页脚 */}
-      <Footer />
     </div>
   );
 } 
