@@ -6,10 +6,11 @@ import {
   CheckCircle2, Settings, Eye, PaintBucket, 
   UploadCloud, BookOpen, Brush, Type, Image
 } from 'lucide-react';
+import { AppConfig } from '@/lib/config';
 
 export const metadata: Metadata = {
-  title: '主题定制 API - Cursor 文档',
-  description: '了解如何使用 Cursor 的主题定制 API 来自定义 IDE 的外观',
+  title: `主题定制 API - ${AppConfig.APP_NAME} 文档`,
+  description: `了解如何使用 ${AppConfig.APP_NAME} 的主题定制 API 来自定义 IDE 的外观`,
 }
 
 export default function ThemeCustomizationPage() {
@@ -18,7 +19,7 @@ export default function ThemeCustomizationPage() {
       <div className="mb-8">
         <h1 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">主题定制 API</h1>
         <p className="mt-4 text-lg leading-8 text-gray-600">
-          Cursor 提供了灵活的主题定制 API，允许开发者创建和自定义 IDE 的外观。
+          {AppConfig.APP_NAME} 提供了灵活的主题定制 API，允许开发者创建和自定义 IDE 的外观。
           通过主题系统，您可以定义颜色、字体、图标等视觉元素。
         </p>
       </div>
@@ -166,7 +167,7 @@ export default function ThemeCustomizationPage() {
         </CardHeader>
         <CardContent>
           <p className="mb-4 text-gray-600">
-            Cursor 提供了以下工具来帮助主题开发：
+            {AppConfig.APP_NAME} 提供了以下工具来帮助主题开发：
           </p>
           <div className="grid gap-4 md:grid-cols-2">
             <div className="flex items-start gap-2">
@@ -223,7 +224,7 @@ export default function ThemeCustomizationPage() {
             </div>
             <div className="flex items-center gap-3 p-3 rounded-lg bg-blue-50 border border-blue-100">
               <div className="bg-blue-100 rounded-full w-8 h-8 flex items-center justify-center text-blue-700 font-semibold">3</div>
-              <p className="text-gray-700">提交到 Cursor 主题市场供其他用户使用</p>
+              <p className="text-gray-700">提交到 {AppConfig.APP_NAME} 主题市场供其他用户使用</p>
             </div>
           </div>
         </CardContent>
@@ -245,7 +246,7 @@ export default function ThemeCustomizationPage() {
       <div className="mt-10 rounded-lg bg-gradient-to-r from-blue-500 to-blue-700 p-8 text-white shadow-lg">
         <h2 className="text-2xl font-bold">打造您的专属主题</h2>
         <p className="mt-2 text-lg">
-          利用Cursor的主题定制API，创建符合您个人风格或团队需求的IDE主题。
+          利用{AppConfig.APP_NAME}的主题定制API，创建符合您个人风格或团队需求的IDE主题。
         </p>
         <div className="mt-6 flex flex-wrap gap-4">
           <a href="/docs/api/plugin-development" className="rounded-md bg-white px-4 py-2 font-medium text-blue-700 hover:bg-blue-50">

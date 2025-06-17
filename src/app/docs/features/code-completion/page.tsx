@@ -1,8 +1,9 @@
 import { Metadata } from 'next';
+import { AppConfig } from '@/lib/config';
 
 export const metadata: Metadata = {
-  title: 'AI代码补全 | AI IDE文档',
-  description: '了解AI IDE强大的代码补全功能，提高编码效率。',
+  title: `AI代码补全 | ${AppConfig.APP_NAME}文档`,
+  description: `了解${AppConfig.APP_NAME}强大的代码补全功能，提高编码效率。`,
 };
 
 export default function CodeCompletionPage() {
@@ -11,7 +12,7 @@ export default function CodeCompletionPage() {
       <div className="mb-8">
         <h1 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">AI代码补全</h1>
         <p className="mt-4 text-lg leading-8 text-gray-600">
-          AI IDE提供智能代码补全功能，基于先进的机器学习模型，能够理解您的代码意图，提供准确的补全建议，显著提高编码效率。
+          {AppConfig.APP_NAME}提供智能代码补全功能，基于先进的机器学习模型，能够理解您的代码意图，提供准确的补全建议，显著提高编码效率。
         </p>
       </div>
 

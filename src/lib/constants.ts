@@ -1,4 +1,6 @@
-export const SITE_NAME = 'AI IDE';
+import { AppConfig } from './config';
+
+export const SITE_NAME = AppConfig.APP_NAME;
 export const SITE_DESCRIPTION = '面向专业开发人员的AI辅助编程工具，提高生产力和代码质量';
 export const SITE_URL = 'https://ai-ide.example.com';
 

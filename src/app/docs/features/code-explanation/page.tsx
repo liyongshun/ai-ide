@@ -3,10 +3,11 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Tabs, TabsContent, TabsItem, TabsList } from "@/components/ui/tabs";
 import { Alert, AlertTitle, AlertDescription } from "@/components/ui/alert";
 import { Check, Code, BookOpen, Zap, ShieldCheck, GitCompare, BarChart2, Users, FileCode, Terminal, Layers } from 'lucide-react';
+import { AppConfig } from '@/lib/config';
 
 export const metadata: Metadata = {
-  title: 'AI代码解释 | AI IDE文档',
-  description: '了解AI IDE的代码解释功能，快速理解复杂代码逻辑。',
+  title: `AI代码解释 | ${AppConfig.APP_NAME}文档`,
+  description: `了解${AppConfig.APP_NAME}的代码解释功能，快速理解复杂代码逻辑。`,
 };
 
 export default function CodeExplanationPage() {
@@ -15,7 +16,7 @@ export default function CodeExplanationPage() {
       <div className="mb-8">
         <h1 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">AI代码解释</h1>
         <p className="mt-4 text-lg leading-8 text-gray-600">
-          AI IDE提供智能代码解释功能，帮助您快速理解复杂代码逻辑，提高代码阅读和维护效率。
+          {AppConfig.APP_NAME}提供智能代码解释功能，帮助您快速理解复杂代码逻辑，提高代码阅读和维护效率。
         </p>
       </div>
       
@@ -311,7 +312,7 @@ export default function CodeExplanationPage() {
         </CardHeader>
         <CardContent>
           <p className="mb-4 text-gray-600">
-            AI代码解释功能与AI IDE的其他功能紧密集成，形成完整的开发体验：
+            AI代码解释功能与{AppConfig.APP_NAME}的其他功能紧密集成，形成完整的开发体验：
           </p>
           <div className="grid gap-4 md:grid-cols-3">
             <div className="bg-blue-50 p-4 rounded-lg border border-blue-100">

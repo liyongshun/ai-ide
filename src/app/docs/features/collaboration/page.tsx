@@ -1,6 +1,7 @@
 import { Metadata } from 'next';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Alert, AlertTitle, AlertDescription } from "@/components/ui/alert";
+import { AppConfig } from '@/lib/config';
 import { 
   Users, UserPlus, GitBranch, MessageSquare, Zap, BookOpen, Layers, Shield,
   Share2, Code, CheckCircle2, Eye, Lock, MessagesSquare, GitMerge, Database,
@@ -8,8 +9,8 @@ import {
 } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: '协作功能 | AI IDE文档',
-  description: 'AI IDE团队协作功能文档，支持多人实时编码和AI辅助。',
+  title: '协作功能 | {AppConfig.APP_NAME}文档',
+  description: '{AppConfig.APP_NAME}团队协作功能文档，支持多人实时编码和AI辅助。',
 };
 
 export default function CollaborationPage() {
@@ -18,7 +19,7 @@ export default function CollaborationPage() {
       <div className="mb-8">
         <h1 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">协作功能</h1>
         <p className="mt-4 text-lg leading-8 text-gray-600">
-          了解AI IDE的团队协作功能，支持多人实时编码、共享AI辅助和高效团队沟通。
+          了解{AppConfig.APP_NAME}的团队协作功能，支持多人实时编码、共享AI辅助和高效团队沟通。
         </p>
       </div>
       
@@ -31,7 +32,7 @@ export default function CollaborationPage() {
         </CardHeader>
         <CardContent>
           <p className="text-gray-600">
-            AI IDE的协作功能将实时多人编辑与AI辅助相结合，为团队提供无缝的协作体验。无论团队成员身处何地，都能共同编写代码、共享AI生成的内容、进行代码评审，并通过内置通信工具保持沟通，大幅提高团队开发效率和协作质量。
+            {AppConfig.APP_NAME}的协作功能将实时多人编辑与AI辅助相结合，为团队提供无缝的协作体验。无论团队成员身处何地，都能共同编写代码、共享AI生成的内容、进行代码评审，并通过内置通信工具保持沟通，大幅提高团队开发效率和协作质量。
           </p>
         </CardContent>
       </Card>
@@ -341,7 +342,7 @@ export default function CollaborationPage() {
         </CardHeader>
         <CardContent>
           <p className="mb-4 text-gray-600">
-            AI IDE的协作功能与主流版本控制系统（如Git）深度集成，支持以下功能：
+            {AppConfig.APP_NAME}的协作功能与主流版本控制系统（如Git）深度集成，支持以下功能：
           </p>
           <div className="grid gap-3 md:grid-cols-2">
             <div className="flex items-start gap-2">
@@ -424,7 +425,7 @@ export default function CollaborationPage() {
         </CardHeader>
         <CardContent>
           <p className="mb-4 text-gray-600">
-            AI IDE的协作功能设计时充分考虑了安全性和隐私保护：
+            {AppConfig.APP_NAME}的协作功能设计时充分考虑了安全性和隐私保护：
           </p>
           <div className="grid gap-3 md:grid-cols-2">
             <div className="flex items-center p-3 bg-green-50 rounded-lg border border-green-100">
@@ -456,7 +457,7 @@ export default function CollaborationPage() {
         </CardHeader>
         <CardContent>
           <p className="mb-4 text-gray-600">
-            协作功能与AI IDE的其他功能紧密集成，形成完整的开发体验：
+            协作功能与{AppConfig.APP_NAME}的其他功能紧密集成，形成完整的开发体验：
           </p>
           <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
             <div className="bg-blue-50 p-4 rounded-lg border border-blue-100">
@@ -491,7 +492,7 @@ export default function CollaborationPage() {
       <div className="mt-10 rounded-lg bg-gradient-to-r from-blue-500 to-blue-700 p-8 text-white shadow-lg">
         <h2 className="text-2xl font-bold">提升您的团队协作效率</h2>
         <p className="mt-2 text-lg">
-          使用AI IDE的协作功能，让团队成员无缝协作，共同创造优秀的代码。
+          使用{AppConfig.APP_NAME}的协作功能，让团队成员无缝协作，共同创造优秀的代码。
         </p>
         <div className="mt-6 flex flex-wrap gap-4">
           <a href="/docs/getting-started/quick-start" className="rounded-md bg-white px-4 py-2 font-medium text-blue-700 hover:bg-blue-50">

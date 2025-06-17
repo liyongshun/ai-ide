@@ -3,6 +3,8 @@ import { Card } from '@/components/ui/card';
 import Link from 'next/link';
 import Image from 'next/image';
 import Footer from '@/components/Footer';
+import { AppConfig } from '@/lib/config';
+import { replaceAppName } from '@/lib/utils';
 
 export default function RootPage() {
   return (
@@ -58,7 +60,7 @@ export default function RootPage() {
               <div className="relative w-full h-[300px] md:h-[400px] rounded-xl overflow-hidden shadow-lg border border-gray-200">
                 <Image
                   src="/images/hero-screenshot.png"
-                  alt="AI IDE 界面展示"
+                  alt={`${AppConfig.APP_NAME} 界面展示`}
                   fill
                   style={{ objectFit: 'cover' }}
                   priority
@@ -136,7 +138,7 @@ export default function RootPage() {
             <div className="container mx-auto">
               <h2 className="text-3xl font-bold text-center mb-4">为何选择我们</h2>
               <p className="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
-                我们的AI IDE不仅是一款开发工具，更是您的智能编程伙伴
+                我们的{AppConfig.APP_NAME}不仅是一款开发工具，更是您的智能编程伙伴
               </p>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
                 <div className="space-y-4 p-6 bg-white rounded-xl shadow-md">

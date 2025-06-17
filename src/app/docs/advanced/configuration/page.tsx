@@ -1,6 +1,7 @@
 import { Metadata } from 'next';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Alert, AlertTitle, AlertDescription } from "@/components/ui/alert";
+import { AppConfig } from '@/lib/config';
 import {
   Settings, FileJson, Layers, Code,
   Sliders, LayoutTemplate, Terminal, Lock,
@@ -9,8 +10,8 @@ import {
 } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: '配置文件 | AI IDE文档',
-  description: '了解如何通过配置文件自定义AI IDE的行为和功能。',
+  title: '配置文件 | {AppConfig.APP_NAME}文档',
+  description: '了解如何通过配置文件自定义{AppConfig.APP_NAME}的行为和功能。',
 };
 
 export default function ConfigurationPage() {
@@ -19,7 +20,7 @@ export default function ConfigurationPage() {
       <div className="mb-8">
         <h1 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">配置文件</h1>
         <p className="mt-4 text-lg leading-8 text-gray-600">
-          AI IDE提供了灵活的配置选项，允许您自定义IDE的行为、外观和AI功能，以适应不同的项目需求和个人偏好。
+          {AppConfig.APP_NAME}提供了灵活的配置选项，允许您自定义IDE的行为、外观和AI功能，以适应不同的项目需求和个人偏好。
         </p>
       </div>
 
@@ -32,7 +33,7 @@ export default function ConfigurationPage() {
         </CardHeader>
         <CardContent>
           <p className="mb-4 text-gray-600">
-            AI IDE采用分层的配置系统，使您能够在不同级别上自定义IDE行为。这种设计允许全局设置、用户偏好和项目特定需求共存，同时提供清晰的优先级规则来解决潜在的配置冲突。
+            {AppConfig.APP_NAME}采用分层的配置系统，使您能够在不同级别上自定义IDE行为。这种设计允许全局设置、用户偏好和项目特定需求共存，同时提供清晰的优先级规则来解决潜在的配置冲突。
           </p>
 
           <h3 className="text-lg font-medium text-gray-900 mb-4">配置层级</h3>
@@ -177,7 +178,7 @@ export default function ConfigurationPage() {
         </CardHeader>
         <CardContent>
           <p className="mb-4 text-gray-600">
-            AI IDE的配置文件采用分类嵌套结构，便于组织和访问相关设置。主要配置类别包括：
+            {AppConfig.APP_NAME}的配置文件采用分类嵌套结构，便于组织和访问相关设置。主要配置类别包括：
           </p>
           
           <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4 mb-6">
@@ -458,7 +459,7 @@ export default function ConfigurationPage() {
       <div className="mt-10 rounded-lg bg-gradient-to-r from-blue-500 to-blue-700 p-8 text-white shadow-lg">
         <h2 className="text-2xl font-bold">优化您的开发体验</h2>
         <p className="mt-2 text-lg">
-          利用AI IDE的强大配置系统，为您的工作流程创建完美的开发环境。
+          利用{AppConfig.APP_NAME}的强大配置系统，为您的工作流程创建完美的开发环境。
         </p>
         <div className="mt-6 flex flex-wrap gap-4">
           <a href="/docs/advanced/performance" className="rounded-md bg-white px-4 py-2 font-medium text-blue-700 hover:bg-blue-50">

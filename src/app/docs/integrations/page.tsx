@@ -1,15 +1,16 @@
 import Link from 'next/link';
 import { Metadata } from 'next';
+import { AppConfig } from '@/lib/config';
 
 export const metadata: Metadata = {
-  title: '集成与扩展 | AI IDE文档',
-  description: '探索AI IDE的集成和扩展能力，包括插件系统、版本控制和第三方工具集成。',
+  title: `集成与扩展 | ${AppConfig.APP_NAME}文档`,
+  description: `探索${AppConfig.APP_NAME}的集成和扩展能力，包括插件系统、版本控制和第三方工具集成。`,
 };
 
 const integrations = [
   {
     title: '插件系统',
-    description: '了解如何通过插件扩展AI IDE的功能，以及如何开发自己的插件。',
+    description: `了解如何通过插件扩展${AppConfig.APP_NAME}的功能，以及如何开发自己的插件。`,
     href: '/docs/integrations/plugin-system',
     icon: (
       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
@@ -19,7 +20,7 @@ const integrations = [
   },
   {
     title: '版本控制',
-    description: 'AI IDE与Git等版本控制系统的深度集成，支持智能提交信息生成和冲突解决。',
+    description: `${AppConfig.APP_NAME}与Git等版本控制系统的深度集成，支持智能提交信息生成和冲突解决。`,
     href: '/docs/integrations/version-control',
     icon: (
       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
@@ -45,7 +46,7 @@ export default function IntegrationsPage() {
       <div className="mb-8">
         <h1 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">集成与扩展</h1>
         <p className="mt-4 text-lg leading-8 text-gray-600">
-          探索AI IDE的集成能力和扩展性，了解如何将其与您已有的工具和流程无缝衔接，以及如何通过插件系统扩展功能。
+          探索{AppConfig.APP_NAME}的集成能力和扩展性，了解如何将其与您已有的工具和流程无缝衔接，以及如何通过插件系统扩展功能。
         </p>
       </div>
 
@@ -77,7 +78,7 @@ export default function IntegrationsPage() {
       <div className="mt-16 rounded-lg bg-gray-50 p-8">
         <h2 className="text-xl font-bold text-gray-900">开发者资源</h2>
         <p className="mt-2 text-gray-600">
-          如果您是开发者并希望为AI IDE开发插件或与其集成，请查看我们的API文档。
+          如果您是开发者并希望为{AppConfig.APP_NAME}开发插件或与其集成，请查看我们的API文档。
         </p>
         <div className="mt-6">
           <Link href="/docs/api" className="inline-flex items-center rounded-md bg-blue-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-blue-700">
@@ -105,7 +106,7 @@ export default function IntegrationsPage() {
           <div className="rounded-lg border border-gray-200 p-6">
             <h3 className="text-base font-semibold text-gray-900">插件市场</h3>
             <p className="mt-2 text-sm text-gray-600">
-              浏览和发布AI IDE插件。
+              浏览和发布{AppConfig.APP_NAME}插件。
             </p>
             <div className="mt-4">
               <a href="#" className="text-sm font-medium text-blue-600 hover:text-blue-500">访问插件市场 <span aria-hidden="true">→</span></a>

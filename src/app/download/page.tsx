@@ -6,10 +6,11 @@ import Image from "next/image";
 import Footer from "@/components/Footer";
 import { useToast } from "@/components/ToastContext";
 import { useState } from "react";
+import { AppConfig } from "@/lib/config";
 
 const PAGE_METADATA = {
-  title: "下载 AI IDE - 人工智能辅助开发工具",
-  description: "下载最新版本的AI IDE，体验AI辅助编程的无限可能",
+  title: `下载 ${AppConfig.APP_NAME} - 人工智能辅助开发工具`,
+  description: `下载最新版本的${AppConfig.APP_NAME}，体验AI辅助编程的无限可能`,
 };
 
 const downloadOptions = [
@@ -23,8 +24,8 @@ const downloadOptions = [
       </svg>
     ),
     versions: [
-      { name: "AI IDE v2.5.0 - Windows 64位", size: "187 MB", href: "/download/files/ai-ide-v2.5.0-win64.exe" },
-      { name: "AI IDE v2.5.0 - Windows 32位", size: "173 MB", href: "/download/files/ai-ide-v2.5.0-win32.exe" },
+      { name: `${AppConfig.APP_NAME} v2.5.0 - Windows 64位`, size: "187 MB", href: "/download/files/ai-ide-v2.5.0-win64.exe" },
+      { name: `${AppConfig.APP_NAME} v2.5.0 - Windows 32位`, size: "173 MB", href: "/download/files/ai-ide-v2.5.0-win32.exe" },
     ],
   },
   {
@@ -37,8 +38,8 @@ const downloadOptions = [
       </svg>
     ),
     versions: [
-      { name: "AI IDE v2.5.0 - Intel芯片", size: "195 MB", href: "/download/files/ai-ide-v2.5.0-intel.dmg" },
-      { name: "AI IDE v2.5.0 - Apple Silicon", size: "192 MB", href: "/download/files/ai-ide-v2.5.0-arm64.dmg" },
+      { name: `${AppConfig.APP_NAME} v2.5.0 - Intel芯片`, size: "195 MB", href: "/download/files/ai-ide-v2.5.0-intel.dmg" },
+      { name: `${AppConfig.APP_NAME} v2.5.0 - Apple Silicon`, size: "192 MB", href: "/download/files/ai-ide-v2.5.0-arm64.dmg" },
     ],
   },
   {
@@ -51,9 +52,9 @@ const downloadOptions = [
       </svg>
     ),
     versions: [
-      { name: "AI IDE v2.5.0 - Debian/Ubuntu (.deb)", size: "183 MB", href: "/download/files/ai-ide-v2.5.0.deb" },
-      { name: "AI IDE v2.5.0 - Red Hat/Fedora (.rpm)", size: "185 MB", href: "/download/files/ai-ide-v2.5.0.rpm" },
-      { name: "AI IDE v2.5.0 - 通用 Linux (.tar.gz)", size: "180 MB", href: "/download/files/ai-ide-v2.5.0.tar.gz" },
+      { name: `${AppConfig.APP_NAME} v2.5.0 - Debian/Ubuntu (.deb)`, size: "183 MB", href: "/download/files/ai-ide-v2.5.0.deb" },
+      { name: `${AppConfig.APP_NAME} v2.5.0 - Red Hat/Fedora (.rpm)`, size: "185 MB", href: "/download/files/ai-ide-v2.5.0.rpm" },
+      { name: `${AppConfig.APP_NAME} v2.5.0 - 通用 Linux (.tar.gz)`, size: "180 MB", href: "/download/files/ai-ide-v2.5.0.tar.gz" },
     ],
   },
 ];
@@ -99,10 +100,10 @@ export default function DownloadPage() {
           <div className="mx-auto max-w-7xl px-6 lg:px-8">
             <div className="mx-auto max-w-2xl text-center">
               <h1 className="text-4xl font-bold tracking-tight text-white sm:text-6xl">
-                下载AI IDE
+                下载{AppConfig.APP_NAME}
               </h1>
               <p className="mt-6 text-lg leading-8 text-gray-100">
-                获取最新版本的AI IDE，体验智能编程的未来。无论您使用哪种平台，我们都能支持您的开发需求。
+                获取最新版本的{AppConfig.APP_NAME}，体验智能编程的未来。无论您使用哪种平台，我们都能支持您的开发需求。
               </p>
             </div>
           </div>
@@ -114,7 +115,7 @@ export default function DownloadPage() {
             <div className="mx-auto max-w-2xl text-center">
               <h2 className="text-base font-semibold leading-7 text-blue-600">最新版本</h2>
               <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-                AI IDE v2.5.0
+                {AppConfig.APP_NAME} v2.5.0
               </p>
               <p className="mt-6 text-lg leading-8 text-gray-600">
                 发布日期: 2023年12月15日
@@ -173,7 +174,7 @@ export default function DownloadPage() {
                 获取适合您的版本
               </p>
               <p className="mt-6 text-lg leading-8 text-gray-600">
-                AI IDE支持所有主流操作系统，选择您使用的平台开始下载。
+                {AppConfig.APP_NAME}支持所有主流操作系统，选择您使用的平台开始下载。
               </p>
             </div>
             <div className="mx-auto mt-16 max-w-2xl sm:mt-20 lg:max-w-none">
@@ -220,7 +221,7 @@ export default function DownloadPage() {
             <div className="mx-auto max-w-2xl text-center">
               <h2 className="text-base font-semibold leading-7 text-blue-600">系统要求</h2>
               <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-                运行AI IDE所需的配置
+                运行{AppConfig.APP_NAME}所需的配置
               </p>
               <p className="mt-6 text-lg leading-8 text-gray-600">
                 请确保您的系统满足以下要求，以获得最佳体验。

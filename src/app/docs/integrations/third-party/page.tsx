@@ -1,6 +1,7 @@
 import { Metadata } from 'next';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Alert, AlertTitle, AlertDescription } from "@/components/ui/alert";
+import { AppConfig } from '@/lib/config';
 import { 
   LayoutGrid, Zap, Terminal, CheckCircle2, Database, Cloud, 
   Server, FileCode, Link, Settings, Lock, Package, 
@@ -8,8 +9,8 @@ import {
 } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: '第三方工具集成 | AI IDE文档',
-  description: 'AI IDE与其他开发工具和服务的集成功能介绍。',
+  title: '第三方工具集成 | {AppConfig.APP_NAME}文档',
+  description: '{AppConfig.APP_NAME}与其他开发工具和服务的集成功能介绍。',
 };
 
 export default function ThirdPartyPage() {
@@ -18,7 +19,7 @@ export default function ThirdPartyPage() {
       <div className="mb-8">
         <h1 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">第三方工具集成</h1>
         <p className="mt-4 text-lg leading-8 text-gray-600">
-          AI IDE提供了与多种第三方开发工具和服务的集成能力，让您能够在统一的环境中使用所需的各种工具。
+          {AppConfig.APP_NAME}提供了与多种第三方开发工具和服务的集成能力，让您能够在统一的环境中使用所需的各种工具。
         </p>
       </div>
       
@@ -31,7 +32,7 @@ export default function ThirdPartyPage() {
         </CardHeader>
         <CardContent>
           <p className="text-gray-600">
-            AI IDE的第三方工具集成功能允许开发者直接在IDE环境中无缝使用各类开发工具和服务，无需频繁切换应用程序，提高工作效率并简化工作流程。通过智能API连接、上下文感知和AI辅助配置，IDE能够与外部工具建立深度集成，为开发者提供一站式开发体验。
+            {AppConfig.APP_NAME}的第三方工具集成功能允许开发者直接在IDE环境中无缝使用各类开发工具和服务，无需频繁切换应用程序，提高工作效率并简化工作流程。通过智能API连接、上下文感知和AI辅助配置，IDE能够与外部工具建立深度集成，为开发者提供一站式开发体验。
           </p>
         </CardContent>
       </Card>
@@ -50,7 +51,7 @@ export default function ThirdPartyPage() {
               测试和质量工具
             </h3>
             <p className="text-sm text-gray-700 mt-1">
-              AI IDE与主流测试框架和代码质量工具深度集成，让您可以直接在编辑器中运行测试、查看结果和修复问题。
+              {AppConfig.APP_NAME}与主流测试框架和代码质量工具深度集成，让您可以直接在编辑器中运行测试、查看结果和修复问题。
             </p>
             <div className="grid gap-2 md:grid-cols-2 mt-3">
               <div className="flex items-start gap-2">
@@ -175,7 +176,7 @@ export default function ThirdPartyPage() {
         </CardHeader>
         <CardContent>
           <p className="mb-4 text-gray-600">
-            AI IDE不仅提供基础的工具集成，还通过AI技术大幅增强集成体验：
+            {AppConfig.APP_NAME}不仅提供基础的工具集成，还通过AI技术大幅增强集成体验：
           </p>
           <div className="grid gap-6 md:grid-cols-2">
             <div className="p-4 bg-blue-50 rounded-lg border border-blue-100">
@@ -236,7 +237,7 @@ export default function ThirdPartyPage() {
                 <h3 className="font-medium">集成市场</h3>
               </div>
               <p className="text-sm text-gray-700">
-                AI IDE提供集成市场，您可以浏览、安装和配置各类第三方工具集成。每个集成都提供详细的说明文档和配置向导。
+                {AppConfig.APP_NAME}提供集成市场，您可以浏览、安装和配置各类第三方工具集成。每个集成都提供详细的说明文档和配置向导。
               </p>
             </div>
             
@@ -350,7 +351,7 @@ export default function ThirdPartyPage() {
         </CardHeader>
         <CardContent>
           <p className="mb-4 text-gray-600">
-            AI IDE在设计第三方集成时充分考虑了安全性和隐私保护：
+            {AppConfig.APP_NAME}在设计第三方集成时充分考虑了安全性和隐私保护：
           </p>
           <div className="grid gap-4 md:grid-cols-2">
             <div className="flex items-start gap-2">

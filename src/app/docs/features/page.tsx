@@ -1,9 +1,10 @@
 import Link from 'next/link';
 import { Metadata } from 'next';
+import { AppConfig } from '@/lib/config';
 
 export const metadata: Metadata = {
-  title: '核心功能 | AI IDE文档',
-  description: '探索AI IDE的核心功能，了解如何利用AI提升您的编程体验和开发效率。',
+  title: `核心功能 | ${AppConfig.APP_NAME}文档`,
+  description: `探索${AppConfig.APP_NAME}的核心功能，了解如何利用AI提升您的编程体验和开发效率。`,
 };
 
 const features = [
@@ -65,7 +66,7 @@ export default function FeaturesPage() {
       <div className="mb-8">
         <h1 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">核心功能</h1>
         <p className="mt-4 text-lg leading-8 text-gray-600">
-          探索AI IDE的核心功能，了解如何利用AI技术提升您的编码体验和开发效率。我们的工具融合了最先进的人工智能，让编程更加智能、高效、愉悦。
+          探索{AppConfig.APP_NAME}的核心功能，了解如何利用AI技术提升您的编码体验和开发效率。我们的工具融合了最先进的人工智能，让编程更加智能、高效、愉悦。
         </p>
       </div>
 
@@ -93,7 +94,7 @@ export default function FeaturesPage() {
 
       {/* 为什么选择我们的AI功能 */}
       <div className="mt-16">
-        <h2 className="text-2xl font-bold text-gray-900">为什么选择AI IDE</h2>
+        <h2 className="text-2xl font-bold text-gray-900">为什么选择{AppConfig.APP_NAME}</h2>
         <p className="mt-2 text-lg text-gray-600">
           我们的AI功能与众不同，为您提供真正有价值的编码辅助：
         </p>
@@ -129,7 +130,7 @@ export default function FeaturesPage() {
       <div className="mt-16 rounded-lg bg-blue-50 p-8">
         <h2 className="text-xl font-semibold text-gray-900">想了解更多？</h2>
         <p className="mt-2 text-gray-600">
-          除了这些核心功能外，AI IDE还提供了更多强大的工具和集成选项，帮助您构建更好的软件。
+          除了这些核心功能外，{AppConfig.APP_NAME}还提供了更多强大的工具和集成选项，帮助您构建更好的软件。
         </p>
         <div className="mt-6 flex flex-col sm:flex-row gap-4">
           <Link href="/docs/integrations" className="inline-flex items-center justify-center rounded-md bg-blue-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-blue-700">

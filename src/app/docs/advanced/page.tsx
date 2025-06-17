@@ -1,15 +1,16 @@
 import Link from 'next/link';
 import { Metadata } from 'next';
+import { AppConfig } from '@/lib/config';
 
 export const metadata: Metadata = {
-  title: '进阶使用 | AI IDE文档',
-  description: '深入了解AI IDE的高级功能和配置选项，满足专业开发需求。',
+  title: `进阶使用 | ${AppConfig.APP_NAME}文档`,
+  description: `深入了解${AppConfig.APP_NAME}的高级功能和配置选项，满足专业开发需求。`,
 };
 
 const advancedTopics = [
   {
     title: '配置文件',
-    description: '详细了解AI IDE的配置选项，自定义IDE行为和功能。',
+    description: `详细了解${AppConfig.APP_NAME}的配置选项，自定义IDE行为和功能。`,
     href: '/docs/advanced/configuration',
     icon: (
       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
@@ -20,7 +21,7 @@ const advancedTopics = [
   },
   {
     title: '性能优化',
-    description: '了解如何优化AI IDE的性能，提升在大型项目和复杂代码库中的工作效率。',
+    description: `了解如何优化${AppConfig.APP_NAME}的性能，提升在大型项目和复杂代码库中的工作效率。`,
     href: '/docs/advanced/performance',
     icon: (
       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
@@ -46,7 +47,7 @@ export default function AdvancedPage() {
       <div className="mb-8">
         <h1 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">进阶使用</h1>
         <p className="mt-4 text-lg leading-8 text-gray-600">
-          深入探索AI IDE的高级功能和配置选项，充分发挥AI辅助编程的潜力，满足专业开发需求。
+          深入探索{AppConfig.APP_NAME}的高级功能和配置选项，充分发挥AI辅助编程的潜力，满足专业开发需求。
         </p>
       </div>
 
@@ -58,7 +59,7 @@ export default function AdvancedPage() {
           <div className="ml-3">
             <h3 className="text-sm font-medium text-yellow-800">高级功能</h3>
             <p className="mt-2 text-sm text-yellow-700">
-              这些高级文档面向有经验的用户，已经了解AI IDE的基本功能。如果您是新用户，建议先阅读入门指南。
+              这些高级文档面向有经验的用户，已经了解{AppConfig.APP_NAME}的基本功能。如果您是新用户，建议先阅读入门指南。
             </p>
           </div>
         </div>
@@ -92,7 +93,7 @@ export default function AdvancedPage() {
       <div className="mt-16 rounded-lg bg-blue-50 p-8">
         <h2 className="text-xl font-bold text-gray-900">专家小贴士</h2>
         <p className="mt-2 text-base text-gray-600">
-          以下是一些来自高级用户的实用技巧，帮助您更有效地使用AI IDE：
+          以下是一些来自高级用户的实用技巧，帮助您更有效地使用{AppConfig.APP_NAME}：
         </p>
         <div className="mt-6 grid gap-4 sm:grid-cols-2">
           <div className="rounded-lg bg-white p-4 shadow-sm">
@@ -126,7 +127,7 @@ export default function AdvancedPage() {
       <div className="mt-12 border-t border-gray-200 pt-10">
         <h2 className="text-xl font-bold text-gray-900">进阶教程</h2>
         <p className="mt-2 text-gray-600">
-          深入学习如何充分利用AI IDE的高级功能：
+          深入学习如何充分利用{AppConfig.APP_NAME}的高级功能：
         </p>
         <div className="mt-6 flex flex-col gap-4">
           <a href="#" className="rounded-md border border-gray-200 p-4 hover:bg-gray-50">
@@ -136,9 +137,9 @@ export default function AdvancedPage() {
             </p>
           </a>
           <a href="#" className="rounded-md border border-gray-200 p-4 hover:bg-gray-50">
-            <h3 className="font-semibold text-gray-900">AI IDE和CI/CD集成最佳实践</h3>
+            <h3 className="font-semibold text-gray-900">{AppConfig.APP_NAME}和CI/CD集成最佳实践</h3>
             <p className="mt-1 text-sm text-gray-600">
-              将AI IDE与持续集成和部署流程无缝集成，实现全自动化开发流程。
+              将{AppConfig.APP_NAME}与持续集成和部署流程无缝集成，实现全自动化开发流程。
             </p>
           </a>
         </div>

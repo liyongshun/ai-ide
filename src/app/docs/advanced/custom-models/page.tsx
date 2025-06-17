@@ -1,6 +1,7 @@
 import { Metadata } from 'next'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Alert, AlertTitle, AlertDescription } from "@/components/ui/alert";
+import { AppConfig } from '@/lib/config';
 import {
   Brain, Database, Server, Cloud,
   Settings, Code, Terminal, Puzzle,
@@ -9,8 +10,8 @@ import {
 } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: '自定义 AI 模型 | AI IDE文档',
-  description: '了解如何在 AI IDE 中配置和使用自定义 AI 模型，提高开发效率和代码质量。',
+  title: '自定义 AI 模型 | {AppConfig.APP_NAME}文档',
+  description: '了解如何在 {AppConfig.APP_NAME} 中配置和使用自定义 AI 模型，提高开发效率和代码质量。',
 }
 
 export default function CustomModelsPage() {
@@ -19,7 +20,7 @@ export default function CustomModelsPage() {
       <div className="mb-8">
         <h1 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">自定义 AI 模型</h1>
         <p className="mt-4 text-lg leading-8 text-gray-600">
-          AI IDE 支持集成和配置自定义 AI 模型，让您可以根据项目需求和个人偏好选择最适合的模型，提高开发效率和代码质量。
+          {AppConfig.APP_NAME} 支持集成和配置自定义 AI 模型，让您可以根据项目需求和个人偏好选择最适合的模型，提高开发效率和代码质量。
         </p>
       </div>
       
@@ -32,7 +33,7 @@ export default function CustomModelsPage() {
         </CardHeader>
         <CardContent>
           <p className="mb-4 text-gray-600">
-            AI IDE 的自定义模型功能允许您超越默认提供的 AI 模型，使用自己的模型或第三方模型服务。这一功能特别适合对特定领域有专业需求的开发者、对代码隐私有严格要求的企业，以及希望优化 AI 性能的高级用户。
+            {AppConfig.APP_NAME} 的自定义模型功能允许您超越默认提供的 AI 模型，使用自己的模型或第三方模型服务。这一功能特别适合对特定领域有专业需求的开发者、对代码隐私有严格要求的企业，以及希望优化 AI 性能的高级用户。
           </p>
         </CardContent>
       </Card>
@@ -46,7 +47,7 @@ export default function CustomModelsPage() {
         </CardHeader>
         <CardContent>
           <p className="mb-4 text-gray-600">
-            AI IDE 支持多种类型的自定义 AI 模型，每种类型针对不同的开发场景进行了优化：
+            {AppConfig.APP_NAME} 支持多种类型的自定义 AI 模型，每种类型针对不同的开发场景进行了优化：
           </p>
           
           <div className="overflow-hidden rounded-lg border border-gray-200">
@@ -147,7 +148,7 @@ export default function CustomModelsPage() {
         </CardHeader>
         <CardContent>
           <p className="mb-4 text-gray-600">
-            AI IDE 支持从多种来源使用 AI 模型，可以根据性能、隐私和成本需求进行选择。
+            {AppConfig.APP_NAME} 支持从多种来源使用 AI 模型，可以根据性能、隐私和成本需求进行选择。
           </p>
           
           <div className="grid gap-6 md:grid-cols-2">
@@ -588,7 +589,7 @@ export default function CustomModelsPage() {
       <div className="mt-10 rounded-lg bg-gradient-to-r from-blue-500 to-blue-700 p-8 text-white shadow-lg">
         <h2 className="text-2xl font-bold">提升您的AI开发能力</h2>
         <p className="mt-2 text-lg">
-          利用AI IDE的强大自定义模型功能，创建适合您特定开发需求的AI助手。
+          利用{AppConfig.APP_NAME}的强大自定义模型功能，创建适合您特定开发需求的AI助手。
         </p>
         <div className="mt-6 flex flex-wrap gap-4">
           <a href="/docs/advanced/performance" className="rounded-md bg-white px-4 py-2 font-medium text-blue-700 hover:bg-blue-50">

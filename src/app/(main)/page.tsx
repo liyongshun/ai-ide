@@ -1,5 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
+import { AppConfig } from "@/lib/config";
+import { replaceAppName } from "@/lib/utils";
 
 const features = [
   {
@@ -60,7 +62,7 @@ const features = [
 
 const testimonials = [
   {
-    content: 'AI IDE彻底改变了我的开发流程，让我的工作效率提高了至少30%。',
+    content: replaceAppName('Flow彻底改变了我的开发流程，让我的工作效率提高了至少30%。'),
     author: {
       name: '张伟',
       role: '全栈开发工程师',
@@ -72,7 +74,7 @@ const testimonials = [
     },
   },
   {
-    content: '作为一名团队领导，AI IDE帮助我的团队更快地交付高质量代码，特别是新成员的学习曲线大大缩短。',
+    content: replaceAppName('作为一名团队领导，Flow帮助我的团队更快地交付高质量代码，特别是新成员的学习曲线大大缩短。'),
     author: {
       name: '李明',
       role: '技术负责人',
@@ -84,7 +86,7 @@ const testimonials = [
     },
   },
   {
-    content: '我从未想过AI能如此智能地理解我的代码意图，AI IDE就像一个随时在线的编程助手。',
+    content: replaceAppName('我从未想过AI能如此智能地理解我的代码意图，Flow就像一个随时在线的编程助手。'),
     author: {
       name: '王芳',
       role: '前端工程师',
@@ -134,7 +136,7 @@ export default function Home() {
                   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1} stroke="currentColor" className="w-24 h-24 text-blue-600">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M6.75 7.5l3 2.25-3 2.25m4.5 0h3m-9 8.25h13.5A2.25 2.25 0 0021 18V6a2.25 2.25 0 00-2.25-2.25H5.25A2.25 2.25 0 003 6v12a2.25 2.25 0 002.25 2.25z" />
                   </svg>
-                  <div className="text-2xl font-bold text-gray-700">AI IDE 界面预览</div>
+                  <div className="text-2xl font-bold text-gray-700">{AppConfig.APP_NAME} 界面预览</div>
                   <div className="text-gray-500 text-center max-w-md px-4">智能编码辅助，代码补全，实时协作，性能分析</div>
                 </div>
               </div>
@@ -152,7 +154,7 @@ export default function Home() {
               专为开发者打造的强大功能
             </p>
             <p className="mt-6 text-lg leading-8 text-gray-600">
-              AI IDE集成了最先进的AI技术，为开发者提供全方位的智能辅助，让编码更加高效、精确和愉悦。
+              {AppConfig.APP_NAME}集成了最先进的AI技术，为开发者提供全方位的智能辅助，让编码更加高效、精确和愉悦。
             </p>
           </div>
           <div className="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-none">
@@ -181,7 +183,7 @@ export default function Home() {
           <div className="mx-auto max-w-2xl text-center">
             <h2 className="text-base font-semibold leading-7 text-blue-600">用户反馈</h2>
             <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-              开发者对AI IDE的评价
+              开发者对{AppConfig.APP_NAME}的评价
             </p>
           </div>
           <div className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 lg:mt-20 lg:max-w-none lg:grid-cols-3">
@@ -209,7 +211,7 @@ export default function Home() {
           <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
             准备好提升您的开发效率了吗？
             <br />
-            今天就开始使用AI IDE。
+            今天就开始使用{AppConfig.APP_NAME}。
           </h2>
           <div className="mt-10 flex items-center gap-x-6 lg:mt-0 lg:flex-shrink-0">
             <Link

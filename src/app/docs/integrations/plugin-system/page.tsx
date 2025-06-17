@@ -1,6 +1,7 @@
 import { Metadata } from 'next';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Alert, AlertTitle, AlertDescription } from "@/components/ui/alert";
+import { AppConfig } from '@/lib/config';
 import { 
   Puzzle, CirclePlus, Settings, Package, LayoutGrid, Layers, Zap, 
   Shield, Code, CheckCircle2, Terminal, Cloud, Bot, Database, GitMerge, 
@@ -8,8 +9,8 @@ import {
 } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: '插件系统 | AI IDE文档',
-  description: '了解AI IDE的插件系统，如何安装、使用和开发插件。',
+  title: '插件系统 | {AppConfig.APP_NAME}文档',
+  description: '了解{AppConfig.APP_NAME}的插件系统，如何安装、使用和开发插件。',
 };
 
 export default function PluginSystemPage() {
@@ -18,7 +19,7 @@ export default function PluginSystemPage() {
       <div className="mb-8">
         <h1 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">插件系统</h1>
         <p className="mt-4 text-lg leading-8 text-gray-600">
-          AI IDE提供了强大的插件系统，允许您扩展和定制IDE功能，满足特定的开发需求。
+          {AppConfig.APP_NAME}提供了强大的插件系统，允许您扩展和定制IDE功能，满足特定的开发需求。
         </p>
       </div>
       
@@ -31,7 +32,7 @@ export default function PluginSystemPage() {
         </CardHeader>
         <CardContent>
           <p className="text-gray-600">
-            AI IDE的插件系统采用现代化的模块化架构设计，为开发者提供了强大而灵活的扩展能力。通过插件，您可以添加新的功能、集成外部服务、扩展AI能力，或者自定义IDE的界面和行为，使其更好地适应您的特定开发需求和工作流程。
+            {AppConfig.APP_NAME}的插件系统采用现代化的模块化架构设计，为开发者提供了强大而灵活的扩展能力。通过插件，您可以添加新的功能、集成外部服务、扩展AI能力，或者自定义IDE的界面和行为，使其更好地适应您的特定开发需求和工作流程。
           </p>
         </CardContent>
       </Card>
@@ -63,7 +64,7 @@ export default function PluginSystemPage() {
               <Bot className="h-5 w-5 text-green-500 mt-0.5 flex-shrink-0" />
               <div>
                 <p className="font-medium">AI能力增强</p>
-                <p className="text-sm text-gray-600">允许插件扩展和定制AI IDE的智能功能</p>
+                <p className="text-sm text-gray-600">允许插件扩展和定制{AppConfig.APP_NAME}的智能功能</p>
               </div>
             </div>
             <div className="flex items-start gap-2">
@@ -108,7 +109,7 @@ export default function PluginSystemPage() {
               语言支持插件
             </h3>
             <p className="text-sm text-gray-700 mt-1">
-              为特定编程语言提供支持的插件，包括语法高亮、代码补全、错误检查、调试支持等功能。AI IDE已内置支持多种主流语言，但通过插件可以添加更多专业或小众语言的支持。
+              为特定编程语言提供支持的插件，包括语法高亮、代码补全、错误检查、调试支持等功能。{AppConfig.APP_NAME}已内置支持多种主流语言，但通过插件可以添加更多专业或小众语言的支持。
             </p>
           </div>
           
@@ -128,7 +129,7 @@ export default function PluginSystemPage() {
               AI增强插件
             </h3>
             <p className="text-sm text-gray-700 mt-1">
-              专门设计用于增强AI IDE智能功能的插件。它们可以为AI提供额外的上下文信息、领域特定知识、自定义提示模板或专门的代码生成能力，使AI更好地理解和支持特定领域的开发工作。
+              专门设计用于增强{AppConfig.APP_NAME}智能功能的插件。它们可以为AI提供额外的上下文信息、领域特定知识、自定义提示模板或专门的代码生成能力，使AI更好地理解和支持特定领域的开发工作。
             </p>
           </div>
           
@@ -153,7 +154,7 @@ export default function PluginSystemPage() {
         </CardHeader>
         <CardContent>
           <p className="mb-4 text-gray-600">
-            AI IDE的插件架构基于以下核心概念：
+            {AppConfig.APP_NAME}的插件架构基于以下核心概念：
           </p>
           <div className="grid gap-6 md:grid-cols-2">
             <div className="p-4 bg-blue-50 rounded-lg border border-blue-100">
@@ -213,7 +214,7 @@ export default function PluginSystemPage() {
               安装插件
             </h3>
             <p className="text-gray-600">
-              AI IDE提供多种安装插件的方式：
+              {AppConfig.APP_NAME}提供多种安装插件的方式：
             </p>
             <div className="mt-2 grid gap-2 md:grid-cols-3">
               <div className="bg-white p-3 rounded border border-gray-200 text-sm">
@@ -314,7 +315,7 @@ export default function PluginSystemPage() {
         </CardHeader>
         <CardContent>
           <p className="mb-4 text-gray-600">
-            AI IDE提供了完整的插件开发工具链和文档，使开发者能够创建自己的插件：
+            {AppConfig.APP_NAME}提供了完整的插件开发工具链和文档，使开发者能够创建自己的插件：
           </p>
           <div className="grid gap-4 md:grid-cols-2">
             <div className="flex items-start gap-2">
@@ -360,7 +361,7 @@ export default function PluginSystemPage() {
           <Alert className="mb-4 bg-blue-50 border-blue-200">
             <AlertTitle className="text-blue-800">安全设计</AlertTitle>
             <AlertDescription className="text-blue-700">
-              AI IDE的插件系统设计时充分考虑了安全性和隐私保护。
+              {AppConfig.APP_NAME}的插件系统设计时充分考虑了安全性和隐私保护。
             </AlertDescription>
           </Alert>
           

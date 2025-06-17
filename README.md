@@ -20,6 +20,24 @@ You can start editing the page by modifying `app/page.tsx`. The page auto-update
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
+## Configuration
+
+### Application Name
+
+The application name is configurable. By default, it is set to "Flow", but you can change it by setting the `NEXT_PUBLIC_APP_NAME` environment variable.
+
+Create a `.env.local` file in the root directory and add:
+
+```
+NEXT_PUBLIC_APP_NAME=Your App Name
+```
+
+For example, if you want to use "Flow" as the application name, you would set:
+
+```
+NEXT_PUBLIC_APP_NAME=Flow
+```
+
 ## Learn More
 
 To learn more about Next.js, take a look at the following resources:

@@ -1,8 +1,9 @@
 import { Metadata } from 'next';
+import { AppConfig } from '@/lib/config';
 
 export const metadata: Metadata = {
-  title: 'AI服务API | AI IDE文档',
-  description: '了解如何通过AI服务API与AI IDE的核心AI功能交互，包括代码补全、生成和分析。',
+  title: `AI服务API | ${AppConfig.APP_NAME}文档`,
+  description: `了解如何通过AI服务API与${AppConfig.APP_NAME}的核心AI功能交互，包括代码补全、生成和分析。`,
 };
 
 export default function AiServicePage() {
@@ -11,7 +12,7 @@ export default function AiServicePage() {
       <div className="mb-8">
         <h1 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">AI服务API</h1>
         <p className="mt-4 text-lg leading-8 text-gray-600">
-          AI服务API允许您直接与AI IDE的核心AI引擎交互，访问代码补全、代码生成、代码解释和其他AI功能。
+          AI服务API允许您直接与{AppConfig.APP_NAME}的核心AI引擎交互，访问代码补全、代码生成、代码解释和其他AI功能。
         </p>
       </div>
 
@@ -70,7 +71,7 @@ export default function AiServicePage() {
       <div className="mb-12">
         <h2 className="text-2xl font-semibold text-gray-900">认证</h2>
         <p className="mt-2 text-base text-gray-600">
-          所有API请求都需要进行认证。AI IDE支持以下认证方式：
+          所有API请求都需要进行认证。{AppConfig.APP_NAME}支持以下认证方式：
         </p>
         
         <div className="mt-6 space-y-6">

@@ -6,11 +6,12 @@ import { useRouter } from 'next/navigation';
 import { useState, useEffect, useRef, useCallback } from 'react';
 import ErrorBoundary from '@/components/ErrorBoundary';
 import LoadingSpinner from '@/components/LoadingSpinner';
+import { AppConfig } from '@/lib/config';
 
 // 客户端组件中不能导出metadata，使用独立的常量
 const PAGE_METADATA = {
-  title: 'AI IDE 文档中心',
-  description: '了解如何使用AI IDE提升你的开发效率，包括安装指南、特性介绍和API参考。',
+  title: `${AppConfig.APP_NAME} 文档中心`,
+  description: `了解如何使用${AppConfig.APP_NAME}提升你的开发效率，包括安装指南、特性介绍和API参考。`,
 };
 
 // 搜索结果类型
@@ -24,7 +25,7 @@ type SearchResult = {
 const docCategories = [
   {
     name: '入门指南',
-    description: '帮助你快速上手AI IDE，从安装到基本使用全方位指导。',
+    description: `帮助你快速上手${AppConfig.APP_NAME}，从安装到基本使用全方位指导。`,
     href: '/docs/getting-started',
     icon: (
       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
@@ -39,7 +40,7 @@ const docCategories = [
   },
   {
     name: '核心功能',
-    description: '详细了解AI IDE的核心功能，掌握如何充分利用AI辅助编程能力。',
+    description: `详细了解${AppConfig.APP_NAME}的核心功能，掌握如何充分利用AI辅助编程能力。`,
     href: '/docs/features',
     icon: (
       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
@@ -54,7 +55,7 @@ const docCategories = [
   },
   {
     name: '集成与扩展',
-    description: '探索如何将AI IDE与其他开发工具集成，以及如何通过插件扩展功能。',
+    description: `探索如何将${AppConfig.APP_NAME}与其他开发工具集成，以及如何通过插件扩展功能。`,
     href: '/docs/integrations',
     icon: (
       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
@@ -69,7 +70,7 @@ const docCategories = [
   },
   {
     name: 'API参考',
-    description: '了解如何通过API与AI IDE交互，为开发者提供完整的API文档。',
+    description: `了解如何通过API与${AppConfig.APP_NAME}交互，为开发者提供完整的API文档。`,
     href: '/docs/api',
     icon: (
       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
@@ -84,7 +85,7 @@ const docCategories = [
   },
   {
     name: '进阶使用',
-    description: '深入了解AI IDE的高级功能和配置选项，满足专业开发需求。',
+    description: `深入了解${AppConfig.APP_NAME}的高级功能和配置选项，满足专业开发需求。`,
     href: '/docs/advanced',
     icon: (
       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
@@ -106,19 +107,19 @@ const searchableContent: SearchResult[] = [
   {
     title: '安装指南',
     path: '/docs/getting-started/installation',
-    description: '如何在各种操作系统上安装和配置AI IDE',
+    description: `如何在各种操作系统上安装和配置${AppConfig.APP_NAME}`,
     category: '入门指南',
   },
   {
     title: '快速开始',
     path: '/docs/getting-started/quick-start',
-    description: '快速上手AI IDE的基本功能和使用方法',
+    description: `快速上手${AppConfig.APP_NAME}的基本功能和使用方法`,
     category: '入门指南',
   },
   {
     title: '界面概览',
     path: '/docs/getting-started/interface-overview',
-    description: '了解AI IDE的界面布局和主要功能区域',
+    description: `了解${AppConfig.APP_NAME}的界面布局和主要功能区域`,
     category: '入门指南',
   },
   // 核心功能
@@ -144,13 +145,13 @@ const searchableContent: SearchResult[] = [
   {
     title: 'AI服务API',
     path: '/docs/api/ai-service',
-    description: '与AI IDE的AI服务交互的API参考文档',
+    description: `与${AppConfig.APP_NAME}的AI服务交互的API参考文档`,
     category: 'API参考',
   },
   {
     title: '插件开发API',
     path: '/docs/api/plugin-development',
-    description: '开发AI IDE插件的API参考指南',
+    description: `开发${AppConfig.APP_NAME}插件的API参考指南`,
     category: 'API参考',
   },
 ];
@@ -231,7 +232,7 @@ export default function DocsPage() {
           文档中心
         </h1>
         <p className="mt-6 text-lg leading-8 text-gray-600">
-          欢迎来到AI IDE文档中心。在这里，你可以找到关于AI IDE的安装指南、功能介绍、API参考以及进阶使用技巧。无论你是初次使用还是有经验的开发者，这里都能找到帮助你充分利用AI IDE的信息。
+          欢迎来到{AppConfig.APP_NAME}文档中心。在这里，你可以找到关于{AppConfig.APP_NAME}的安装指南、功能介绍、API参考以及进阶使用技巧。无论你是初次使用还是有经验的开发者，这里都能找到帮助你充分利用{AppConfig.APP_NAME}的信息。
         </p>
       </div>
       

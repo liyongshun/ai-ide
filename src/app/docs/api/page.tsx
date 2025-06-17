@@ -1,15 +1,16 @@
 import Link from 'next/link';
 import { Metadata } from 'next';
+import { AppConfig } from '@/lib/config';
 
 export const metadata: Metadata = {
-  title: 'API参考 | AI IDE文档',
-  description: 'AI IDE的API参考文档，包括AI服务API、插件开发API和主题定制API。',
+  title: `API参考 | ${AppConfig.APP_NAME}文档`,
+  description: `${AppConfig.APP_NAME}的API参考文档，包括AI服务API、插件开发API和主题定制API。`,
 };
 
 const apis = [
   {
     title: 'AI服务API',
-    description: '与AI IDE的核心AI服务交互的API，用于访问代码补全、生成和分析功能。',
+    description: `与${AppConfig.APP_NAME}的核心AI服务交互的API，用于访问代码补全、生成和分析功能。`,
     href: '/docs/api/ai-service',
     icon: (
       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
@@ -19,7 +20,7 @@ const apis = [
   },
   {
     title: '插件开发API',
-    description: '用于开发AI IDE插件的API，包括扩展点、事件系统和UI组件。',
+    description: `用于开发${AppConfig.APP_NAME}插件的API，包括扩展点、事件系统和UI组件。`,
     href: '/docs/api/plugin-development',
     icon: (
       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
@@ -45,7 +46,7 @@ export default function ApiPage() {
       <div className="mb-8">
         <h1 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">API参考</h1>
         <p className="mt-4 text-lg leading-8 text-gray-600">
-          AI IDE提供了一系列强大的API，允许开发者扩展IDE功能、与AI引擎交互，以及自定义用户界面。本文档提供了所有可用API的详细参考。
+          {AppConfig.APP_NAME}提供了一系列强大的API，允许开发者扩展IDE功能、与AI引擎交互，以及自定义用户界面。本文档提供了所有可用API的详细参考。
         </p>
       </div>
 
@@ -93,7 +94,7 @@ export default function ApiPage() {
       <div className="mt-12 rounded-lg bg-gray-50 p-6">
         <h2 className="text-lg font-semibold text-gray-900">API版本与兼容性</h2>
         <p className="mt-2 text-gray-600">
-          AI IDE的API遵循语义化版本控制原则。我们会尽量保持向后兼容性，重大变更会提前通知。
+          {AppConfig.APP_NAME}的API遵循语义化版本控制原则。我们会尽量保持向后兼容性，重大变更会提前通知。
         </p>
         <div className="mt-4 overflow-hidden rounded-lg border border-gray-200">
           <table className="min-w-full divide-y divide-gray-200">

@@ -1,8 +1,9 @@
 import { Metadata } from 'next';
+import { AppConfig } from '@/lib/config';
 
 export const metadata: Metadata = {
-  title: '性能优化 | AI IDE文档',
-  description: '了解如何优化AI IDE的性能，提高在大型项目中的运行速度。',
+  title: '性能优化 | {AppConfig.APP_NAME}文档',
+  description: '了解如何优化{AppConfig.APP_NAME}的性能，提高在大型项目中的运行速度。',
 };
 
 export default function PerformancePage() {
@@ -11,7 +12,7 @@ export default function PerformancePage() {
       <div className="mb-8">
         <h1 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">性能优化</h1>
         <p className="mt-4 text-lg leading-8 text-gray-600">
-          了解如何优化AI IDE的性能，提升在大型项目和复杂代码库中的工作效率。
+          了解如何优化{AppConfig.APP_NAME}的性能，提升在大型项目和复杂代码库中的工作效率。
         </p>
       </div>
       
@@ -19,7 +20,7 @@ export default function PerformancePage() {
       <div className="mb-12">
         <h2 className="text-2xl font-semibold text-gray-900">系统要求与推荐配置</h2>
         <p className="mt-2 text-base text-gray-600">
-          AI IDE集成了先进的AI功能，在提供强大开发体验的同时也可能消耗较多系统资源，特别是在处理大型项目时。合适的硬件配置可以显著提高IDE的响应速度。
+          {AppConfig.APP_NAME}集成了先进的AI功能，在提供强大开发体验的同时也可能消耗较多系统资源，特别是在处理大型项目时。合适的硬件配置可以显著提高IDE的响应速度。
         </p>
         
         <div className="mt-6 overflow-hidden rounded-lg border border-gray-200">
@@ -115,7 +116,7 @@ export default function PerformancePage() {
       <div className="mb-12">
         <h2 className="text-2xl font-semibold text-gray-900">内存使用优化</h2>
         <p className="mt-2 text-base text-gray-600">
-          内存是影响AI IDE性能的关键因素，以下策略可以帮助您优化内存使用：
+          内存是影响{AppConfig.APP_NAME}性能的关键因素，以下策略可以帮助您优化内存使用：
         </p>
         
         <div className="mt-6 space-y-6">
@@ -361,14 +362,14 @@ export default function PerformancePage() {
       <div>
         <h2 className="text-2xl font-semibold text-gray-900">性能监控与调试</h2>
         <p className="mt-2 text-base text-gray-600">
-          持续监控AI IDE的性能状态，可以帮助您及时发现和解决性能问题。
+          持续监控{AppConfig.APP_NAME}的性能状态，可以帮助您及时发现和解决性能问题。
         </p>
         
         <div className="mt-6 space-y-6">
           <div className="rounded-lg border border-gray-200 bg-white p-6">
             <h3 className="font-medium text-lg text-gray-900">内置性能工具</h3>
             <p className="mt-2 text-gray-600">
-              AI IDE提供了内置的性能监控工具，可以帮助您分析和优化性能：
+              {AppConfig.APP_NAME}提供了内置的性能监控工具，可以帮助您分析和优化性能：
             </p>
             <ul className="mt-4 space-y-2 list-disc pl-5 text-gray-600">
               <li>

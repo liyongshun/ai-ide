@@ -1,10 +1,12 @@
 import { Metadata } from "next";
 import Image from "next/image";
 import Footer from "@/components/Footer";
+import { AppConfig } from "@/lib/config";
+import { replaceAppName } from "@/lib/utils";
 
 export const metadata: Metadata = {
-  title: "关于我们 | AI IDE",
-  description: "AI IDE是专为开发者打造的人工智能辅助编程工具，致力于提升编程效率和代码质量。",
+  title: `关于我们 | ${AppConfig.APP_NAME}`,
+  description: `${AppConfig.APP_NAME}是专为开发者打造的人工智能辅助编程工具，致力于提升编程效率和代码质量。`,
 };
 
 const stats = [
@@ -45,7 +47,7 @@ export default function AboutPage() {
                 关于我们
               </h1>
               <p className="mt-6 text-lg leading-8 text-gray-600">
-                AI IDE是一家致力于将人工智能应用于软件开发领域的技术创新公司。我们的使命是通过先进的AI技术赋能开发者，提高编程效率，减少重复工作，让开发者能够专注于解决真正有创造性的问题。
+                {AppConfig.APP_NAME}是一家致力于将人工智能应用于软件开发领域的技术创新公司。我们的使命是通过先进的AI技术赋能开发者，提高编程效率，减少重复工作，让开发者能够专注于解决真正有创造性的问题。
               </p>
             </div>
           </div>
@@ -60,7 +62,7 @@ export default function AboutPage() {
                   全球开发者信赖的AI编程工具
                 </h2>
                 <p className="mt-4 text-lg leading-8 text-gray-600">
-                  自2021年成立以来，AI IDE已经帮助全球数百万开发者提升了编程体验
+                  自2021年成立以来，{AppConfig.APP_NAME}已经帮助全球数百万开发者提升了编程体验
                 </p>
               </div>
               <dl className="mt-16 grid grid-cols-1 gap-0.5 overflow-hidden rounded-2xl text-center sm:grid-cols-2 lg:grid-cols-4">
@@ -115,7 +117,7 @@ export default function AboutPage() {
                   </p>
                 </blockquote>
                 <div className="mt-4 text-gray-600">
-                  — 张伟, AI IDE创始人兼CEO
+                  — 张伟, {AppConfig.APP_NAME}创始人兼CEO
                 </div>
               </div>
             </div>

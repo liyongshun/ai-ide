@@ -1,8 +1,9 @@
 import { Metadata } from 'next';
+import { AppConfig } from '@/lib/config';
 
 export const metadata: Metadata = {
-  title: '安装指南 | AI IDE文档',
-  description: '全面的AI IDE安装指南，包括不同操作系统的安装步骤和系统要求。',
+  title: `安装指南 | ${AppConfig.APP_NAME}文档`,
+  description: `全面的${AppConfig.APP_NAME}安装指南，包括不同操作系统的安装步骤和系统要求。`,
 };
 
 export default function InstallationPage() {
@@ -11,7 +12,7 @@ export default function InstallationPage() {
       <div className="mb-8">
         <h1 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">安装指南</h1>
         <p className="mt-4 text-lg leading-8 text-gray-600">
-          本页面将指导您在不同操作系统上安装AI IDE，并提供系统要求和安装后配置的相关信息。
+          本页面将指导您在不同操作系统上安装{AppConfig.APP_NAME}，并提供系统要求和安装后配置的相关信息。
         </p>
       </div>
 
@@ -19,7 +20,7 @@ export default function InstallationPage() {
       <div className="mb-10">
         <h2 className="text-2xl font-semibold text-gray-900">系统要求</h2>
         <p className="mt-2 text-base text-gray-600">
-          在安装AI IDE之前，请确保您的系统满足以下最低要求：
+          在安装{AppConfig.APP_NAME}之前，请确保您的系统满足以下最低要求：
         </p>
         
         <div className="mt-6 grid grid-cols-1 gap-6 sm:grid-cols-3">
@@ -94,7 +95,7 @@ export default function InstallationPage() {
               <li>从<a href="#" className="text-blue-600 hover:text-blue-800">官方网站</a>下载最新的Windows安装包（.exe文件）</li>
               <li>运行下载的安装文件，根据安装向导进行操作</li>
               <li>在安装过程中选择您的首选设置和安装位置</li>
-              <li>安装完成后，从开始菜单或桌面快捷方式启动AI IDE</li>
+              <li>安装完成后，从开始菜单或桌面快捷方式启动{AppConfig.APP_NAME}</li>
             </ol>
             <div className="mt-4 rounded-lg bg-gray-50 p-4">
               <div className="flex">
@@ -114,8 +115,8 @@ export default function InstallationPage() {
             <ol className="mt-4 list-decimal pl-5 space-y-2 text-gray-600">
               <li>从<a href="#" className="text-blue-600 hover:text-blue-800">官方网站</a>下载最新的macOS安装包（.dmg文件）</li>
               <li>打开下载的.dmg文件</li>
-              <li>将AI IDE图标拖到Applications文件夹中</li>
-              <li>从启动器或应用程序文件夹打开AI IDE</li>
+              <li>将{AppConfig.APP_NAME}图标拖到Applications文件夹中</li>
+              <li>从启动器或应用程序文件夹打开{AppConfig.APP_NAME}</li>
               <li>首次启动时，可能需要在系统偏好设置中允许来自已识别开发者的应用</li>
             </ol>
             <div className="mt-4 rounded-lg bg-gray-50 p-4">
@@ -147,8 +148,8 @@ export default function InstallationPage() {
               </li>
               <li>对于AppImage：
                 <pre className="mt-2 bg-gray-50 p-2 rounded overflow-x-auto text-sm">
-                  chmod +x AI_IDE-x.x.x.AppImage
-                  ./AI_IDE-x.x.x.AppImage
+                  chmod +x {AppConfig.APP_NAME.replace(/ /g, '_')}-x.x.x.AppImage
+                  ./{AppConfig.APP_NAME.replace(/ /g, '_')}-x.x.x.AppImage
                 </pre>
               </li>
             </ol>
@@ -174,7 +175,7 @@ export default function InstallationPage() {
         </p>
         
         <ol className="mt-4 list-decimal pl-5 space-y-2 text-gray-600">
-          <li>启动AI IDE应用程序</li>
+          <li>启动{AppConfig.APP_NAME}应用程序</li>
           <li>创建一个新项目或打开一个现有项目</li>
           <li>测试基本编辑功能和AI辅助功能</li>
         </ol>
@@ -226,7 +227,7 @@ export default function InstallationPage() {
       <div className="rounded-lg bg-gradient-to-r from-blue-50 to-indigo-50 p-6">
         <h2 className="text-xl font-semibold text-gray-900">准备好开始了吗？</h2>
         <p className="mt-2 text-gray-700">
-          完成安装后，您可以继续阅读<a href="/docs/getting-started/quick-start" className="font-medium text-blue-600 hover:text-blue-800">快速开始</a>指南，了解如何使用AI IDE的基本功能。
+          完成安装后，您可以继续阅读<a href="/docs/getting-started/quick-start" className="font-medium text-blue-600 hover:text-blue-800">快速开始</a>指南，了解如何使用{AppConfig.APP_NAME}的基本功能。
         </p>
       </div>
     </div>

@@ -8,8 +8,8 @@ import {
 } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: '插件系统 | AI IDE文档',
-  description: 'AI IDE强大的插件系统文档，扩展IDE功能和集成第三方工具。',
+  title: '插件系统 | {AppConfig.APP_NAME}文档',
+  description: '{AppConfig.APP_NAME}强大的插件系统文档，扩展IDE功能和集成第三方工具。',
 };
 
 export default function PluginSystemPage() {
@@ -18,7 +18,7 @@ export default function PluginSystemPage() {
       <div className="mb-8">
         <h1 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">插件系统</h1>
         <p className="mt-4 text-lg leading-8 text-gray-600">
-          了解AI IDE的强大插件系统，通过安装、开发和管理插件来扩展IDE功能和集成第三方工具。
+          了解{AppConfig.APP_NAME}的强大插件系统，通过安装、开发和管理插件来扩展IDE功能和集成第三方工具。
         </p>
       </div>
       
@@ -31,7 +31,7 @@ export default function PluginSystemPage() {
         </CardHeader>
         <CardContent>
           <p className="text-gray-600">
-            AI IDE的插件系统提供了强大的扩展性，允许用户安装、配置和开发各种插件，以增强IDE功能、支持新的编程语言、集成第三方工具和服务。通过插件生态系统，您可以根据自己的工作流程和项目需求自定义IDE体验，提高开发效率。
+            {AppConfig.APP_NAME}的插件系统提供了强大的扩展性，允许用户安装、配置和开发各种插件，以增强IDE功能、支持新的编程语言、集成第三方工具和服务。通过插件生态系统，您可以根据自己的工作流程和项目需求自定义IDE体验，提高开发效率。
           </p>
         </CardContent>
       </Card>
@@ -128,7 +128,7 @@ export default function PluginSystemPage() {
           <div className="space-y-2 p-4 bg-blue-50 rounded-lg">
             <h3 className="font-medium">AI增强插件</h3>
             <p className="text-sm text-gray-700 mt-1">
-              扩展AI IDE的智能功能，添加特定领域的AI助手、代码生成模板、自定义语言模型集成等。
+              扩展{AppConfig.APP_NAME}的智能功能，添加特定领域的AI助手、代码生成模板、自定义语言模型集成等。
             </p>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-2 mt-2">
               <div className="bg-white p-2 rounded border border-blue-100 text-xs text-center">自定义模型</div>
@@ -272,7 +272,7 @@ export default function PluginSystemPage() {
   "name": "hello-world",
   "displayName": "Hello World",
   "version": "1.0.0",
-  "description": "我的第一个AI IDE插件",
+  "description": "我的第一个{AppConfig.APP_NAME}插件",
   "engines": {
     "ai-ide": "^1.0.0"
   },
@@ -288,6 +288,7 @@ export default function PluginSystemPage() {
 
 // src/index.ts
 import * as ide from 'ai-ide-api';
+import { AppConfig } from '@/lib/config';
 
 export function activate(context) {
   console.log('插件"hello-world"已激活!');
@@ -316,7 +317,7 @@ export function deactivate() {
         </CardHeader>
         <CardContent>
           <p className="mb-4 text-gray-600">
-            AI IDE提供专门的API，允许插件开发者扩展和增强IDE的AI功能，实现更强大的智能辅助：
+            {AppConfig.APP_NAME}提供专门的API，允许插件开发者扩展和增强IDE的AI功能，实现更强大的智能辅助：
           </p>
           <div className="grid gap-4 md:grid-cols-2">
             <div className="p-4 bg-blue-50 rounded-lg border border-blue-100">

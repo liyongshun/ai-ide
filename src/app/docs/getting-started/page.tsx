@@ -1,15 +1,16 @@
 import Link from 'next/link';
 import { Metadata } from 'next';
+import { AppConfig } from '@/lib/config';
 
 export const metadata: Metadata = {
-  title: '入门指南 | AI IDE文档',
-  description: '帮助你快速上手AI IDE的入门指南，包括安装、初始设置和基本使用。',
+  title: `入门指南 | ${AppConfig.APP_NAME}文档`,
+  description: `帮助你快速上手${AppConfig.APP_NAME}的入门指南，包括安装、初始设置和基本使用。`,
 };
 
 const gettingStartedGuides = [
   {
     title: '安装',
-    description: '了解如何在不同操作系统上安装AI IDE，包括系统要求和安装步骤。',
+    description: `了解如何在不同操作系统上安装${AppConfig.APP_NAME}，包括系统要求和安装步骤。`,
     href: '/docs/getting-started/installation',
     icon: (
       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
@@ -19,7 +20,7 @@ const gettingStartedGuides = [
   },
   {
     title: '快速开始',
-    description: '通过简单的步骤快速上手AI IDE，包括初始设置、创建项目等基本操作。',
+    description: `通过简单的步骤快速上手${AppConfig.APP_NAME}，包括初始设置、创建项目等基本操作。`,
     href: '/docs/getting-started/quick-start',
     icon: (
       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
@@ -29,7 +30,7 @@ const gettingStartedGuides = [
   },
   {
     title: '界面概览',
-    description: '了解AI IDE的用户界面布局和主要组件，帮助你快速熟悉开发环境。',
+    description: `了解${AppConfig.APP_NAME}的用户界面布局和主要组件，帮助你快速熟悉开发环境。`,
     href: '/docs/getting-started/interface-overview',
     icon: (
       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
@@ -45,7 +46,7 @@ export default function GettingStartedPage() {
       <div className="mb-8">
         <h1 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">入门指南</h1>
         <p className="mt-4 text-lg leading-8 text-gray-600">
-          欢迎使用AI IDE！这些入门指南将帮助您快速安装和设置AI IDE，了解基本界面和功能，让您尽快开始使用这个强大的AI辅助编程工具。
+          欢迎使用{AppConfig.APP_NAME}！这些入门指南将帮助您快速安装和设置{AppConfig.APP_NAME}，了解基本界面和功能，让您尽快开始使用这个强大的AI辅助编程工具。
         </p>
       </div>
 
@@ -59,11 +60,11 @@ export default function GettingStartedPage() {
           <h2 className="text-lg font-medium text-gray-900">快速上手视频</h2>
         </div>
         <div className="aspect-video w-full rounded-lg bg-gray-200 flex items-center justify-center">
-          <p className="text-gray-500">AI IDE入门视频教程</p>
+          <p className="text-gray-500">{AppConfig.APP_NAME}入门视频教程</p>
           {/* 实际实现中这里会嵌入一个视频播放器 */}
         </div>
         <p className="mt-4 text-sm text-gray-600">
-          这个3分钟的视频教程将向您展示如何安装、配置和开始使用AI IDE进行开发。
+          这个3分钟的视频教程将向您展示如何安装、配置和开始使用{AppConfig.APP_NAME}进行开发。
         </p>
       </div>
 
@@ -98,7 +99,7 @@ export default function GettingStartedPage() {
       <div className="mt-12 rounded-lg border border-gray-200 bg-white p-6">
         <h2 className="text-lg font-medium text-gray-900">准备好深入了解了吗？</h2>
         <p className="mt-2 text-base text-gray-600">
-          完成入门指南后，探索AI IDE的核心功能，了解如何充分利用AI辅助编程能力。
+          完成入门指南后，探索{AppConfig.APP_NAME}的核心功能，了解如何充分利用AI辅助编程能力。
         </p>
         <div className="mt-4">
           <Link

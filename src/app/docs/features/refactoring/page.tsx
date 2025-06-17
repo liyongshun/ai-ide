@@ -3,10 +3,11 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Tabs, TabsContent, TabsItem, TabsList } from "@/components/ui/tabs";
 import { Alert, AlertTitle, AlertDescription } from "@/components/ui/alert";
 import { Code, ArrowUpRight, LayoutGrid, Command, Zap, RefreshCcw, GitCommit, Layers, ArrowRightLeft, Search, CheckCircle2, Settings, BookOpen, Users } from 'lucide-react';
+import { AppConfig } from '@/lib/config';
 
 export const metadata: Metadata = {
-  title: '代码重构 | AI IDE文档',
-  description: 'AI IDE智能代码重构功能文档，提高代码质量和可维护性。',
+  title: '代码重构 | {AppConfig.APP_NAME}文档',
+  description: '{AppConfig.APP_NAME}智能代码重构功能文档，提高代码质量和可维护性。',
 };
 
 export default function RefactoringPage() {
@@ -15,7 +16,7 @@ export default function RefactoringPage() {
       <div className="mb-8">
         <h1 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">代码重构</h1>
         <p className="mt-4 text-lg leading-8 text-gray-600">
-          了解AI IDE的智能代码重构功能，自动识别和优化代码结构，提高代码质量和可维护性。
+          了解{AppConfig.APP_NAME}的智能代码重构功能，自动识别和优化代码结构，提高代码质量和可维护性。
         </p>
       </div>
 
@@ -28,7 +29,7 @@ export default function RefactoringPage() {
         </CardHeader>
         <CardContent>
           <p className="text-gray-600">
-            AI代码重构功能利用先进的代码分析和人工智能技术，帮助开发者改进现有代码的结构、可读性和性能，同时保持功能不变。通过智能识别代码中的优化机会，AI IDE可以自动提出并应用重构建议，使代码更加清晰、高效和易于维护。
+            AI代码重构功能利用先进的代码分析和人工智能技术，帮助开发者改进现有代码的结构、可读性和性能，同时保持功能不变。通过智能识别代码中的优化机会，{AppConfig.APP_NAME}可以自动提出并应用重构建议，使代码更加清晰、高效和易于维护。
           </p>
         </CardContent>
       </Card>
@@ -174,7 +175,7 @@ export default function RefactoringPage() {
               智能重构建议
             </h3>
             <p className="text-gray-600">
-              AI IDE会自动分析您的代码，并在编辑器中通过波浪线或图标标记潜在的重构机会。点击这些标记可以查看详细的重构建议和预览效果。
+              {AppConfig.APP_NAME}会自动分析您的代码，并在编辑器中通过波浪线或图标标记潜在的重构机会。点击这些标记可以查看详细的重构建议和预览效果。
             </p>
           </div>
           
@@ -370,7 +371,7 @@ function calculateDiscount(total) {
                 <h3 className="font-medium">代码健康度分析</h3>
               </div>
               <p className="text-sm text-gray-600">
-                AI IDE可以对整个项目进行代码健康度分析，识别技术债务、复杂性热点和重构优先级，帮助您制定系统性的代码改进计划。
+                {AppConfig.APP_NAME}可以对整个项目进行代码健康度分析，识别技术债务、复杂性热点和重构优先级，帮助您制定系统性的代码改进计划。
               </p>
             </div>
             
@@ -406,7 +407,7 @@ function calculateDiscount(total) {
         </CardHeader>
         <CardContent>
           <p className="mb-4 text-gray-600">
-            AI代码重构功能与AI IDE的其他功能紧密集成，形成完整的开发体验：
+            AI代码重构功能与{AppConfig.APP_NAME}的其他功能紧密集成，形成完整的开发体验：
           </p>
           <div className="grid gap-4 md:grid-cols-3">
             <div className="bg-blue-50 p-4 rounded-lg border border-blue-100">

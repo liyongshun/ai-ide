@@ -1,8 +1,9 @@
 import { Metadata } from 'next';
+import { AppConfig } from '@/lib/config';
 
 export const metadata: Metadata = {
-  title: '界面概览 | AI IDE文档',
-  description: '了解AI IDE的用户界面布局和主要组件，帮助你快速熟悉开发环境。',
+  title: `界面概览 | ${AppConfig.APP_NAME}文档`,
+  description: `了解${AppConfig.APP_NAME}的用户界面布局和主要组件，帮助你快速熟悉开发环境。`,
 };
 
 export default function InterfaceOverviewPage() {
@@ -11,7 +12,7 @@ export default function InterfaceOverviewPage() {
       <div className="mb-8">
         <h1 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">界面概览</h1>
         <p className="mt-4 text-lg leading-8 text-gray-600">
-          AI IDE提供了现代、直观的用户界面，本页面将介绍其主要组成部分和功能区域，帮助您快速熟悉开发环境。
+          {AppConfig.APP_NAME}提供了现代、直观的用户界面，本页面将介绍其主要组成部分和功能区域，帮助您快速熟悉开发环境。
         </p>
       </div>
 
@@ -19,15 +20,15 @@ export default function InterfaceOverviewPage() {
       <div className="mb-10">
         <h2 className="text-2xl font-semibold text-gray-900">主界面组成</h2>
         <p className="mt-2 text-base text-gray-600">
-          AI IDE的界面包含多个功能区域，每个区域都有特定的用途和功能。
+          {AppConfig.APP_NAME}的界面包含多个功能区域，每个区域都有特定的用途和功能。
         </p>
         
         <div className="mt-6 rounded-lg bg-gray-100 p-6 text-center text-gray-500">
           <p className="mb-4">主界面预览图</p>
           <div className="h-64 bg-gray-200 rounded-lg flex items-center justify-center">
-            这里将显示AI IDE主界面的截图，标注了各个主要区域
+            这里将显示{AppConfig.APP_NAME}主界面的截图，标注了各个主要区域
           </div>
-          <p className="mt-4 text-sm text-gray-600">图1: AI IDE主界面布局，标注了主要功能区域</p>
+          <p className="mt-4 text-sm text-gray-600">图1: {AppConfig.APP_NAME}主界面布局，标注了主要功能区域</p>
         </div>
       </div>
 
@@ -35,7 +36,7 @@ export default function InterfaceOverviewPage() {
       <div className="mb-12">
         <h2 className="text-2xl font-semibold text-gray-900">核心界面元素</h2>
         <p className="mt-2 text-base text-gray-600">
-          以下是AI IDE界面的核心组件，理解它们的功能将帮助您高效使用IDE：
+          以下是{AppConfig.APP_NAME}界面的核心组件，理解它们的功能将帮助您高效使用IDE：
         </p>
         
         <div className="mt-6 grid grid-cols-1 gap-6 sm:grid-cols-2">
@@ -90,7 +91,7 @@ export default function InterfaceOverviewPage() {
       <div className="mb-12">
         <h2 className="text-2xl font-semibold text-gray-900">1. 编辑器区域</h2>
         <p className="mt-2 text-base text-gray-600">
-          编辑器是IDE的核心组件，用于编写和修改代码。AI IDE的编辑器具有以下特点：
+          编辑器是IDE的核心组件，用于编写和修改代码。{AppConfig.APP_NAME}的编辑器具有以下特点：
         </p>
         
         <div className="mt-6 space-y-4">
@@ -132,7 +133,7 @@ export default function InterfaceOverviewPage() {
       <div className="mb-12">
         <h2 className="text-2xl font-semibold text-gray-900">2. AI助手面板</h2>
         <p className="mt-2 text-base text-gray-600">
-          位于右侧的AI助手面板是AI IDE的独特功能，提供智能编程辅助：
+          位于右侧的AI助手面板是{AppConfig.APP_NAME}的独特功能，提供智能编程辅助：
         </p>
         
         <div className="mt-6 rounded-lg overflow-hidden border border-gray-200">
@@ -297,7 +298,7 @@ for (let i = 0; i < items.length; i++) {
           <div className="ml-3">
             <h3 className="text-lg font-medium text-blue-800">自定义界面</h3>
             <p className="mt-2 text-blue-700">
-              您可以通过设置菜单自定义IDE界面布局、颜色主题和图标。AI IDE支持多种主题和布局选项，包括深色模式、高对比度模式和精简模式。
+              您可以通过设置菜单自定义IDE界面布局、颜色主题和图标。{AppConfig.APP_NAME} IDE支持多种主题和布局选项，包括深色模式、高对比度模式和精简模式。
             </p>
             <div className="mt-4">
               <a href="/docs/advanced/configuration" className="inline-flex items-center text-blue-800 font-medium hover:text-blue-900">

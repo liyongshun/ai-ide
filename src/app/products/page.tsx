@@ -4,6 +4,8 @@ import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import Footer from "@/components/Footer";
+import { AppConfig } from "@/lib/config";
+import { replaceAppName } from "@/lib/utils";
 
 // 定义产品特性类别和内容
 const features = [
@@ -143,10 +145,10 @@ export default function ProductsPage() {
           <div className="mx-auto max-w-7xl px-6 lg:px-8">
             <div className="mx-auto max-w-2xl text-center">
               <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
-                AI IDE产品介绍
+                {AppConfig.APP_NAME}产品介绍
               </h1>
               <p className="mt-6 text-lg leading-8 text-gray-600">
-                AI IDE是一款面向专业开发人员的人工智能辅助开发工具，通过先进的AI技术提升编程体验，加速开发流程，减少重复工作，让开发者专注于真正的创新。
+                {AppConfig.APP_NAME}是一款面向专业开发人员的人工智能辅助开发工具，通过先进的AI技术提升编程体验，加速开发流程，减少重复工作，让开发者专注于真正的创新。
               </p>
               <div className="mt-10 flex items-center justify-center gap-x-6">
                 <Link
@@ -186,7 +188,7 @@ export default function ProductsPage() {
                 专为开发者打造的强大工具集
               </p>
               <p className="mt-6 text-lg leading-8 text-gray-600">
-                AI IDE集成了最先进的AI技术和开发工具，提供全方位的智能辅助，让编码更加高效、精确和愉悦。
+                {AppConfig.APP_NAME}集成了最先进的AI技术和开发工具，提供全方位的智能辅助，让编码更加高效、精确和愉悦。
               </p>
             </div>
             
@@ -311,23 +313,20 @@ export default function ProductsPage() {
 
         {/* CTA部分 */}
         <div className="bg-blue-600">
-          <div className="mx-auto max-w-7xl px-6 py-24 sm:py-32 lg:flex lg:items-center lg:justify-between lg:px-8">
+          <div className="mx-auto max-w-7xl px-6 py-24 sm:py-32 lg:px-8 lg:flex lg:items-center lg:justify-between">
             <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
               准备好提升您的开发效率了吗？
               <br />
-              现在就开始使用AI IDE。
+              现在就开始使用{AppConfig.APP_NAME}。
             </h2>
             <div className="mt-10 flex items-center gap-x-6 lg:mt-0 lg:flex-shrink-0">
               <Link
                 href="/download"
-                className="rounded-md bg-white px-3.5 py-2.5 text-sm font-semibold text-blue-600 shadow-sm hover:bg-blue-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+                className="rounded-md bg-white px-8 py-3 text-base font-semibold text-blue-600 shadow-sm hover:bg-gray-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
               >
                 立即下载
               </Link>
-              <Link
-                href="/docs/getting-started"
-                className="text-sm font-semibold leading-6 text-white"
-              >
+              <Link href="/docs" className="text-base font-semibold leading-6 text-white hover:text-gray-100">
                 了解更多 <span aria-hidden="true">→</span>
               </Link>
             </div>

@@ -6,10 +6,11 @@ import {
   CheckCircle2, Settings, Server, GitBranch, Database,
   UploadCloud, BookOpen, Command
 } from 'lucide-react';
+import { AppConfig } from '@/lib/config';
 
 export const metadata: Metadata = {
-  title: '插件开发 API - Cursor 文档',
-  description: '了解如何使用 Cursor 的插件开发 API 来扩展 IDE 功能',
+  title: `插件开发 API - ${AppConfig.APP_NAME} 文档`,
+  description: `了解如何使用 ${AppConfig.APP_NAME} 的插件开发 API 来扩展 IDE 功能`,
 }
 
 export default function PluginDevelopmentPage() {
@@ -18,7 +19,7 @@ export default function PluginDevelopmentPage() {
       <div className="mb-8">
         <h1 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">插件开发 API</h1>
         <p className="mt-4 text-lg leading-8 text-gray-600">
-          Cursor 提供了强大的插件开发 API，允许开发者扩展 IDE 的功能。通过插件系统，
+          {AppConfig.APP_NAME} 提供了强大的插件开发 API，允许开发者扩展 IDE 的功能。通过插件系统，
           您可以添加新的命令、视图、语言支持等功能。
         </p>
       </div>
@@ -32,7 +33,7 @@ export default function PluginDevelopmentPage() {
         </CardHeader>
         <CardContent>
           <p className="mb-4 text-gray-600">
-            Cursor 插件系统基于以下核心概念：
+            {AppConfig.APP_NAME} 插件系统基于以下核心概念：
           </p>
           <div className="grid gap-4 md:grid-cols-2">
             <div className="flex items-start gap-2">
@@ -81,7 +82,7 @@ export default function PluginDevelopmentPage() {
           <div className="space-y-4">
             <div className="flex items-center gap-3 p-3 rounded-lg bg-blue-50 border border-blue-100">
               <div className="bg-blue-100 rounded-full w-8 h-8 flex items-center justify-center text-blue-700 font-semibold">1</div>
-              <p className="text-gray-700">安装 Cursor IDE</p>
+              <p className="text-gray-700">安装 {AppConfig.APP_NAME} IDE</p>
             </div>
             <div className="flex items-center gap-3 p-3 rounded-lg bg-blue-50 border border-blue-100">
               <div className="bg-blue-100 rounded-full w-8 h-8 flex items-center justify-center text-blue-700 font-semibold">2</div>
@@ -89,7 +90,7 @@ export default function PluginDevelopmentPage() {
             </div>
             <div className="flex items-center gap-3 p-3 rounded-lg bg-blue-50 border border-blue-100">
               <div className="bg-blue-100 rounded-full w-8 h-8 flex items-center justify-center text-blue-700 font-semibold">3</div>
-              <p className="text-gray-700">安装 Cursor 插件开发工具包</p>
+              <p className="text-gray-700">安装 {AppConfig.APP_NAME} 插件开发工具包</p>
             </div>
           </div>
         </CardContent>
@@ -242,7 +243,7 @@ export function activate(context: cursor.ExtensionContext) {
             </div>
             <div className="flex items-center gap-3 p-3 rounded-lg bg-blue-50 border border-blue-100">
               <div className="bg-blue-100 rounded-full w-8 h-8 flex items-center justify-center text-blue-700 font-semibold">3</div>
-              <p className="text-gray-700">提交到Cursor插件市场进行审核和发布</p>
+              <p className="text-gray-700">提交到{AppConfig.APP_NAME}插件市场进行审核和发布</p>
             </div>
           </div>
         </CardContent>
@@ -264,7 +265,7 @@ export function activate(context: cursor.ExtensionContext) {
       <div className="mt-10 rounded-lg bg-gradient-to-r from-blue-500 to-blue-700 p-8 text-white shadow-lg">
         <h2 className="text-2xl font-bold">开始开发您的第一个插件</h2>
         <p className="mt-2 text-lg">
-          利用Cursor强大的API，创建扩展IDE功能的插件，分享给全球开发者。
+          利用{AppConfig.APP_NAME}强大的API，创建扩展IDE功能的插件，分享给全球开发者。
         </p>
         <div className="mt-6 flex flex-wrap gap-4">
           <a href="/docs/integrations/plugin-system" className="rounded-md bg-white px-4 py-2 font-medium text-blue-700 hover:bg-blue-50">

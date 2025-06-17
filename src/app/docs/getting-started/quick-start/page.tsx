@@ -1,8 +1,9 @@
 import { Metadata } from 'next';
+import { AppConfig } from '@/lib/config';
 
 export const metadata: Metadata = {
-  title: '快速开始 | AI IDE文档',
-  description: '通过简单的步骤快速上手AI IDE，包括初始设置、创建项目等基本操作。',
+  title: `快速开始 | ${AppConfig.APP_NAME}文档`,
+  description: `通过简单的步骤快速上手${AppConfig.APP_NAME}，包括初始设置、创建项目等基本操作。`,
 };
 
 export default function QuickStartPage() {
@@ -11,16 +12,16 @@ export default function QuickStartPage() {
       <div className="mb-8">
         <h1 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">快速开始</h1>
         <p className="mt-4 text-lg leading-8 text-gray-600">
-          本指南将帮助您快速开始使用AI IDE，从创建项目到体验主要功能，只需几个简单步骤。
+          本指南将帮助您快速开始使用{AppConfig.APP_NAME}，从创建项目到体验主要功能，只需几个简单步骤。
         </p>
       </div>
 
       {/* 快速入门步骤 */}
       <div className="space-y-12">
         <div className="border-b border-gray-200 pb-8">
-          <h2 className="text-xl font-semibold text-gray-900">第1步：启动AI IDE</h2>
+          <h2 className="text-xl font-semibold text-gray-900">第1步：启动{AppConfig.APP_NAME}</h2>
           <p className="mt-2 text-base text-gray-600">
-            完成安装后，从应用程序菜单或快捷方式启动AI IDE。首次启动时，系统将引导您完成初始化设置，包括选择主题、设置快捷键偏好等。
+            完成安装后，从应用程序菜单或快捷方式启动{AppConfig.APP_NAME}。首次启动时，系统将引导您完成初始化设置，包括选择主题、设置快捷键偏好等。
           </p>
           <div className="mt-4 rounded-lg bg-gray-50 p-4">
             <div className="flex items-center">
@@ -49,7 +50,7 @@ export default function QuickStartPage() {
         <div className="border-b border-gray-200 pb-8">
           <h2 className="text-xl font-semibold text-gray-900">第3步：体验AI编码辅助功能</h2>
           <p className="mt-2 text-base text-gray-600">
-            AI IDE包含多种强大的AI辅助功能，可以显著提高您的编码效率：
+            {AppConfig.APP_NAME}包含多种强大的AI辅助功能，可以显著提高您的编码效率：
           </p>
           <ul className="mt-4 space-y-4">
             <li className="flex">
@@ -107,7 +108,7 @@ export default function QuickStartPage() {
               <div className="ml-3">
                 <h3 className="text-sm font-medium text-blue-800">下一步</h3>
                 <p className="mt-2 text-sm text-blue-700">
-                  现在您已经了解了基本使用方法，建议继续浏览<a href="/docs/features" className="font-medium underline">核心功能</a>文档，深入了解AI IDE的强大功能。
+                  现在您已经了解了基本使用方法，建议继续浏览<a href="/docs/features" className="font-medium underline">核心功能</a>文档，深入了解{AppConfig.APP_NAME}的强大功能。
                 </p>
               </div>
             </div>

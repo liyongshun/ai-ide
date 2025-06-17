@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { NAVIGATION } from "@/lib/constants";
+import { AppConfig } from "@/lib/config";
 
 export default function Footer() {
   return (
@@ -18,7 +19,7 @@ export default function Footer() {
         </div>
         <div className="mt-8 md:order-1 md:mt-0">
           <div className="flex items-center justify-center md:justify-start">
-            <div className="text-xl font-bold text-white mr-2">AI IDE</div>
+            <div className="text-xl font-bold text-white mr-2">{AppConfig.APP_NAME}</div>
             <span className="mx-2 h-4 w-px bg-gray-700" aria-hidden="true" />
             <p className="text-sm text-gray-400">
               &copy; {new Date().getFullYear()} 保留所有权利

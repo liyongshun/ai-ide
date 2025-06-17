@@ -2,7 +2,7 @@
   "name": "ai-ide-overview-cursor",
   "version": "0.1.0",
   "private": true,
-  "description": "AI IDE介绍网站",
+  "description": "可配置应用名称的介绍网站",
   "scripts": {
     "dev": "next dev",
     "build": "next build",

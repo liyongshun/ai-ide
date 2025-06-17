@@ -6,6 +6,7 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 import clsx from "clsx";
 import { NAVIGATION } from "@/lib/constants";
+import { AppConfig } from "@/lib/config";
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -16,17 +17,17 @@ export default function Header() {
       <nav className="mx-auto flex max-w-7xl items-center justify-between p-4 lg:px-8" aria-label="Global">
         <div className="flex lg:flex-1">
           <Link href="/" className="-m-1.5 p-1.5">
-            <span className="sr-only">AI IDE</span>
+            <span className="sr-only">{AppConfig.APP_NAME}</span>
             <div className="flex items-center">
               <Image
                 src="/images/logo.svg"
-                alt="AI IDE Logo"
+                alt={`${AppConfig.APP_NAME} Logo`}
                 width={36}
                 height={36}
                 className="h-9 w-auto"
                 priority
               />
-              <span className="ml-2 text-xl font-semibold">AI IDE</span>
+              <span className="ml-2 text-xl font-semibold">{AppConfig.APP_NAME}</span>
             </div>
           </Link>
         </div>
@@ -70,17 +71,17 @@ export default function Header() {
             <div className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm">
               <div className="flex items-center justify-between">
                 <Link href="/" className="-m-1.5 p-1.5">
-                  <span className="sr-only">AI IDE</span>
+                  <span className="sr-only">{AppConfig.APP_NAME}</span>
                   <div className="flex items-center">
                     <Image
                       src="/images/logo.svg"
-                      alt="AI IDE Logo"
+                      alt={`${AppConfig.APP_NAME} Logo`}
                       width={32}
                       height={32}
                       className="h-8 w-auto"
                       priority
                     />
-                    <span className="ml-2 text-lg font-semibold">AI IDE</span>
+                    <span className="ml-2 text-lg font-semibold">{AppConfig.APP_NAME}</span>
                   </div>
                 </Link>
                 <button

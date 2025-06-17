@@ -6,10 +6,11 @@ import {
   Settings, Package, ArrowRightLeft, CirclePlus, CheckCircle2, 
   Layers, Lock, RefreshCcw, LayoutGrid
 } from 'lucide-react';
+import { AppConfig } from '@/lib/config';
 
 export const metadata: Metadata = {
-  title: 'AI代码生成 | AI IDE文档',
-  description: '了解AI IDE的代码生成功能，通过自然语言描述自动生成代码。',
+  title: `AI代码生成 | ${AppConfig.APP_NAME}文档`,
+  description: `了解${AppConfig.APP_NAME}的代码生成功能，通过自然语言描述自动生成代码。`,
 };
 
 export default function CodeGenerationPage() {
@@ -18,7 +19,7 @@ export default function CodeGenerationPage() {
       <div className="mb-8">
         <h1 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">AI代码生成</h1>
         <p className="mt-4 text-lg leading-8 text-gray-600">
-          AI IDE的代码生成功能允许您通过简单的自然语言描述自动生成代码，大幅提高开发效率。
+          {AppConfig.APP_NAME}的代码生成功能允许您通过简单的自然语言描述自动生成代码，大幅提高开发效率。
         </p>
       </div>
       
@@ -122,7 +123,7 @@ export default function CodeGenerationPage() {
               聊天界面代码生成
             </h3>
             <p className="text-gray-600">
-              通过AI IDE的聊天界面（<code className="bg-gray-100 px-1.5 py-0.5 rounded text-sm">Cmd/Ctrl + L</code>），您可以与AI进行更复杂的交互，描述详细需求，并通过多轮对话逐步完善生成的代码。
+              通过{AppConfig.APP_NAME}的聊天界面（<code className="bg-gray-100 px-1.5 py-0.5 rounded text-sm">Cmd/Ctrl + L</code>），您可以与AI进行更复杂的交互，描述详细需求，并通过多轮对话逐步完善生成的代码。
             </p>
           </div>
           
@@ -202,6 +203,7 @@ export default function CodeGenerationPage() {
                 <p className="mb-2 text-sm font-medium text-gray-700">生成结果:</p>
                 <div className="rounded-md bg-gray-50 p-3">
                   <pre className="text-sm text-gray-800 overflow-auto max-h-80">{`import React, { useState } from 'react';
+import { AppConfig } from '@/lib/config';
 
 function TodoList() {
   const [todos, setTodos] = useState([]);
@@ -357,7 +359,7 @@ export default TodoList;`}</pre>
         </CardHeader>
         <CardContent>
           <p className="text-gray-600 mb-4">
-            AI IDE重视您的代码隐私和安全。您可以配置代码生成功能，控制哪些项目信息可以被用作上下文，以及是否允许将代码发送到外部AI服务。此外，您还可以选择使用本地运行的AI模型，确保敏感代码不离开您的设备。
+            {AppConfig.APP_NAME}重视您的代码隐私和安全。您可以配置代码生成功能，控制哪些项目信息可以被用作上下文，以及是否允许将代码发送到外部AI服务。此外，您还可以选择使用本地运行的AI模型，确保敏感代码不离开您的设备。
           </p>
           <div className="grid gap-4 md:grid-cols-2">
             <div className="flex items-start gap-2">

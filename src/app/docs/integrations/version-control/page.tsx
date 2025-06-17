@@ -1,6 +1,7 @@
 import { Metadata } from 'next';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Alert, AlertTitle, AlertDescription } from "@/components/ui/alert";
+import { AppConfig } from '@/lib/config';
 import { 
   GitBranch, Zap, GitCompare, GitMerge, 
   FileCode, TerminalSquare, Settings, Package, 
@@ -9,8 +10,8 @@ import {
 } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: '版本控制 | AI IDE文档',
-  description: 'AI IDE与Git等版本控制系统的集成功能介绍。',
+  title: '版本控制 | {AppConfig.APP_NAME}文档',
+  description: '{AppConfig.APP_NAME}与Git等版本控制系统的集成功能介绍。',
 };
 
 export default function VersionControlPage() {
@@ -19,7 +20,7 @@ export default function VersionControlPage() {
       <div className="mb-8">
         <h1 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">版本控制</h1>
         <p className="mt-4 text-lg leading-8 text-gray-600">
-          AI IDE提供了与Git等版本控制系统的深度集成，支持智能提交信息生成和冲突解决，提高团队协作效率。
+          {AppConfig.APP_NAME}提供了与Git等版本控制系统的深度集成，支持智能提交信息生成和冲突解决，提高团队协作效率。
         </p>
       </div>
       
@@ -33,7 +34,7 @@ export default function VersionControlPage() {
         </CardHeader>
         <CardContent>
           <p className="text-gray-600">
-            AI IDE的版本控制功能将传统版本控制系统的能力与AI技术相结合，为开发者提供更智能、更高效的代码版本管理体验。无论是个人开发者还是大型团队，都能从这些功能中获益，简化工作流程，减少常见错误，提高协作效率。
+            {AppConfig.APP_NAME}的版本控制功能将传统版本控制系统的能力与AI技术相结合，为开发者提供更智能、更高效的代码版本管理体验。无论是个人开发者还是大型团队，都能从这些功能中获益，简化工作流程，减少常见错误，提高协作效率。
           </p>
           
           <div className="mt-4">
@@ -114,7 +115,7 @@ export default function VersionControlPage() {
               集成式Git操作界面
             </h3>
             <p className="text-gray-600">
-              AI IDE提供了直观的图形界面，让您无需离开编辑器即可执行所有常见的Git操作：
+              {AppConfig.APP_NAME}提供了直观的图形界面，让您无需离开编辑器即可执行所有常见的Git操作：
             </p>
             <div className="grid grid-cols-1 gap-2 sm:grid-cols-2 mt-2">
               <div className="flex items-center">
@@ -488,7 +489,7 @@ export default function VersionControlPage() {
         </CardHeader>
         <CardContent>
           <p className="text-gray-600 mb-4">
-            版本控制功能与AI IDE的其他功能紧密集成，形成完整的开发体验：
+            版本控制功能与{AppConfig.APP_NAME}的其他功能紧密集成，形成完整的开发体验：
           </p>
           
           <div className="grid gap-4 md:grid-cols-3">

@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useState } from 'react';
 import Footer from "@/components/Footer";
+import { AppConfig } from "@/lib/config";
 
 const sidebarNavigation = [
   {
@@ -70,7 +71,7 @@ export default function DocsLayout({
         <aside className="hidden lg:block lg:w-64 lg:fixed lg:inset-y-0 lg:z-10 lg:border-r lg:border-gray-200 lg:bg-white lg:overflow-y-auto">
           <div className="flex h-16 items-center justify-between border-b border-gray-200 px-6">
             <Link href="/" className="text-lg font-semibold text-gray-900 hover:text-blue-600">
-              AI IDE
+              {AppConfig.APP_NAME}
             </Link>
           </div>
           <div className="h-16 flex items-center px-6 border-b border-gray-200">
@@ -114,7 +115,7 @@ export default function DocsLayout({
             <aside className="fixed inset-y-0 left-0 z-30 w-64 overflow-y-auto bg-white pb-10">
               <div className="flex h-16 items-center justify-between border-b border-gray-200 px-6">
                 <Link href="/" className="text-lg font-semibold text-gray-900 hover:text-blue-600">
-                  AI IDE
+                  {AppConfig.APP_NAME}
                 </Link>
                 <button
                   type="button"
@@ -177,7 +178,7 @@ export default function DocsLayout({
           <div className="sticky top-0 z-10 lg:hidden">
             <div className="flex h-16 items-center justify-between border-b border-gray-200 bg-white px-4">
               <Link href="/" className="text-lg font-semibold text-gray-900 hover:text-blue-600">
-                AI IDE
+                {AppConfig.APP_NAME}
               </Link>
               <div className="flex items-center">
                 <div className="text-lg font-semibold text-gray-900 mr-4">文档</div>
