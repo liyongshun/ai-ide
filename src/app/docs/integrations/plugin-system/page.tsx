@@ -1,12 +1,9 @@
 import { Metadata } from 'next';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Alert, AlertTitle, AlertDescription } from "@/components/ui/alert";
 import { AppConfig } from '@/lib/config';
-import { 
-  Puzzle, CirclePlus, Settings, Package, LayoutGrid, Layers, Zap, 
-  Shield, Code, CheckCircle2, Terminal, Cloud, Bot, Database, GitMerge, 
-  RefreshCcw, FileCode, Users, BookOpen, Link, Server, Lock
-} from 'lucide-react';
+import { CirclePlus, Settings, Package, LayoutGrid, Layers, Zap, Shield, Code, CheckCircle2, Terminal, Bot, RefreshCcw, FileCode, Users, BookOpen, Link as LinkIcon, Server, Lock } from 'lucide-react';
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: '插件系统 | {AppConfig.APP_NAME}文档',
@@ -135,7 +132,7 @@ export default function PluginSystemPage() {
           
           <div className="space-y-2 p-4 bg-blue-50 rounded-lg">
             <h3 className="font-medium flex items-center gap-2">
-              <Link className="h-4 w-4 text-blue-600" />
+              <LinkIcon className="h-4 w-4 text-blue-600" />
               集成插件
             </h3>
             <p className="text-sm text-gray-700 mt-1">
@@ -446,12 +443,12 @@ export default function PluginSystemPage() {
           探索丰富的插件生态系统，或开发自己的插件，打造专属开发环境。
         </p>
         <div className="mt-6 flex flex-wrap gap-4">
-          <a href="/docs/api/plugin-development" className="rounded-md bg-white px-4 py-2 font-medium text-blue-700 hover:bg-blue-50">
+          <Link href="/docs/api/plugin-development" className="rounded-md bg-white px-4 py-2 font-medium text-blue-700 hover:bg-blue-50">
             学习插件开发
-          </a>
-          <a href="/docs/integrations/third-party" className="rounded-md border border-white px-4 py-2 font-medium text-white hover:bg-blue-600">
+          </Link>
+          <Link href="/docs/integrations/third-party" className="rounded-md border border-white px-4 py-2 font-medium text-white hover:bg-blue-600">
             探索第三方集成
-          </a>
+          </Link>
         </div>
       </div>
     </div>

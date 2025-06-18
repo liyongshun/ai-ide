@@ -1,11 +1,8 @@
 import { Metadata } from 'next';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Alert, AlertTitle, AlertDescription } from "@/components/ui/alert";
-import { 
-  Puzzle, CirclePlus, Settings, Package, LayoutGrid, Layers, Zap, 
-  Shield, Code, CheckCircle2, Terminal, Cloud, Bot, Database, GitMerge, 
-  RefreshCcw, FileCode, Users, BookOpen, Link
-} from 'lucide-react';
+import { AppConfig } from '@/lib/config';
+import { Puzzle, CirclePlus, Settings, Package, LayoutGrid, Layers, Zap, Shield, Code, CheckCircle2, Terminal, Cloud, Bot, Database, RefreshCcw, FileCode, Users, BookOpen, Link } from 'lucide-react';
 
 export const metadata: Metadata = {
   title: '插件系统 | {AppConfig.APP_NAME}文档',
@@ -177,7 +174,7 @@ export default function PluginSystemPage() {
               配置插件
             </h3>
             <p className="text-gray-600">
-              大多数插件安装后会提供自定义选项，可以在IDE的设置面板中进行配置。通过<code className="bg-gray-100 px-1.5 py-0.5 rounded text-sm">Cmd/Ctrl + ,</code>打开设置，导航到"插件"部分，选择需要配置的插件，调整其行为、外观和功能。
+              大多数插件安装后会提供自定义选项，可以在IDE的设置面板中进行配置。通过<code className="bg-gray-100 px-1.5 py-0.5 rounded text-sm">Cmd/Ctrl + ,</code>打开设置，导航到&quot;插件&quot;部分，选择需要配置的插件，调整其行为、外观和功能。
             </p>
           </div>
           
@@ -269,7 +266,7 @@ export default function PluginSystemPage() {
             <pre className="bg-gray-50 p-4 rounded-md overflow-auto border text-sm">
               <code>{`// manifest.json
 {
-  "name": "hello-world",
+  &quot;name&quot;: "hello-world",
   "displayName": "Hello World",
   "version": "1.0.0",
   "description": "我的第一个{AppConfig.APP_NAME}插件",
@@ -289,6 +286,7 @@ export default function PluginSystemPage() {
 // src/index.ts
 import * as ide from 'ai-ide-api';
 import { AppConfig } from '@/lib/config';
+import Link from "next/link";
 
 export function activate(context) {
   console.log('插件"hello-world"已激活!');
@@ -301,7 +299,7 @@ export function activate(context) {
 }
 
 export function deactivate() {
-  console.log('插件"hello-world"已停用!');
+  console.log('插件&quot;hello-world&quot;已停用!');
 }`}</code>
             </pre>
           </div>
@@ -335,7 +333,7 @@ export function deactivate() {
             <div className="p-4 bg-blue-50 rounded-lg border border-blue-100">
               <h3 className="font-medium mb-2">自定义AI命令</h3>
               <p className="text-sm text-gray-700">
-                创建专门的AI命令，如"优化数据库查询"、"生成单元测试"或"解释选定代码"，为特定任务提供针对性的AI辅助。
+                创建专门的AI命令，如&quot;优化数据库查询&quot;、&quot;生成单元测试&quot;或&quot;解释选定代码&quot;，为特定任务提供针对性的AI辅助。
               </p>
             </div>
             <div className="p-4 bg-blue-50 rounded-lg border border-blue-100">
@@ -483,10 +481,10 @@ export function deactivate() {
               <p className="text-sm text-gray-700">
                 加入活跃的插件开发者社区，分享经验、提问和协作开发插件。访问官方论坛和GitHub仓库，获取最新信息和帮助。
               </p>
-              <a href="/docs/api/plugin-development" className="inline-flex items-center mt-2 text-sm text-blue-600 hover:underline">
+              <Link href="/docs/api/plugin-development" className="inline-flex items-center mt-2 text-sm text-blue-600 hover:underline">
                 加入社区
                 <svg className="w-3 h-3 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7"></path></svg>
-              </a>
+              </Link>
             </div>
             
             <div className="p-4 bg-blue-50 rounded-lg border border-blue-100">
@@ -497,10 +495,10 @@ export function deactivate() {
               <p className="text-sm text-gray-700">
                 通过官方教程、示例项目和API文档学习插件开发。参加插件开发工作坊和网络研讨会，提升您的开发技能。
               </p>
-              <a href="/docs/api/plugin-development" className="inline-flex items-center mt-2 text-sm text-blue-600 hover:underline">
+              <Link href="/docs/api/plugin-development" className="inline-flex items-center mt-2 text-sm text-blue-600 hover:underline">
                 浏览资源
                 <svg className="w-3 h-3 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7"></path></svg>
-              </a>
+              </Link>
             </div>
           </div>
         </CardContent>
@@ -516,21 +514,21 @@ export function deactivate() {
         <CardContent>
           <div className="grid gap-4 md:grid-cols-3">
             <div className="bg-blue-50 p-4 rounded-lg border border-blue-100">
-              <a href="/docs/api/plugin-development" className="text-blue-600 font-medium hover:underline flex items-center gap-2">
+              <Link href="/docs/api/plugin-development" className="text-blue-600 font-medium hover:underline flex items-center gap-2">
                 <Code className="h-4 w-4" />插件开发API
-              </a>
+              </Link>
               <p className="text-sm mt-1 text-gray-700">了解如何开发自定义插件扩展IDE功能</p>
             </div>
             <div className="bg-blue-50 p-4 rounded-lg border border-blue-100">
-              <a href="/docs/integrations/third-party" className="text-blue-600 font-medium hover:underline flex items-center gap-2">
+              <Link href="/docs/integrations/third-party" className="text-blue-600 font-medium hover:underline flex items-center gap-2">
                 <Link className="h-4 w-4" />第三方集成
-              </a>
+              </Link>
               <p className="text-sm mt-1 text-gray-700">探索IDE与其他开发工具的集成能力</p>
             </div>
             <div className="bg-blue-50 p-4 rounded-lg border border-blue-100">
-              <a href="/docs/advanced/configuration" className="text-blue-600 font-medium hover:underline flex items-center gap-2">
+              <Link href="/docs/advanced/configuration" className="text-blue-600 font-medium hover:underline flex items-center gap-2">
                 <Settings className="h-4 w-4" />高级配置
-              </a>
+              </Link>
               <p className="text-sm mt-1 text-gray-700">自定义IDE行为和插件设置</p>
             </div>
           </div>
@@ -544,12 +542,12 @@ export function deactivate() {
           探索丰富的插件生态系统，或开发自己的插件，打造专属开发环境。
         </p>
         <div className="mt-6 flex flex-wrap gap-4">
-          <a href="/docs/getting-started/quick-start" className="rounded-md bg-white px-4 py-2 font-medium text-blue-700 hover:bg-blue-50">
+          <Link href="/docs/getting-started/quick-start" className="rounded-md bg-white px-4 py-2 font-medium text-blue-700 hover:bg-blue-50">
             开始使用
-          </a>
-          <a href="/docs/api/plugin-development" className="rounded-md border border-white px-4 py-2 font-medium text-white hover:bg-blue-600">
+          </Link>
+          <Link href="/docs/api/plugin-development" className="rounded-md border border-white px-4 py-2 font-medium text-white hover:bg-blue-600">
             学习插件开发
-          </a>
+          </Link>
         </div>
       </div>
     </div>

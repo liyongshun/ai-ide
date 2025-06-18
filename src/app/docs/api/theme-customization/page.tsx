@@ -1,12 +1,9 @@
 import { Metadata } from 'next';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Alert, AlertTitle, AlertDescription } from "@/components/ui/alert";
-import { 
-  Palette, Code, FileCode, Package, Layers, 
-  CheckCircle2, Settings, Eye, PaintBucket, 
-  UploadCloud, BookOpen, Brush, Type, Image
-} from 'lucide-react';
+import { Palette, Code, Layers, CheckCircle2, Eye, PaintBucket, UploadCloud, Brush, Type, Image as ImageIcon } from 'lucide-react';
 import { AppConfig } from '@/lib/config';
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: `主题定制 API - ${AppConfig.APP_NAME} 文档`,
@@ -51,7 +48,7 @@ export default function ThemeCustomizationPage() {
               </div>
             </div>
             <div className="flex items-start gap-2">
-              <Image className="h-5 w-5 text-green-500 mt-0.5 flex-shrink-0" />
+              <ImageIcon className="h-5 w-5 text-green-500 mt-0.5 flex-shrink-0" />
               <div>
                 <p className="font-medium">图标主题</p>
                 <p className="text-sm text-gray-600">定制文件类型、功能按钮等的图标样式</p>
@@ -137,7 +134,7 @@ export default function ThemeCustomizationPage() {
             
             <div className="p-4 bg-blue-50 rounded-lg border border-blue-100">
               <div className="flex items-center gap-2 mb-2">
-                <Image className="h-5 w-5 text-blue-600" />
+                <ImageIcon className="h-5 w-5 text-blue-600" />
                 <h3 className="font-medium">图标定制</h3>
               </div>
               <p className="text-sm text-gray-700">
@@ -249,12 +246,12 @@ export default function ThemeCustomizationPage() {
           利用{AppConfig.APP_NAME}的主题定制API，创建符合您个人风格或团队需求的IDE主题。
         </p>
         <div className="mt-6 flex flex-wrap gap-4">
-          <a href="/docs/api/plugin-development" className="rounded-md bg-white px-4 py-2 font-medium text-blue-700 hover:bg-blue-50">
+          <Link href="/docs/api/plugin-development" className="rounded-md bg-white px-4 py-2 font-medium text-blue-700 hover:bg-blue-50">
             了解插件开发
-          </a>
-          <a href="/docs/integrations/plugin-system" className="rounded-md border border-white px-4 py-2 font-medium text-white hover:bg-blue-600">
+          </Link>
+          <Link href="/docs/integrations/plugin-system" className="rounded-md border border-white px-4 py-2 font-medium text-white hover:bg-blue-600">
             探索插件系统
-          </a>
+          </Link>
         </div>
       </div>
     </div>

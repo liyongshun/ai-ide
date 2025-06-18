@@ -7,16 +7,25 @@ interface TabsProps extends React.HTMLAttributes<HTMLDivElement> {
   children: React.ReactNode;
 }
 
+// 定义一个通用的子组件Props接口
+interface TabChildProps {
+  activeTab?: string;
+  // 传递给子组件使用
+// 传递给子组件使用，保留接口完整性
+ 
+setActiveTab?: React.Dispatch<React.SetStateAction<string>>;
+}
+
 export function Tabs({ defaultValue, children, className, ...props }: TabsProps) {
   const [activeTab, setActiveTab] = useState<string>(defaultValue || '');
   
   // Clone children to pass the activeTab state and setter
   const childrenWithProps = React.Children.map(children, child => {
     if (React.isValidElement(child)) {
-      return React.cloneElement(child as React.ReactElement<any>, {
+      return React.cloneElement(child, {
         activeTab,
         setActiveTab,
-      });
+      } as TabChildProps);
     }
     return child;
   });
@@ -31,17 +40,19 @@ export function Tabs({ defaultValue, children, className, ...props }: TabsProps)
 interface TabsListProps extends React.HTMLAttributes<HTMLDivElement> {
   children: React.ReactNode;
   activeTab?: string;
-  setActiveTab?: React.Dispatch<React.SetStateAction<string>>;
+  // 传递给子组件使用
+ 
+setActiveTab?: React.Dispatch<React.SetStateAction<string>>;
 }
 
 export function TabsList({ children, className, activeTab, setActiveTab, ...props }: TabsListProps) {
   // 将TabsList的子元素复制并传递activeTab和setActiveTab
   const childrenWithProps = React.Children.map(children, child => {
     if (React.isValidElement(child)) {
-      return React.cloneElement(child as React.ReactElement<any>, {
+      return React.cloneElement(child, {
         activeTab,
         setActiveTab,
-      });
+      } as TabChildProps);
     }
     return child;
   });
@@ -59,7 +70,9 @@ export function TabsList({ children, className, activeTab, setActiveTab, ...prop
 interface TabsItemProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   value: string;
   activeTab?: string;
-  setActiveTab?: React.Dispatch<React.SetStateAction<string>>;
+  // 传递给子组件使用
+ 
+setActiveTab?: React.Dispatch<React.SetStateAction<string>>;
 }
 
 export function TabsItem({ value, activeTab, setActiveTab, children, className, ...props }: TabsItemProps) {
@@ -84,10 +97,16 @@ interface TabsContentProps extends React.HTMLAttributes<HTMLDivElement> {
   value: string;
   activeTab?: string;
   children: React.ReactNode;
+  // 传递给子组件使用
+   
   setActiveTab?: React.Dispatch<React.SetStateAction<string>>;
 }
+ 
 
-export function TabsContent({ value, activeTab, setActiveTab, children, className, ...props }: TabsContentProps) {
+export function TabsContent({ value, activeTab, 
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  setActiveTab, 
+  children, className, ...props }: TabsContentProps) {
   if (activeTab !== value) return null;
   
   return (

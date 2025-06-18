@@ -1,7 +1,8 @@
 import { Metadata } from 'next';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Alert, AlertTitle, AlertDescription } from "@/components/ui/alert";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Alert, AlertTitle } from "@/components/ui/alert";
 import { AppConfig } from '@/lib/config';
+import Link from "next/link";
 import { 
   Users, UserPlus, GitBranch, MessageSquare, Zap, BookOpen, Layers, Shield,
   Share2, Code, CheckCircle2, Eye, Lock, MessagesSquare, GitMerge, Database,
@@ -461,27 +462,27 @@ export default function CollaborationPage() {
           </p>
           <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
             <div className="bg-blue-50 p-4 rounded-lg border border-blue-100">
-              <a href="/docs/features/code-generation" className="text-blue-600 font-medium hover:underline flex items-center gap-2">
+              <Link href="/docs/features/code-generation" className="text-blue-600 font-medium hover:underline flex items-center gap-2">
                 <Code className="h-4 w-4" />代码生成
-              </a>
+              </Link>
               <p className="text-sm mt-1 text-gray-700">团队共同利用AI生成和改进代码</p>
             </div>
             <div className="bg-blue-50 p-4 rounded-lg border border-blue-100">
-              <a href="/docs/features/code-explanation" className="text-blue-600 font-medium hover:underline flex items-center gap-2">
+              <Link href="/docs/features/code-explanation" className="text-blue-600 font-medium hover:underline flex items-center gap-2">
                 <BookOpen className="h-4 w-4" />代码解释
-              </a>
+              </Link>
               <p className="text-sm mt-1 text-gray-700">帮助团队成员理解彼此的代码</p>
             </div>
             <div className="bg-blue-50 p-4 rounded-lg border border-blue-100">
-              <a href="/docs/features/refactoring" className="text-blue-600 font-medium hover:underline flex items-center gap-2">
+              <Link href="/docs/features/refactoring" className="text-blue-600 font-medium hover:underline flex items-center gap-2">
                 <GitMerge className="h-4 w-4" />代码重构
-              </a>
+              </Link>
               <p className="text-sm mt-1 text-gray-700">团队共同参与大规模代码改进</p>
             </div>
             <div className="bg-blue-50 p-4 rounded-lg border border-blue-100">
-              <a href="/docs/integrations/version-control" className="text-blue-600 font-medium hover:underline flex items-center gap-2">
+              <Link href="/docs/integrations/version-control" className="text-blue-600 font-medium hover:underline flex items-center gap-2">
                 <GitBranch className="h-4 w-4" />版本控制
-              </a>
+              </Link>
               <p className="text-sm mt-1 text-gray-700">管理团队代码变更</p>
             </div>
           </div>
@@ -495,12 +496,12 @@ export default function CollaborationPage() {
           使用{AppConfig.APP_NAME}的协作功能，让团队成员无缝协作，共同创造优秀的代码。
         </p>
         <div className="mt-6 flex flex-wrap gap-4">
-          <a href="/docs/getting-started/quick-start" className="rounded-md bg-white px-4 py-2 font-medium text-blue-700 hover:bg-blue-50">
+          <Link href="/docs/getting-started/quick-start" className="rounded-md bg-white px-4 py-2 font-medium text-blue-700 hover:bg-blue-50">
             开始使用
-          </a>
-          <a href="/docs/integrations/version-control" className="rounded-md border border-white px-4 py-2 font-medium text-white hover:bg-blue-600">
+          </Link>
+          <Link href="/docs/integrations/version-control" className="rounded-md border border-white px-4 py-2 font-medium text-white hover:bg-blue-600">
             探索版本控制集成
-          </a>
+          </Link>
         </div>
       </div>
     </div>

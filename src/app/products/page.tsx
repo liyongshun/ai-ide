@@ -5,7 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import Footer from "@/components/Footer";
 import { AppConfig } from "@/lib/config";
-import { replaceAppName } from "@/lib/utils";
+;
 
 // 定义产品特性类别和内容
 const features = [

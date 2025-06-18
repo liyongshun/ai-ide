@@ -1,5 +1,6 @@
 import { Metadata } from 'next';
 import { AppConfig } from '@/lib/config';
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: `AI代码补全 | ${AppConfig.APP_NAME}文档`,
@@ -172,7 +173,7 @@ function register`}
               <path fillRule="evenodd" d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12zm8.706-1.442c1.146-.573 2.437.463 2.126 1.706l-.709 2.836.042-.02a.75.75 0 01.67 1.34l-.04.022c-1.147.573-2.438-.463-2.127-1.706l.71-2.836-.042.02a.75.75 0 11-.671-1.34l.041-.022zM12 9a.75.75 0 100-1.5.75.75 0 000 1.5z" clipRule="evenodd" />
             </svg>
             <p className="ml-2 text-sm text-gray-700">
-              <strong>提示：</strong> 您可以在设置页面的"编辑器 &gt; AI代码补全"部分找到所有配置选项。
+              <strong>提示：</strong> 您可以在设置页面的&quot;编辑器 &gt; AI代码补全&quot;部分找到所有配置选项。
             </p>
           </div>
         </div>
@@ -185,13 +186,13 @@ function register`}
           <div className="rounded-lg border border-gray-200 bg-white p-4">
             <h3 className="font-medium text-gray-900">使用自然语言注释</h3>
             <p className="mt-1 text-sm text-gray-600">
-              您可以使用自然语言注释来指导AI如何补全代码。例如："// 创建一个处理表单提交的函数，验证输入并发送API请求"。
+              您可以使用自然语言注释来指导AI如何补全代码。例如：&quot;// 创建一个处理表单提交的函数，验证输入并发送API请求&quot;。
             </p>
           </div>
           <div className="rounded-lg border border-gray-200 bg-white p-4">
             <h3 className="font-medium text-gray-900">隐藏补全建议</h3>
             <p className="mt-1 text-sm text-gray-600">
-              在特定文件或代码块中，您可以使用特殊注释禁用代码补全：<code className="rounded bg-gray-100 px-1 py-0.5 text-sm">// @ai-completion-disable</code>
+              在特定文件或代码块中，您可以使用特殊注释禁用代码补全：<code className="rounded bg-gray-100 px-1 py-0.5 text-sm">{/*  @ai-completion-disable */}</code>
             </p>
           </div>
           <div className="rounded-lg border border-gray-200 bg-white p-4">
@@ -211,25 +212,25 @@ function register`}
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="mr-2 h-5 w-5 text-blue-500">
               <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
             </svg>
-            <a href="/docs/features/code-generation" className="text-blue-600 hover:underline">
+            <Link href="/docs/features/code-generation" className="text-blue-600 hover:underline">
               AI代码生成
-            </a>
+            </Link>
           </li>
           <li className="flex items-center">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="mr-2 h-5 w-5 text-blue-500">
               <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
             </svg>
-            <a href="/docs/advanced/configuration" className="text-blue-600 hover:underline">
+            <Link href="/docs/advanced/configuration" className="text-blue-600 hover:underline">
               高级配置选项
-            </a>
+            </Link>
           </li>
           <li className="flex items-center">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="mr-2 h-5 w-5 text-blue-500">
               <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
             </svg>
-            <a href="/docs/advanced/custom-models" className="text-blue-600 hover:underline">
+            <Link href="/docs/advanced/custom-models" className="text-blue-600 hover:underline">
               自定义AI模型
-            </a>
+            </Link>
           </li>
         </ul>
       </div>

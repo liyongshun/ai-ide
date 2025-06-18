@@ -4,13 +4,13 @@ import { AppConfig } from '@/lib/config';
 
 export const metadata: Metadata = {
   title: `API参考 | ${AppConfig.APP_NAME}文档`,
-  description: `${AppConfig.APP_NAME}的API参考文档，包括AI服务API、插件开发API和主题定制API。`,
+  description: `${AppConfig.APP_NAME}的API参考文档，包括AI服务、插件开发、主题定制等接口说明。`,
 };
 
-const apis = [
+const apiTopics = [
   {
     title: 'AI服务API',
-    description: `与${AppConfig.APP_NAME}的核心AI服务交互的API，用于访问代码补全、生成和分析功能。`,
+    description: `了解如何通过API与${AppConfig.APP_NAME}的AI功能进行交互，包括代码生成、补全和解释等服务。`,
     href: '/docs/api/ai-service',
     icon: (
       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
@@ -20,21 +20,21 @@ const apis = [
   },
   {
     title: '插件开发API',
-    description: `用于开发${AppConfig.APP_NAME}插件的API，包括扩展点、事件系统和UI组件。`,
+    description: `开发者指南：如何使用${AppConfig.APP_NAME}的插件API创建自定义功能扩展。`,
     href: '/docs/api/plugin-development',
     icon: (
       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
-        <path strokeLinecap="round" strokeLinejoin="round" d="M14.25 6.087c0-.355.186-.676.401-.959.221-.29.349-.634.349-1.003 0-1.036-1.007-1.875-2.25-1.875s-2.25.84-2.25 1.875c0 .369.128.713.349 1.003.215.283.401.604.401.959v0a.64.64 0 01-.657.643 48.39 48.39 0 01-4.163-.3c.186 1.613.293 3.25.315 4.907a.656.656 0 01-.658.663v0c-.355 0-.676-.186-.959-.401a1.647 1.647 0 00-1.003-.349c-1.036 0-1.875 1.007-1.875 2.25s.84 2.25 1.875 2.25c.369 0 .713-.128 1.003-.349.283-.215.604-.401.959-.401v0c.31 0 .555.26.532.57a48.039 48.039 0 01-.642 5.056c1.518.19 3.058.309 4.616.354a.64.64 0 00.657-.643v0c0-.355-.186-.676-.401-.959a1.647 1.647 0 01-.349-1.003c0-1.035 1.008-1.875 2.25-1.875 1.243 0 2.25.84 2.25 1.875 0 .369-.128.713-.349 1.003-.215.283-.4.604-.4.959v0c0 .333.277.599.61.58a48.1 48.1 0 005.427-.63 48.05 48.05 0 00.582-4.717.532.532 0 00-.533-.57v0c-.355 0-.676.186-.959.401-.29.221-.634.349-1.003.349-1.035 0-1.875-1.007-1.875-2.25s.84-2.25 1.875-2.25c.37 0 .713.128 1.003.349.283.215.604.401.96.401v0a.656.656 0 00.658-.663 48.422 48.422 0 00-.37-5.36c-1.886.342-3.81.574-5.766.689a.578.578 0 01-.61-.58v0z" />
+        <path strokeLinecap="round" strokeLinejoin="round" d="M14.25 9.75L16.5 12l-2.25 2.25m-4.5 0L7.5 12l2.25-2.25M6 20.25h12A2.25 2.25 0 0020.25 18V6A2.25 2.25 0 0018 3.75H6A2.25 2.25 0 003.75 6v12A2.25 2.25 0 006 20.25z" />
       </svg>
     ),
   },
   {
     title: '主题定制API',
-    description: '用于创建和自定义IDE主题的API，控制界面外观和色彩方案。',
+    description: `学习如何使用主题API自定义${AppConfig.APP_NAME}的外观和用户界面。`,
     href: '/docs/api/theme-customization',
     icon: (
       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
-        <path strokeLinecap="round" strokeLinejoin="round" d="M4.098 19.902a3.75 3.75 0 005.304 0l6.401-6.402M6.75 21A3.75 3.75 0 013 17.25V4.125C3 3.504 3.504 3 4.125 3h5.25c.621 0 1.125.504 1.125 1.125v4.072M6.75 21a3.75 3.75 0 003.75-3.75V8.197M6.75 21h13.125c.621 0 1.125-.504 1.125-1.125v-5.25c0-.621-.504-1.125-1.125-1.125h-4.072M10.5 8.197l2.88-2.88c.438-.439 1.15-.439 1.59 0l3.712 3.713c.44.44.44 1.152 0 1.59l-2.879 2.88M6.75 17.25h.008v.008H6.75v-.008z" />
+        <path strokeLinecap="round" strokeLinejoin="round" d="M9.53 16.122a3 3 0 00-5.78 1.128 2.25 2.25 0 01-2.4 2.245 4.5 4.5 0 008.4-2.245c0-.399-.078-.78-.22-1.128zm0 0a15.998 15.998 0 003.388-1.62m-5.043-.025a15.994 15.994 0 011.622-3.395m3.42 3.42a15.995 15.995 0 004.764-4.648l3.876-5.814a1.151 1.151 0 00-1.597-1.597L14.146 6.32a15.996 15.996 0 00-4.649 4.763m3.42 3.42a6.776 6.776 0 00-3.42-3.42" />
       </svg>
     ),
   },
@@ -42,118 +42,138 @@ const apis = [
 
 export default function ApiPage() {
   return (
-    <div>
+    <>
       <div className="mb-8">
         <h1 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">API参考</h1>
         <p className="mt-4 text-lg leading-8 text-gray-600">
-          {AppConfig.APP_NAME}提供了一系列强大的API，允许开发者扩展IDE功能、与AI引擎交互，以及自定义用户界面。本文档提供了所有可用API的详细参考。
+          全面的API文档，帮助开发者与{AppConfig.APP_NAME}集成，扩展功能，或自定义行为。
         </p>
       </div>
 
-      <div className="rounded-lg bg-yellow-50 p-4 mb-8">
+      <div className="rounded-lg bg-blue-50 p-4 mb-8">
         <div className="flex">
-          <svg className="h-5 w-5 text-yellow-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-            <path fillRule="evenodd" d="M8.485 2.495c.673-1.167 2.357-1.167 3.03 0l6.28 10.875c.673 1.167-.17 2.625-1.516 2.625H3.72c-1.347 0-2.189-1.458-1.515-2.625L8.485 2.495zM10 5a.75.75 0 01.75.75v3.5a.75.75 0 01-1.5 0v-3.5A.75.75 0 0110 5zm0 9a1 1 0 100-2 1 1 0 000 2z" clipRule="evenodd" />
+          <svg className="h-5 w-5 text-blue-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+            <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a.75.75 0 000 1.5h.253a.25.25 0 01.244.304l-.459 2.066A1.75 1.75 0 0010.747 15H11a.75.75 0 000-1.5h-.253a.25.25 0 01-.244-.304l.459-2.066A1.75 1.75 0 009.253 9H9z" clipRule="evenodd" />
           </svg>
           <div className="ml-3">
-            <h3 className="text-sm font-medium text-yellow-800">API文档建设中</h3>
-            <p className="mt-2 text-sm text-yellow-700">
-              我们的API文档正在持续完善中，目前提供基本参考信息。完整的API文档将陆续发布。
+            <h3 className="text-sm font-medium text-blue-800">开发者资源</h3>
+            <p className="mt-2 text-sm text-blue-700">
+              我们的API遵循RESTful设计原则，使用JSON格式进行数据交换。所有API端点都需要身份验证，请确保在开始前获取API密钥。
             </p>
           </div>
         </div>
       </div>
-      
-      {/* API分类列表 */}
-      <div className="space-y-12">
-        {apis.map((api) => (
-          <div key={api.title} className="border-b border-gray-200 pb-8">
-            <div className="flex flex-col md:flex-row md:items-center">
-              <div className="flex h-12 w-12 items-center justify-center rounded-md bg-blue-100 text-blue-600 md:mr-6">
-                {api.icon}
-              </div>
-              <div className="mt-4 md:mt-0">
-                <h2 className="text-2xl font-bold text-gray-900">
-                  <Link href={api.href}>
-                    {api.title}
-                  </Link>
-                </h2>
-              </div>
+
+      {/* API主题列表 */}
+      <div className="mt-12 space-y-16">
+        {apiTopics.map((topic) => (
+          <div key={topic.title} className="flex flex-col sm:flex-row">
+            <div className="flex h-12 w-12 items-center justify-center rounded-md bg-blue-100 text-blue-600 sm:mr-8">
+              {topic.icon}
             </div>
-            <p className="mt-4 text-lg text-gray-600">{api.description}</p>
-            <div className="mt-4">
-              <Link href={api.href} className="text-blue-600 hover:text-blue-800 font-medium">
-                查看详细文档 <span aria-hidden="true">→</span>
-              </Link>
+            <div className="mt-4 sm:mt-0">
+              <h2 className="text-2xl font-bold text-gray-900">
+                <Link href={topic.href} className="hover:text-blue-600">
+                  {topic.title}
+                </Link>
+              </h2>
+              <p className="mt-2 text-lg text-gray-600">{topic.description}</p>
+              <div className="mt-4">
+                <Link href={topic.href} className="text-blue-600 hover:text-blue-800 font-medium">
+                  查看文档 <span aria-hidden="true">→</span>
+                </Link>
+              </div>
             </div>
           </div>
         ))}
       </div>
 
-      {/* API版本信息 */}
-      <div className="mt-12 rounded-lg bg-gray-50 p-6">
-        <h2 className="text-lg font-semibold text-gray-900">API版本与兼容性</h2>
-        <p className="mt-2 text-gray-600">
-          {AppConfig.APP_NAME}的API遵循语义化版本控制原则。我们会尽量保持向后兼容性，重大变更会提前通知。
+      {/* API使用指南 */}
+      <div className="mt-16 rounded-lg bg-gray-50 p-8">
+        <h2 className="text-xl font-bold text-gray-900">API使用指南</h2>
+        <p className="mt-2 text-base text-gray-600">
+          在开始使用{AppConfig.APP_NAME}的API之前，请了解以下基本信息：
         </p>
-        <div className="mt-4 overflow-hidden rounded-lg border border-gray-200">
-          <table className="min-w-full divide-y divide-gray-200">
-            <thead className="bg-gray-50">
-              <tr>
-                <th scope="col" className="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider text-gray-500">
-                  API版本
-                </th>
-                <th scope="col" className="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider text-gray-500">
-                  IDE版本
-                </th>
-                <th scope="col" className="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider text-gray-500">
-                  状态
-                </th>
-              </tr>
-            </thead>
-            <tbody className="divide-y divide-gray-200 bg-white">
-              <tr>
-                <td className="whitespace-nowrap px-6 py-4 text-sm font-medium text-gray-900">
-                  v2.0
-                </td>
-                <td className="px-6 py-4 text-sm text-gray-600">
-                  3.0+
-                </td>
-                <td className="px-6 py-4 text-sm text-green-600">
-                  当前稳定版
-                </td>
-              </tr>
-              <tr>
-                <td className="whitespace-nowrap px-6 py-4 text-sm font-medium text-gray-900">
-                  v1.0
-                </td>
-                <td className="px-6 py-4 text-sm text-gray-600">
-                  2.0+
-                </td>
-                <td className="px-6 py-4 text-sm text-yellow-600">
-                  已弃用
-                </td>
-              </tr>
-            </tbody>
-          </table>
+        <div className="mt-6 grid gap-4 sm:grid-cols-2">
+          <div className="rounded-lg bg-white p-4 shadow-sm">
+            <h3 className="font-medium text-gray-900">身份验证</h3>
+            <p className="mt-2 text-sm text-gray-600">
+              所有API请求都需要通过Bearer令牌进行身份验证。您可以在账户设置中生成API密钥。
+            </p>
+          </div>
+          <div className="rounded-lg bg-white p-4 shadow-sm">
+            <h3 className="font-medium text-gray-900">速率限制</h3>
+            <p className="mt-2 text-sm text-gray-600">
+              免费账户每分钟限制10次请求，专业版每分钟限制60次请求，企业版可根据需求调整限制。
+            </p>
+          </div>
+          <div className="rounded-lg bg-white p-4 shadow-sm">
+            <h3 className="font-medium text-gray-900">响应格式</h3>
+            <p className="mt-2 text-sm text-gray-600">
+              所有API响应均为JSON格式，包含状态码、数据和可能的错误信息。
+            </p>
+          </div>
+          <div className="rounded-lg bg-white p-4 shadow-sm">
+            <h3 className="font-medium text-gray-900">SDK支持</h3>
+            <p className="mt-2 text-sm text-gray-600">
+              我们提供多种语言的SDK，包括JavaScript、Python、Java和Go，简化API集成过程。
+            </p>
+          </div>
         </div>
       </div>
 
-      {/* 开发者社区 */}
-      <div className="mt-12">
-        <h2 className="text-xl font-bold text-gray-900">加入开发者社区</h2>
+      {/* API示例 */}
+      <div className="mt-12 border-t border-gray-200 pt-10">
+        <h2 className="text-xl font-bold text-gray-900">API示例</h2>
         <p className="mt-2 text-gray-600">
-          有API相关问题或反馈？加入我们的开发者社区获取支持。
+          以下是一些常见API用例的简单示例：
         </p>
-        <div className="mt-6 flex space-x-4">
-          <a href="#" className="inline-flex items-center rounded-md bg-blue-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-blue-700">
-            开发者论坛
-          </a>
-          <a href="#" className="inline-flex items-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50">
-            GitHub仓库
-          </a>
+        <div className="mt-6 overflow-hidden rounded-lg bg-gray-900 text-white">
+          <div className="px-4 py-2 bg-gray-800 text-xs font-semibold">代码生成API示例</div>
+          <pre className="p-4 overflow-auto text-sm">
+            <code>{`// 使用JavaScript SDK调用代码生成API
+import { AiIdeClient } from '@ai-ide/sdk';
+
+const client = new AiIdeClient({
+  apiKey: 'YOUR_API_KEY'
+});
+
+async function generateCode() {
+  const response = await client.generateCode({
+    prompt: '创建一个React计数器组件',
+    language: 'javascript',
+    framework: 'react'
+  });
+  
+  console.log(response.code);
+}
+
+generateCode();`}</code>
+          </pre>
         </div>
       </div>
-    </div>
+
+      {/* 获取帮助 */}
+      <div className="mt-12 rounded-lg bg-gray-50 p-6">
+        <div className="flex items-start">
+          <div className="flex-shrink-0">
+            <svg className="h-6 w-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+          </div>
+          <div className="ml-3">
+            <h3 className="text-lg font-medium text-gray-900">需要更多帮助？</h3>
+            <p className="mt-2 text-sm text-gray-600">
+              如果您在使用API过程中遇到任何问题，或需要更多示例和指导，请查看我们的开发者论坛或联系技术支持团队。
+            </p>
+            <div className="mt-4">
+              <Link href="/docs/api/examples" className="text-sm font-medium text-blue-600 hover:text-blue-500">
+                查看更多API示例 →
+              </Link>
+            </div>
+          </div>
+        </div>
+      </div>
+    </>
   );
 } 

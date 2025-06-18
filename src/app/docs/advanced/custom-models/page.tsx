@@ -1,7 +1,8 @@
 import { Metadata } from 'next'
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Alert, AlertTitle, AlertDescription } from "@/components/ui/alert";
 import { AppConfig } from '@/lib/config';
+import Link from "next/link";
 import {
   Brain, Database, Server, Cloud,
   Settings, Code, Terminal, Puzzle,
@@ -592,12 +593,12 @@ export default function CustomModelsPage() {
           利用{AppConfig.APP_NAME}的强大自定义模型功能，创建适合您特定开发需求的AI助手。
         </p>
         <div className="mt-6 flex flex-wrap gap-4">
-          <a href="/docs/advanced/performance" className="rounded-md bg-white px-4 py-2 font-medium text-blue-700 hover:bg-blue-50">
+          <Link href="/docs/advanced/performance" className="rounded-md bg-white px-4 py-2 font-medium text-blue-700 hover:bg-blue-50">
             探索性能优化
-          </a>
-          <a href="/docs/advanced/configuration" className="rounded-md border border-white px-4 py-2 font-medium text-white hover:bg-blue-600">
+          </Link>
+          <Link href="/docs/advanced/configuration" className="rounded-md border border-white px-4 py-2 font-medium text-white hover:bg-blue-600">
             查看配置选项
-          </a>
+          </Link>
         </div>
       </div>
     </div>

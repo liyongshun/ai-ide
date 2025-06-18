@@ -1,13 +1,9 @@
 import { Metadata } from 'next';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Alert, AlertTitle, AlertDescription } from "@/components/ui/alert";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Alert, AlertTitle } from "@/components/ui/alert";
 import { AppConfig } from '@/lib/config';
-import { 
-  GitBranch, Zap, GitCompare, GitMerge, 
-  FileCode, TerminalSquare, Settings, Package, 
-  ShieldCheck, RefreshCcw, History, MessageSquare,
-  CheckSquare, GitPullRequest, BarChart
-} from 'lucide-react';
+import { GitBranch, Zap, GitCompare, GitMerge, FileCode, TerminalSquare, Settings, Package, RefreshCcw, History, MessageSquare, CheckSquare, GitPullRequest, BarChart } from 'lucide-react';
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: '版本控制 | {AppConfig.APP_NAME}文档',
@@ -325,7 +321,7 @@ export default function VersionControlPage() {
               <span className="ml-2">打开命令面板</span>
             </p>
             <p className="text-gray-600">
-              通过命令面板可以快速访问所有版本控制命令，输入"git"或"svn"等关键词可以筛选相关命令：
+              通过命令面板可以快速访问所有版本控制命令，输入&quot;git&quot;或&quot;svn&quot;等关键词可以筛选相关命令：
             </p>
             <div className="flex flex-wrap gap-2 mt-2">
               <span className="inline-block px-2 py-0.5 rounded-full bg-gray-200 text-sm">Git: 提交</span>
@@ -357,7 +353,7 @@ export default function VersionControlPage() {
             </p>
             <ol className="list-decimal pl-6 text-gray-700">
               <li>在版本控制视图中暂存您的更改</li>
-              <li>点击"生成提交信息"按钮或使用快捷键</li>
+              <li>点击&quot;生成提交信息&quot;按钮或使用快捷键</li>
               <li>AI会分析更改并生成提交信息</li>
               <li>您可以根据需要编辑生成的信息</li>
               <li>确认并提交更改</li>
@@ -406,7 +402,7 @@ export default function VersionControlPage() {
               AI可以分析项目的提交历史，提供有价值的见解：
             </p>
             <ul className="list-disc pl-6 text-gray-700">
-              <li><strong>热点文件识别</strong>：识别频繁变更的"热点"文件，可能需要重构</li>
+              <li><strong>热点文件识别</strong>：识别频繁变更的&quot;热点&quot;文件，可能需要重构</li>
               <li><strong>代码质量趋势</strong>：检测代码质量变化趋势和潜在问题</li>
               <li><strong>协作模式分析</strong>：分析团队协作模式和贡献分布</li>
               <li><strong>相关提交识别</strong>：识别与特定功能或问题相关的提交</li>
@@ -494,21 +490,21 @@ export default function VersionControlPage() {
           
           <div className="grid gap-4 md:grid-cols-3">
             <div className="bg-blue-50 p-4 rounded-lg border border-blue-100">
-              <a href="/docs/features/code-generation" className="text-blue-600 font-medium hover:underline flex items-center gap-2">
+              <Link href="/docs/features/code-generation" className="text-blue-600 font-medium hover:underline flex items-center gap-2">
                 <FileCode className="h-4 w-4" />代码生成
-              </a>
+              </Link>
               <p className="text-sm mt-1 text-gray-700">在生成代码后自动创建有意义的提交</p>
             </div>
             <div className="bg-blue-50 p-4 rounded-lg border border-blue-100">
-              <a href="/docs/features/code-explanation" className="text-blue-600 font-medium hover:underline flex items-center gap-2">
+              <Link href="/docs/features/code-explanation" className="text-blue-600 font-medium hover:underline flex items-center gap-2">
                 <MessageSquare className="h-4 w-4" />代码解释
-              </a>
+              </Link>
               <p className="text-sm mt-1 text-gray-700">理解历史代码变更的原因和影响</p>
             </div>
             <div className="bg-blue-50 p-4 rounded-lg border border-blue-100">
-              <a href="/docs/features/refactoring" className="text-blue-600 font-medium hover:underline flex items-center gap-2">
+              <Link href="/docs/features/refactoring" className="text-blue-600 font-medium hover:underline flex items-center gap-2">
                 <RefreshCcw className="h-4 w-4" />代码重构
-              </a>
+              </Link>
               <p className="text-sm mt-1 text-gray-700">在重构后生成清晰的提交记录</p>
             </div>
           </div>
@@ -575,9 +571,9 @@ export default function VersionControlPage() {
           了解AI如何增强您的版本控制工作流，让提交更有意义，冲突解决更高效，代码历史更清晰。
         </p>
         <div className="mt-6 flex flex-wrap gap-4">
-          <a href="/docs/tutorials/ai-version-control" className="rounded-md bg-white px-4 py-2 font-medium text-blue-700 hover:bg-blue-50">
+          <Link href="/docs/tutorials/ai-version-control" className="rounded-md bg-white px-4 py-2 font-medium text-blue-700 hover:bg-blue-50">
             AI版本控制最佳实践
-          </a>
+          </Link>
         </div>
       </div>
     </div>

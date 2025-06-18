@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 import { AppConfig } from "@/lib/config";
 import { replaceAppName } from "@/lib/utils";

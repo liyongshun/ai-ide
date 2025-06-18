@@ -1,5 +1,6 @@
 import { Metadata } from 'next';
 import { AppConfig } from '@/lib/config';
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: `AI服务API | ${AppConfig.APP_NAME}文档`,
@@ -109,7 +110,7 @@ const response = await fetch('https://api.ai-ide.com/v2/completions', {
                 <path fillRule="evenodd" d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12zm8.706-1.442c1.146-.573 2.437.463 2.126 1.706l-.709 2.836.042-.02a.75.75 0 01.67 1.34l-.04.022c-1.147.573-2.438-.463-2.127-1.706l.71-2.836-.042.02a.75.75 0 11-.671-1.34l.041-.022zM12 9a.75.75 0 100-1.5.75.75 0 000 1.5z" clipRule="evenodd" />
               </svg>
               <p className="ml-2 text-sm text-gray-700">
-                <strong>提示：</strong> 详细的OAuth集成指南请参阅<a href="/docs/api/authentication" className="text-blue-600 hover:underline">认证详细文档</a>。
+                <strong>提示：</strong> 详细的OAuth集成指南请参阅<Link href="/docs/api/authentication" className="text-blue-600 hover:underline">认证详细文档</Link>。
               </p>
             </div>
           </div>
@@ -299,7 +300,7 @@ const response = await fetch('https://api.ai-ide.com/v2/completions', {
               <path fillRule="evenodd" d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12zm8.706-1.442c1.146-.573 2.437.463 2.126 1.706l-.709 2.836.042-.02a.75.75 0 01.67 1.34l-.04.022c-1.147.573-2.438-.463-2.127-1.706l.71-2.836-.042.02a.75.75 0 11-.671-1.34l.041-.022zM12 9a.75.75 0 100-1.5.75.75 0 000 1.5z" clipRule="evenodd" />
             </svg>
             <p className="ml-2 text-sm text-gray-700">
-              <strong>提示：</strong> 如需更高的配额，请联系我们的<a href="/support" className="text-blue-600 hover:underline">销售团队</a>了解企业定制方案。
+              <strong>提示：</strong> 如需更高的配额，请联系我们的<Link href="/support" className="text-blue-600 hover:underline">销售团队</Link>了解企业定制方案。
             </p>
           </div>
         </div>
@@ -313,25 +314,25 @@ const response = await fetch('https://api.ai-ide.com/v2/completions', {
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="mr-2 h-5 w-5 text-blue-500">
               <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
             </svg>
-            <a href="/docs/api/authentication" className="text-blue-600 hover:underline">
+            <Link href="/docs/api/authentication" className="text-blue-600 hover:underline">
               详细认证指南
-            </a>
+            </Link>
           </li>
           <li className="flex items-center">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="mr-2 h-5 w-5 text-blue-500">
               <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
             </svg>
-            <a href="/docs/api/error-handling" className="text-blue-600 hover:underline">
+            <Link href="/docs/api/error-handling" className="text-blue-600 hover:underline">
               错误处理指南
-            </a>
+            </Link>
           </li>
           <li className="flex items-center">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="mr-2 h-5 w-5 text-blue-500">
               <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
             </svg>
-            <a href="/docs/api/examples" className="text-blue-600 hover:underline">
+            <Link href="/docs/api/examples" className="text-blue-600 hover:underline">
               API使用示例
-            </a>
+            </Link>
           </li>
         </ul>
       </div>

@@ -43,7 +43,7 @@ const advancedTopics = [
 
 export default function AdvancedPage() {
   return (
-    <div>
+    <>
       <div className="mb-8">
         <h1 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">进阶使用</h1>
         <p className="mt-4 text-lg leading-8 text-gray-600">
@@ -130,20 +130,20 @@ export default function AdvancedPage() {
           深入学习如何充分利用{AppConfig.APP_NAME}的高级功能：
         </p>
         <div className="mt-6 flex flex-col gap-4">
-          <a href="#" className="rounded-md border border-gray-200 p-4 hover:bg-gray-50">
+          <Link href="#" className="rounded-md border border-gray-200 p-4 hover:bg-gray-50">
             <h3 className="font-semibold text-gray-900">构建自定义AI工作流</h3>
             <p className="mt-1 text-sm text-gray-600">
               学习如何创建完全定制化的AI辅助开发工作流，适应团队和项目需求。
             </p>
-          </a>
-          <a href="#" className="rounded-md border border-gray-200 p-4 hover:bg-gray-50">
+          </Link>
+          <Link href="#" className="rounded-md border border-gray-200 p-4 hover:bg-gray-50">
             <h3 className="font-semibold text-gray-900">{AppConfig.APP_NAME}和CI/CD集成最佳实践</h3>
             <p className="mt-1 text-sm text-gray-600">
               将{AppConfig.APP_NAME}与持续集成和部署流程无缝集成，实现全自动化开发流程。
             </p>
-          </a>
+          </Link>
         </div>
       </div>
-    </div>
+    </>
   );
 } 

@@ -1,14 +1,16 @@
 "use client";
 
 import Link from 'next/link';
-import { Metadata } from 'next';
-import { useRouter } from 'next/navigation';
-import { useState, useEffect, useRef, useCallback } from 'react';
+import { useState, useRef, useCallback } from 'react';
 import ErrorBoundary from '@/components/ErrorBoundary';
 import LoadingSpinner from '@/components/LoadingSpinner';
 import { AppConfig } from '@/lib/config';
 
 // 客户端组件中不能导出metadata，使用独立的常量
+// 用于SEO元数据
+ 
+// 用于SEO元数据，在服务端渲染中使用
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const PAGE_METADATA = {
   title: `${AppConfig.APP_NAME} 文档中心`,
   description: `了解如何使用${AppConfig.APP_NAME}提升你的开发效率，包括安装指南、特性介绍和API参考。`,
@@ -259,7 +261,7 @@ const searchableContent: SearchResult[] = [
 ];
 
 export default function DocsPage() {
-  const router = useRouter();
+  
   const [searchResults, setSearchResults] = useState<SearchResult[]>([]);
   const [isSearching, setIsSearching] = useState(false);
   const [showResults, setShowResults] = useState(false);
@@ -409,7 +411,7 @@ export default function DocsPage() {
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-12 h-12 mx-auto text-gray-400 mb-3">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M15.182 16.318A4.486 4.486 0 0012.016 15a4.486 4.486 0 00-3.198 1.318M21 12a9 9 0 11-18 0 9 9 0 0118 0zM9.75 9.75c0 .414-.168.75-.375.75S9 10.164 9 9.75 9.168 9 9.375 9s.375.336.375.75zm-.375 0h.008v.015h-.008V9.75zm5.625 0c0 .414-.168.75-.375.75s-.375-.336-.375-.75.168-.75.375-.75.375.336.375.75zm-.375 0h.008v.015h-.008V9.75z" />
                 </svg>
-                <p className="text-gray-600 font-medium">没有找到与 "{searchQueryRef.current}" 相关的文档</p>
+                <p className="text-gray-600 font-medium">没有找到与 &quot;{searchQueryRef.current}&quot; 相关的文档</p>
                 <p className="text-gray-500 text-sm mt-2">尝试使用不同的关键词，或浏览下方的文档分类</p>
               </div>
             )}

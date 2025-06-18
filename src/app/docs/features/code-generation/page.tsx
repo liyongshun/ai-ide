@@ -1,12 +1,13 @@
 import { Metadata } from 'next';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Alert, AlertTitle, AlertDescription } from "@/components/ui/alert";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Alert, AlertTitle } from "@/components/ui/alert";
 import { 
   Code, MessageSquare, Zap, BookOpen, FileCode, Terminal, 
   Settings, Package, ArrowRightLeft, CirclePlus, CheckCircle2, 
   Layers, Lock, RefreshCcw, LayoutGrid
 } from 'lucide-react';
 import { AppConfig } from '@/lib/config';
+import Link from 'next/link';
 
 export const metadata: Metadata = {
   title: `AI代码生成 | ${AppConfig.APP_NAME}文档`,
@@ -204,6 +205,7 @@ export default function CodeGenerationPage() {
                 <div className="rounded-md bg-gray-50 p-3">
                   <pre className="text-sm text-gray-800 overflow-auto max-h-80">{`import React, { useState } from 'react';
 import { AppConfig } from '@/lib/config';
+import Link from "next/link";
 
 function TodoList() {
   const [todos, setTodos] = useState([]);
@@ -391,21 +393,21 @@ export default TodoList;`}</pre>
         <CardContent>
           <div className="grid gap-4 md:grid-cols-3">
             <div className="bg-blue-50 p-4 rounded-lg border border-blue-100">
-              <a href="/docs/features/code-explanation" className="text-blue-600 font-medium hover:underline flex items-center gap-2">
+              <Link href="/docs/features/code-explanation" className="text-blue-600 font-medium hover:underline flex items-center gap-2">
                 <BookOpen className="h-4 w-4" />AI代码解释
-              </a>
+              </Link>
               <p className="text-sm mt-1 text-gray-700">理解AI生成的代码逻辑和实现原理</p>
             </div>
             <div className="bg-blue-50 p-4 rounded-lg border border-blue-100">
-              <a href="/docs/features/code-completion" className="text-blue-600 font-medium hover:underline flex items-center gap-2">
+              <Link href="/docs/features/code-completion" className="text-blue-600 font-medium hover:underline flex items-center gap-2">
                 <CirclePlus className="h-4 w-4" />AI代码补全
-              </a>
+              </Link>
               <p className="text-sm mt-1 text-gray-700">智能预测并补全您正在编写的代码</p>
             </div>
             <div className="bg-blue-50 p-4 rounded-lg border border-blue-100">
-              <a href="/docs/advanced/configuration" className="text-blue-600 font-medium hover:underline flex items-center gap-2">
+              <Link href="/docs/advanced/configuration" className="text-blue-600 font-medium hover:underline flex items-center gap-2">
                 <Settings className="h-4 w-4" />高级配置选项
-              </a>
+              </Link>
               <p className="text-sm mt-1 text-gray-700">自定义AI代码生成行为和偏好设置</p>
             </div>
           </div>
@@ -419,12 +421,12 @@ export default TodoList;`}</pre>
           使用AI代码生成功能，将您的想法快速转化为高质量代码。
         </p>
         <div className="mt-6 flex flex-wrap gap-4">
-          <a href="/docs/getting-started/quick-start" className="rounded-md bg-white px-4 py-2 font-medium text-blue-700 hover:bg-blue-50">
+          <Link href="/docs/getting-started/quick-start" className="rounded-md bg-white px-4 py-2 font-medium text-blue-700 hover:bg-blue-50">
             开始使用
-          </a>
-          <a href="/docs/features/code-completion" className="rounded-md border border-white px-4 py-2 font-medium text-white hover:bg-blue-600">
+          </Link>
+          <Link href="/docs/features/code-completion" className="rounded-md border border-white px-4 py-2 font-medium text-white hover:bg-blue-600">
             探索代码补全功能
-          </a>
+          </Link>
         </div>
       </div>
     </div>

@@ -1,6 +1,8 @@
 import React from 'react';
 
-interface AlertProps extends React.HTMLAttributes<HTMLDivElement> {}
+interface AlertProps extends React.HTMLAttributes<HTMLDivElement> {
+  _type?: 'AlertProps';
+}
 
 export function Alert({ className, ...props }: AlertProps) {
   return (
@@ -12,7 +14,9 @@ export function Alert({ className, ...props }: AlertProps) {
   );
 }
 
-interface AlertTitleProps extends React.HTMLAttributes<HTMLHeadingElement> {}
+interface AlertTitleProps extends React.HTMLAttributes<HTMLHeadingElement> {
+  _type?: 'AlertTitleProps';
+}
 
 export function AlertTitle({ className, ...props }: AlertTitleProps) {
   return (
@@ -20,7 +24,9 @@ export function AlertTitle({ className, ...props }: AlertTitleProps) {
   );
 }
 
-interface AlertDescriptionProps extends React.HTMLAttributes<HTMLParagraphElement> {}
+interface AlertDescriptionProps extends React.HTMLAttributes<HTMLParagraphElement> {
+  _type?: 'AlertDescriptionProps';
+}
 
 export function AlertDescription({ className, ...props }: AlertDescriptionProps) {
   return <div className={`text-sm ${className || ''}`} {...props} />;

@@ -1,5 +1,6 @@
 import { Metadata } from 'next';
 import { AppConfig } from '@/lib/config';
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: '性能优化 | {AppConfig.APP_NAME}文档',
@@ -156,7 +157,7 @@ export default function PerformancePage() {
           <pre className="bg-gray-800 text-white p-4 rounded-md overflow-x-auto">
 {`// .ai-ide/config.json
 {
-  "files": {
+  &quot;files": {
     "watcherExclude": {
       "**/node_modules/**": true,
       "**/dist/**": true,
@@ -232,7 +233,7 @@ export default function PerformancePage() {
           <pre className="bg-gray-800 text-white p-4 rounded-md overflow-x-auto">
 {`// .ai-ide/config.json
 {
-  "ai": {
+  &quot;ai": {
     "completion": {
       "model": "fast", // 可选: "fast", "standard", "advanced"
       "contextLines": 50, // 减少上下文行数可提高性能
@@ -296,7 +297,7 @@ export default function PerformancePage() {
           <pre className="bg-gray-800 text-white p-4 rounded-md overflow-x-auto">
 {`// .ai-ide/config.json
 {
-  "search": {
+  &quot;search": {
     "exclude": {
       "**/node_modules": true,
       "**/bower_components": true,
@@ -391,7 +392,7 @@ export default function PerformancePage() {
               <path strokeLinecap="round" strokeLinejoin="round" d="M11.25 11.25l.041-.02a.75.75 0 011.063.852l-.708 2.836a.75.75 0 001.063.853l.041-.021M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9-3.75h.008v.008H12V8.25z" />
             </svg>
             <p className="text-sm text-gray-700">
-              <strong>提示：</strong> 您可以通过命令面板（按 <kbd className="px-1 py-0.5 text-xs rounded border border-gray-300 bg-gray-50">Ctrl</kbd>+<kbd className="px-1 py-0.5 text-xs rounded border border-gray-300 bg-gray-50">Shift</kbd>+<kbd className="px-1 py-0.5 text-xs rounded border border-gray-300 bg-gray-50">P</kbd>）并输入"显示性能信息"来访问性能监控工具。
+              <strong>提示：</strong> 您可以通过命令面板（按 <kbd className="px-1 py-0.5 text-xs rounded border border-gray-300 bg-gray-50">Ctrl</kbd>+<kbd className="px-1 py-0.5 text-xs rounded border border-gray-300 bg-gray-50">Shift</kbd>+<kbd className="px-1 py-0.5 text-xs rounded border border-gray-300 bg-gray-50">P</kbd>）并输入&quot;显示性能信息&quot;来访问性能监控工具。
             </p>
           </div>
         </div>
@@ -405,25 +406,25 @@ export default function PerformancePage() {
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="mr-2 h-5 w-5 text-blue-500">
               <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
             </svg>
-            <a href="/docs/advanced/configuration" className="text-blue-600 hover:underline">
+            <Link href="/docs/advanced/configuration" className="text-blue-600 hover:underline">
               高级配置选项
-            </a>
+            </Link>
           </li>
           <li className="flex items-center">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="mr-2 h-5 w-5 text-blue-500">
               <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
             </svg>
-            <a href="/docs/advanced/custom-models" className="text-blue-600 hover:underline">
+            <Link href="/docs/advanced/custom-models" className="text-blue-600 hover:underline">
               自定义AI模型
-            </a>
+            </Link>
           </li>
           <li className="flex items-center">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="mr-2 h-5 w-5 text-blue-500">
               <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
             </svg>
-            <a href="/docs/api/ai-service" className="text-blue-600 hover:underline">
+            <Link href="/docs/api/ai-service" className="text-blue-600 hover:underline">
               AI服务API
-            </a>
+            </Link>
           </li>
         </ul>
       </div>

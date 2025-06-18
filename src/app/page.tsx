@@ -1,10 +1,9 @@
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
-import Link from 'next/link';
 import Image from 'next/image';
 import Footer from '@/components/Footer';
 import { AppConfig } from '@/lib/config';
-import { replaceAppName } from '@/lib/utils';
+;
 
 export default function RootPage() {
   return (

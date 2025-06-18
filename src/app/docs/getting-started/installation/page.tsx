@@ -1,5 +1,6 @@
 import { Metadata } from 'next';
 import { AppConfig } from '@/lib/config';
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: `安装指南 | ${AppConfig.APP_NAME}文档`,
@@ -227,7 +228,7 @@ export default function InstallationPage() {
       <div className="rounded-lg bg-gradient-to-r from-blue-50 to-indigo-50 p-6">
         <h2 className="text-xl font-semibold text-gray-900">准备好开始了吗？</h2>
         <p className="mt-2 text-gray-700">
-          完成安装后，您可以继续阅读<a href="/docs/getting-started/quick-start" className="font-medium text-blue-600 hover:text-blue-800">快速开始</a>指南，了解如何使用{AppConfig.APP_NAME}的基本功能。
+          完成安装后，您可以继续阅读<Link href="/docs/getting-started/quick-start" className="font-medium text-blue-600 hover:text-blue-800">快速开始</Link>指南，了解如何使用{AppConfig.APP_NAME}的基本功能。
         </p>
       </div>
     </div>

@@ -1,9 +1,10 @@
 import { Metadata } from 'next';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsItem, TabsList } from "@/components/ui/tabs";
-import { Alert, AlertTitle, AlertDescription } from "@/components/ui/alert";
+import { Alert, AlertTitle } from "@/components/ui/alert";
 import { Check, Code, BookOpen, Zap, ShieldCheck, GitCompare, BarChart2, Users, FileCode, Terminal, Layers } from 'lucide-react';
 import { AppConfig } from '@/lib/config';
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: `AI代码解释 | ${AppConfig.APP_NAME}文档`,
@@ -100,21 +101,21 @@ export default function CodeExplanationPage() {
           <div className="space-y-2">
             <h3 className="font-medium text-lg">选择代码解释</h3>
             <p className="text-gray-600">
-              在编辑器中，选择您想要理解的代码块，然后通过右键菜单或快捷键（<code className="bg-gray-100 px-1.5 py-0.5 rounded text-sm">Cmd/Ctrl + Shift + E</code>）选择"解释代码"选项。AI将分析所选代码并提供详细解释。
+              在编辑器中，选择您想要理解的代码块，然后通过右键菜单或快捷键（<code className="bg-gray-100 px-1.5 py-0.5 rounded text-sm">Cmd/Ctrl + Shift + E</code>）选择&quot;解释代码&quot;选项。AI将分析所选代码并提供详细解释。
             </p>
           </div>
           
           <div className="space-y-2">
             <h3 className="font-medium text-lg">通过聊天界面解释</h3>
             <p className="text-gray-600">
-              打开AI聊天界面（<code className="bg-gray-100 px-1.5 py-0.5 rounded text-sm">Cmd/Ctrl + L</code>），选择代码块并询问"解释这段代码"或提出更具体的问题，如"这个函数的目的是什么"或"这个算法的时间复杂度是多少"。
+              打开AI聊天界面（<code className="bg-gray-100 px-1.5 py-0.5 rounded text-sm">Cmd/Ctrl + L</code>），选择代码块并询问&quot;解释这段代码&quot;或提出更具体的问题，如&quot;这个函数的目的是什么&quot;或&quot;这个算法的时间复杂度是多少&quot;。
             </p>
           </div>
           
           <div className="space-y-2">
             <h3 className="font-medium text-lg">内联注释生成</h3>
             <p className="text-gray-600">
-              选择代码块并使用命令"为这段代码生成注释"，AI将自动为代码添加详细的解释性注释，帮助您和团队成员更好地理解代码。
+              选择代码块并使用命令&quot;为这段代码生成注释&quot;，AI将自动为代码添加详细的解释性注释，帮助您和团队成员更好地理解代码。
             </p>
           </div>
         </CardContent>
@@ -316,21 +317,21 @@ export default function CodeExplanationPage() {
           </p>
           <div className="grid gap-4 md:grid-cols-3">
             <div className="bg-blue-50 p-4 rounded-lg border border-blue-100">
-              <a href="/docs/features/code-generation" className="text-blue-600 font-medium hover:underline flex items-center gap-2">
+              <Link href="/docs/features/code-generation" className="text-blue-600 font-medium hover:underline flex items-center gap-2">
                 <Code className="h-4 w-4" />代码生成
-              </a>
+              </Link>
               <p className="text-sm mt-1 text-gray-700">先理解现有代码，再生成相似或改进的代码</p>
             </div>
             <div className="bg-blue-50 p-4 rounded-lg border border-blue-100">
-              <a href="/docs/features/refactoring" className="text-blue-600 font-medium hover:underline flex items-center gap-2">
+              <Link href="/docs/features/refactoring" className="text-blue-600 font-medium hover:underline flex items-center gap-2">
                 <GitCompare className="h-4 w-4" />代码重构
-              </a>
+              </Link>
               <p className="text-sm mt-1 text-gray-700">在理解代码后进行有针对性的优化</p>
             </div>
             <div className="bg-blue-50 p-4 rounded-lg border border-blue-100">
-              <a href="/docs/features/collaboration" className="text-blue-600 font-medium hover:underline flex items-center gap-2">
+              <Link href="/docs/features/collaboration" className="text-blue-600 font-medium hover:underline flex items-center gap-2">
                 <Users className="h-4 w-4" />协作功能
-              </a>
+              </Link>
               <p className="text-sm mt-1 text-gray-700">帮助团队成员快速理解彼此的代码</p>
             </div>
           </div>
@@ -360,7 +361,7 @@ export default function CodeExplanationPage() {
               <Check className="h-5 w-5 text-green-500 mt-0.5 flex-shrink-0" />
               <div>
                 <p className="font-medium">提出具体问题</p>
-                <p className="text-sm text-gray-600">询问特定方面的问题，如"这个函数的边界条件是什么"，可以获得更有针对性的解释</p>
+                <p className="text-sm text-gray-600">询问特定方面的问题，如&quot;这个函数的边界条件是什么&quot;，可以获得更有针对性的解释</p>
               </div>
             </div>
             <div className="flex items-start gap-2">
@@ -388,12 +389,12 @@ export default function CodeExplanationPage() {
           使用AI代码解释功能，快速理解任何代码的逻辑和实现原理。
         </p>
         <div className="mt-6 flex flex-wrap gap-4">
-          <a href="/docs/getting-started/quick-start" className="rounded-md bg-white px-4 py-2 font-medium text-blue-700 hover:bg-blue-50">
+          <Link href="/docs/getting-started/quick-start" className="rounded-md bg-white px-4 py-2 font-medium text-blue-700 hover:bg-blue-50">
             开始使用
-          </a>
-          <a href="/docs/features/code-generation" className="rounded-md border border-white px-4 py-2 font-medium text-white hover:bg-blue-600">
+          </Link>
+          <Link href="/docs/features/code-generation" className="rounded-md border border-white px-4 py-2 font-medium text-white hover:bg-blue-600">
             探索代码生成功能
-          </a>
+          </Link>
         </div>
       </div>
     </div>

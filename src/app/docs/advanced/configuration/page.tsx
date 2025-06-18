@@ -1,7 +1,8 @@
 import { Metadata } from 'next';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Alert, AlertTitle, AlertDescription } from "@/components/ui/alert";
 import { AppConfig } from '@/lib/config';
+import Link from "next/link";
 import {
   Settings, FileJson, Layers, Code,
   Sliders, LayoutTemplate, Terminal, Lock,
@@ -245,8 +246,8 @@ export default function ConfigurationPage() {
             <div className="bg-gray-900 text-gray-100 p-4 rounded-lg overflow-auto">
               <pre className="text-sm">
 {`{
-  "editor": {
-    "fontFamily": "Fira Code, Consolas, 'Courier New', monospace",
+  &quot;editor&quot;: {
+    &quot;fontFamily&quot;: "Fira Code, Consolas, 'Courier New', monospace",
     "fontSize": 14,
     "tabSize": 2,
     "insertSpaces": true,
@@ -328,8 +329,8 @@ export default function ConfigurationPage() {
                   <tr>
                     <td className="px-4 py-3 text-sm font-medium text-gray-900">editor.wordWrap</td>
                     <td className="px-4 py-3 text-sm text-gray-600">string</td>
-                    <td className="px-4 py-3 text-sm text-gray-600">"off"</td>
-                    <td className="px-4 py-3 text-sm text-gray-600">自动换行模式："off"、"on"、"wordWrapColumn"或"bounded"</td>
+                    <td className="px-4 py-3 text-sm text-gray-600">&quot;off&quot;</td>
+                    <td className="px-4 py-3 text-sm text-gray-600">自动换行模式：&quot;off&quot;、&quot;on&quot;、&quot;wordWrapColumn&quot;或&quot;bounded&quot;</td>
                   </tr>
                 </tbody>
               </table>
@@ -358,8 +359,8 @@ export default function ConfigurationPage() {
                   <tr>
                     <td className="px-4 py-3 text-sm font-medium text-gray-900">ai.completion.model</td>
                     <td className="px-4 py-3 text-sm text-gray-600">string</td>
-                    <td className="px-4 py-3 text-sm text-gray-600">"standard"</td>
-                    <td className="px-4 py-3 text-sm text-gray-600">使用的AI模型："fast"、"standard"或"advanced"</td>
+                    <td className="px-4 py-3 text-sm text-gray-600">&quot;standard&quot;</td>
+                    <td className="px-4 py-3 text-sm text-gray-600">使用的AI模型：&quot;fast&quot;、&quot;standard&quot;或&quot;advanced&quot;</td>
                   </tr>
                   <tr>
                     <td className="px-4 py-3 text-sm font-medium text-gray-900">ai.suggestions.threshold</td>
@@ -401,8 +402,8 @@ export default function ConfigurationPage() {
               <div className="bg-gray-50 p-4 rounded-lg text-sm">
                 <pre className="text-sm">
 {`{
-  "editor": {
-    "tabSize": 2,
+  &quot;editor&quot;: {
+    &quot;tabSize&quot;: 2,
     "insertSpaces": true,
     "formatOnSave": true,
     "formatOnType": true,
@@ -424,8 +425,8 @@ export default function ConfigurationPage() {
               <div className="bg-gray-50 p-4 rounded-lg text-sm">
                 <pre className="text-sm">
 {`{
-  "ai": {
-    "completion": {
+  &quot;ai&quot;: {
+    &quot;completion&quot;: {
       "enabled": true,
       "model": "advanced",
       "delay": 200,
@@ -462,12 +463,12 @@ export default function ConfigurationPage() {
           利用{AppConfig.APP_NAME}的强大配置系统，为您的工作流程创建完美的开发环境。
         </p>
         <div className="mt-6 flex flex-wrap gap-4">
-          <a href="/docs/advanced/performance" className="rounded-md bg-white px-4 py-2 font-medium text-blue-700 hover:bg-blue-50">
+          <Link href="/docs/advanced/performance" className="rounded-md bg-white px-4 py-2 font-medium text-blue-700 hover:bg-blue-50">
             了解性能优化
-          </a>
-          <a href="/docs/advanced/custom-models" className="rounded-md border border-white px-4 py-2 font-medium text-white hover:bg-blue-600">
+          </Link>
+          <Link href="/docs/advanced/custom-models" className="rounded-md border border-white px-4 py-2 font-medium text-white hover:bg-blue-600">
             探索自定义AI模型
-          </a>
+          </Link>
         </div>
       </div>
     </div>

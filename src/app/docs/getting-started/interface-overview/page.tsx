@@ -1,5 +1,6 @@
 import { Metadata } from 'next';
 import { AppConfig } from '@/lib/config';
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: `界面概览 | ${AppConfig.APP_NAME}文档`,
@@ -164,7 +165,7 @@ for (let i = 0; i < items.length; i++) {
 // 优化后
 const constant = Math.PI;
 for (let i = 0; i < items.length; i++) {
-  const result = compute(items[i]) * constant;
+  
   // 处理结果
 }`}
               </pre>
@@ -301,12 +302,12 @@ for (let i = 0; i < items.length; i++) {
               您可以通过设置菜单自定义IDE界面布局、颜色主题和图标。{AppConfig.APP_NAME} IDE支持多种主题和布局选项，包括深色模式、高对比度模式和精简模式。
             </p>
             <div className="mt-4">
-              <a href="/docs/advanced/configuration" className="inline-flex items-center text-blue-800 font-medium hover:text-blue-900">
+              <Link href="/docs/advanced/configuration" className="inline-flex items-center text-blue-800 font-medium hover:text-blue-900">
                 查看配置文档
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="ml-1 h-4 w-4">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
                 </svg>
-              </a>
+              </Link>
             </div>
           </div>
         </div>
@@ -320,25 +321,25 @@ for (let i = 0; i < items.length; i++) {
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="mr-2 h-5 w-5 text-blue-500">
               <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
             </svg>
-            <a href="/docs/getting-started/quick-start" className="text-blue-600 hover:underline">
+            <Link href="/docs/getting-started/quick-start" className="text-blue-600 hover:underline">
               快速入门指南
-            </a>
+            </Link>
           </li>
           <li className="flex items-center">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="mr-2 h-5 w-5 text-blue-500">
               <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
             </svg>
-            <a href="/docs/features/code-completion" className="text-blue-600 hover:underline">
+            <Link href="/docs/features/code-completion" className="text-blue-600 hover:underline">
               AI代码补全功能
-            </a>
+            </Link>
           </li>
           <li className="flex items-center">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="mr-2 h-5 w-5 text-blue-500">
               <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
             </svg>
-            <a href="/docs/advanced/configuration" className="text-blue-600 hover:underline">
+            <Link href="/docs/advanced/configuration" className="text-blue-600 hover:underline">
               IDE配置与自定义
-            </a>
+            </Link>
           </li>
         </ul>
       </div>

@@ -1,9 +1,10 @@
 import { Metadata } from 'next';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsItem, TabsList } from "@/components/ui/tabs";
-import { Alert, AlertTitle, AlertDescription } from "@/components/ui/alert";
+import { Alert, AlertTitle } from "@/components/ui/alert";
 import { Code, ArrowUpRight, LayoutGrid, Command, Zap, RefreshCcw, GitCommit, Layers, ArrowRightLeft, Search, CheckCircle2, Settings, BookOpen, Users } from 'lucide-react';
 import { AppConfig } from '@/lib/config';
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: '代码重构 | {AppConfig.APP_NAME}文档',
@@ -195,7 +196,7 @@ export default function RefactoringPage() {
               通过AI聊天重构
             </h3>
             <p className="text-gray-600">
-              打开AI聊天界面（<code className="bg-gray-100 px-1.5 py-0.5 rounded text-sm">Cmd/Ctrl + L</code>），描述您想要进行的重构，如"将这个函数拆分为更小的函数"或"优化这段代码的性能"。AI将分析代码并提供重构建议。
+              打开AI聊天界面（<code className="bg-gray-100 px-1.5 py-0.5 rounded text-sm">Cmd/Ctrl + L</code>），描述您想要进行的重构，如&quot;将这个函数拆分为更小的函数&quot;或&quot;优化这段代码的性能&quot;。AI将分析代码并提供重构建议。
             </p>
           </div>
           
@@ -411,21 +412,21 @@ function calculateDiscount(total) {
           </p>
           <div className="grid gap-4 md:grid-cols-3">
             <div className="bg-blue-50 p-4 rounded-lg border border-blue-100">
-              <a href="/docs/features/code-generation" className="text-blue-600 font-medium hover:underline flex items-center gap-2">
+              <Link href="/docs/features/code-generation" className="text-blue-600 font-medium hover:underline flex items-center gap-2">
                 <Code className="h-4 w-4" />代码生成
-              </a>
+              </Link>
               <p className="text-sm mt-1 text-gray-700">重构后生成更高质量的新代码</p>
             </div>
             <div className="bg-blue-50 p-4 rounded-lg border border-blue-100">
-              <a href="/docs/features/code-explanation" className="text-blue-600 font-medium hover:underline flex items-center gap-2">
+              <Link href="/docs/features/code-explanation" className="text-blue-600 font-medium hover:underline flex items-center gap-2">
                 <BookOpen className="h-4 w-4" />代码解释
-              </a>
+              </Link>
               <p className="text-sm mt-1 text-gray-700">在重构前深入理解代码逻辑</p>
             </div>
             <div className="bg-blue-50 p-4 rounded-lg border border-blue-100">
-              <a href="/docs/features/collaboration" className="text-blue-600 font-medium hover:underline flex items-center gap-2">
+              <Link href="/docs/features/collaboration" className="text-blue-600 font-medium hover:underline flex items-center gap-2">
                 <Users className="h-4 w-4" />协作功能
-              </a>
+              </Link>
               <p className="text-sm mt-1 text-gray-700">在团队中共享和讨论重构方案</p>
             </div>
           </div>
@@ -490,12 +491,12 @@ function calculateDiscount(total) {
           使用AI辅助重构，让您的代码更清晰、更高效、更易于维护。
         </p>
         <div className="mt-6 flex flex-wrap gap-4">
-          <a href="/docs/getting-started/quick-start" className="rounded-md bg-white px-4 py-2 font-medium text-blue-700 hover:bg-blue-50">
+          <Link href="/docs/getting-started/quick-start" className="rounded-md bg-white px-4 py-2 font-medium text-blue-700 hover:bg-blue-50">
             开始使用
-          </a>
-          <a href="/docs/features/code-explanation" className="rounded-md border border-white px-4 py-2 font-medium text-white hover:bg-blue-600">
+          </Link>
+          <Link href="/docs/features/code-explanation" className="rounded-md border border-white px-4 py-2 font-medium text-white hover:bg-blue-600">
             探索代码解释功能
-          </a>
+          </Link>
         </div>
       </div>
     </div>

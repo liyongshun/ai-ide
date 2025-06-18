@@ -1,12 +1,9 @@
 import { Metadata } from 'next'
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Alert, AlertTitle, AlertDescription } from "@/components/ui/alert";
-import { 
-  Code, Terminal, FileCode, Package, Layers, Zap, 
-  CheckCircle2, Settings, Server, GitBranch, Database,
-  UploadCloud, BookOpen, Command
-} from 'lucide-react';
+import { Code, Terminal, FileCode, Layers, Zap, CheckCircle2, Settings, Server, UploadCloud, BookOpen, Command } from 'lucide-react';
 import { AppConfig } from '@/lib/config';
+import Link from 'next/link';
 
 export const metadata: Metadata = {
   title: `插件开发 API - ${AppConfig.APP_NAME} 文档`,
@@ -111,6 +108,7 @@ export default function PluginDevelopmentPage() {
             <pre className="text-sm">
 {`// plugin.ts
 import * as cursor from '@cursor/plugin-api';
+import Link from "next/link";
 
 export function activate(context: cursor.ExtensionContext) {
   // 注册命令
@@ -268,12 +266,12 @@ export function activate(context: cursor.ExtensionContext) {
           利用{AppConfig.APP_NAME}强大的API，创建扩展IDE功能的插件，分享给全球开发者。
         </p>
         <div className="mt-6 flex flex-wrap gap-4">
-          <a href="/docs/integrations/plugin-system" className="rounded-md bg-white px-4 py-2 font-medium text-blue-700 hover:bg-blue-50">
+          <Link href="/docs/integrations/plugin-system" className="rounded-md bg-white px-4 py-2 font-medium text-blue-700 hover:bg-blue-50">
             了解插件系统
-          </a>
-          <a href="/docs/api/theme-customization" className="rounded-md border border-white px-4 py-2 font-medium text-white hover:bg-blue-600">
+          </Link>
+          <Link href="/docs/api/theme-customization" className="rounded-md border border-white px-4 py-2 font-medium text-white hover:bg-blue-600">
             探索主题定制
-          </a>
+          </Link>
         </div>
       </div>
     </div>

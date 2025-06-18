@@ -1,10 +1,11 @@
 import { Metadata } from 'next';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Alert, AlertTitle, AlertDescription } from "@/components/ui/alert";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Alert, AlertTitle } from "@/components/ui/alert";
 import { AppConfig } from '@/lib/config';
+import Link from "next/link";
 import { 
   LayoutGrid, Zap, Terminal, CheckCircle2, Database, Cloud, 
-  Server, FileCode, Link, Settings, Lock, Package, 
+  Server, FileCode, Link as LinkIcon, Settings, Lock, Package, 
   GitMerge, BarChart2, Search, Shield
 } from 'lucide-react';
 
@@ -215,7 +216,7 @@ export default function ThirdPartyPage() {
                 <h3 className="font-medium">自然语言控制</h3>
               </div>
               <p className="text-sm text-gray-700">
-                通过自然语言指令控制第三方工具，例如"部署当前应用到测试环境"、"运行影响此文件的所有测试"或"显示生产环境中的错误日志"。
+                通过自然语言指令控制第三方工具，例如&quot;部署当前应用到测试环境&quot;、&quot;运行影响此文件的所有测试&quot;或&quot;显示生产环境中的错误日志&quot;。
               </p>
             </div>
           </div>
@@ -253,7 +254,7 @@ export default function ThirdPartyPage() {
             
             <div className="p-4 bg-blue-50 rounded-lg border border-blue-100">
               <div className="flex items-center gap-2 mb-2">
-                <Link className="h-5 w-5 text-blue-600" />
+                <LinkIcon className="h-5 w-5 text-blue-600" />
                 <h3 className="font-medium">自定义集成</h3>
               </div>
               <p className="text-sm text-gray-700">
@@ -321,21 +322,21 @@ export default function ThirdPartyPage() {
             <div className="p-4 border border-gray-200 rounded-lg">
               <h3 className="font-medium text-gray-900 mb-2">如何解决集成授权问题？</h3>
               <p className="text-sm text-gray-700">
-                大多数第三方集成需要授权访问。在IDE的设置面板中，导航至"集成 {'>'}  凭证管理"，按照向导完成OAuth授权或添加API密钥。对于企业环境，可以联系管理员配置SSO或团队级别的授权。
+                大多数第三方集成需要授权访问。在IDE的设置面板中，导航至&quot;集成 {'>'}  凭证管理&quot;，按照向导完成OAuth授权或添加API密钥。对于企业环境，可以联系管理员配置SSO或团队级别的授权。
               </p>
             </div>
             
             <div className="p-4 border border-gray-200 rounded-lg">
               <h3 className="font-medium text-gray-900 mb-2">如何自定义集成行为？</h3>
               <p className="text-sm text-gray-700">
-                每个集成插件都提供配置选项，可以在"设置 {'>'} 集成"中进行调整。对于高级自定义，可以编辑工作区或用户配置文件中的集成部分，或使用集成提供的API创建自定义脚本。
+                每个集成插件都提供配置选项，可以在&quot;设置 {'>'} 集成&quot;中进行调整。对于高级自定义，可以编辑工作区或用户配置文件中的集成部分，或使用集成提供的API创建自定义脚本。
               </p>
             </div>
             
             <div className="p-4 border border-gray-200 rounded-lg">
               <h3 className="font-medium text-gray-900 mb-2">集成是否支持离线工作？</h3>
               <p className="text-sm text-gray-700">
-                部分集成支持离线模式，会在连接可用时同步数据。在设置中启用"离线支持"选项，IDE会缓存必要数据以支持离线工作。但某些功能（如云部署）在离线状态下不可用。
+                部分集成支持离线模式，会在连接可用时同步数据。在设置中启用&quot;离线支持&quot;选项，IDE会缓存必要数据以支持离线工作。但某些功能（如云部署）在离线状态下不可用。
               </p>
             </div>
           </div>
@@ -393,12 +394,12 @@ export default function ThirdPartyPage() {
           探索我们丰富的插件生态系统，或联系支持团队获取定制集成解决方案。
         </p>
         <div className="mt-6 flex flex-wrap gap-4">
-          <a href="/docs/integrations/plugin-system" className="rounded-md bg-white px-4 py-2 font-medium text-blue-700 hover:bg-blue-50">
+          <Link href="/docs/integrations/plugin-system" className="rounded-md bg-white px-4 py-2 font-medium text-blue-700 hover:bg-blue-50">
             查看插件系统文档
-          </a>
-          <a href="/docs/api/integration" className="rounded-md border border-white px-4 py-2 font-medium text-white hover:bg-blue-600">
+          </Link>
+          <Link href="/docs/api/integration" className="rounded-md border border-white px-4 py-2 font-medium text-white hover:bg-blue-600">
             了解集成API
-          </a>
+          </Link>
         </div>
       </div>
     </div>

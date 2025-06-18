@@ -1,5 +1,6 @@
 import { Metadata } from 'next';
 import { AppConfig } from '@/lib/config';
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: `快速开始 | ${AppConfig.APP_NAME}文档`,
@@ -41,9 +42,9 @@ export default function QuickStartPage() {
             在欢迎页面上，您可以选择创建新项目或打开现有项目。
           </p>
           <ul className="mt-4 list-disc pl-5 space-y-2 text-gray-600">
-            <li>创建新项目：点击"新建项目"，选择项目类型和模板，然后指定项目名称和位置。</li>
-            <li>打开现有项目：点击"打开项目"，然后浏览到项目文件夹。</li>
-            <li>从版本控制克隆：点击"从Git克隆"，输入仓库URL。</li>
+            <li>创建新项目：点击&quot;新建项目&quot;，选择项目类型和模板，然后指定项目名称和位置。</li>
+            <li>打开现有项目：点击&quot;打开项目&quot;，然后浏览到项目文件夹。</li>
+            <li>从版本控制克隆：点击&quot;从Git克隆&quot;，输入仓库URL。</li>
           </ul>
         </div>
 
@@ -82,7 +83,7 @@ export default function QuickStartPage() {
               <div>
                 <h3 className="text-base font-medium text-gray-900">代码解释</h3>
                 <p className="mt-1 text-sm text-gray-600">
-                  选择一段代码，右键单击并选择"解释代码"选项，AI将提供详细的代码解释。
+                  选择一段代码，右键单击并选择&quot;解释代码&quot;选项，AI将提供详细的代码解释。
                 </p>
               </div>
             </li>
@@ -95,8 +96,8 @@ export default function QuickStartPage() {
             您可以根据自己的喜好自定义AI功能：
           </p>
           <ol className="mt-4 list-decimal pl-5 space-y-2 text-gray-600">
-            <li>打开设置面板（<kbd className="px-1 py-0.5 text-xs rounded border border-gray-300 bg-gray-50">Ctrl</kbd>+<kbd className="px-1 py-0.5 text-xs rounded border border-gray-300 bg-gray-50">,</kbd>或从菜单栏选择"文件 &gt; 设置"）</li>
-            <li>在左侧导航中找到"AI助手"选项</li>
+            <li>打开设置面板（<kbd className="px-1 py-0.5 text-xs rounded border border-gray-300 bg-gray-50">Ctrl</kbd>+<kbd className="px-1 py-0.5 text-xs rounded border border-gray-300 bg-gray-50">,</kbd>或从菜单栏选择&quot;文件 &gt; 设置&quot;）</li>
+            <li>在左侧导航中找到&quot;AI助手&quot;选项</li>
             <li>在此处您可以调整AI模型、补全行为、提示快捷键等</li>
           </ol>
 
@@ -108,7 +109,7 @@ export default function QuickStartPage() {
               <div className="ml-3">
                 <h3 className="text-sm font-medium text-blue-800">下一步</h3>
                 <p className="mt-2 text-sm text-blue-700">
-                  现在您已经了解了基本使用方法，建议继续浏览<a href="/docs/features" className="font-medium underline">核心功能</a>文档，深入了解{AppConfig.APP_NAME}的强大功能。
+                  现在您已经了解了基本使用方法，建议继续浏览<Link href="/docs/features" className="font-medium underline">核心功能</Link>文档，深入了解{AppConfig.APP_NAME}的强大功能。
                 </p>
               </div>
             </div>

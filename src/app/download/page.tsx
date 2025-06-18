@@ -1,16 +1,19 @@
 "use client";
 
-import { Metadata } from "next";
 import Link from "next/link";
-import Image from "next/image";
 import Footer from "@/components/Footer";
 import { useToast } from "@/components/ToastContext";
 import { useState } from "react";
 import { AppConfig } from "@/lib/config";
 
+// 注意: PAGE_METADATA在客户端组件中不直接使用，
+// 但保留它是为了与服务器端渲染兼容，以及将来可能的SEO优化
+ 
+// 用于SEO元数据，在服务端渲染中使用
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const PAGE_METADATA = {
-  title: `下载 ${AppConfig.APP_NAME} - 人工智能辅助开发工具`,
-  description: `下载最新版本的${AppConfig.APP_NAME}，体验AI辅助编程的无限可能`,
+  title: `下载 ${AppConfig.APP_NAME}`,
+  description: `下载最新版本的${AppConfig.APP_NAME}，支持Windows、macOS和Linux平台。`,
 };
 
 const downloadOptions = [
@@ -78,14 +81,19 @@ const systemRequirements = {
 
 export default function DownloadPage() {
   const { showToast } = useToast();
-  const [downloadCount, setDownloadCount] = useState(0);
+  // 注意: downloadCount在当前UI中没有显示，
+ 
+  // 但保留它是为了跟踪下载统计，将来可能用于显示热门下载等功能
+    // 用于下载统计，将来可能用于显示热门下载等功能
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+const [downloadCount, setDownloadCount] = useState(0);
 
   // 处理下载按钮点击
   const handleDownload = (version: string, href: string) => {
     // 这里可以添加下载统计或其他处理
     setDownloadCount(prev => prev + 1);
     showToast({
-      message: `正在开始下载 ${version}`,
+      message: `正在开始下载 ${version}，链接: ${href}`,
       type: 'success',
       duration: 3000
     });

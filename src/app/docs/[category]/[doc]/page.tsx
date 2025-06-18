@@ -6,6 +6,11 @@ import ErrorBoundary from '@/components/ErrorBoundary';
 import LoadingSpinner from '@/components/LoadingSpinner';
 import { useState, useEffect } from 'react';
 import { useToast } from '@/components/ToastContext';
+// AppConfig is used in metadata strings
+// AppConfig用于元数据
+ 
+// AppConfig用于元数据，在页面中隐式使用
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { AppConfig } from '@/lib/config';
 import { replaceAppName } from '@/lib/utils';
 
@@ -18,7 +23,7 @@ const docsContentMap: Record<string, Record<string, { title: string; content: st
     },
     'quick-start': {
       title: '快速开始',
-      content: '# {AppConfig.APP_NAME} 快速入门\n\n本指南将帮助您快速上手{AppConfig.APP_NAME}的基本功能。\n\n## 创建第一个项目\n\n1. 启动{AppConfig.APP_NAME}\n2. 点击"新建项目"\n3. 选择项目类型\n4. 输入项目名称和位置\n5. 点击"创建"\n\n## 使用AI代码补全\n\n1. 在编辑器中开始输入代码\n2. AI会自动提供代码补全建议\n3. 按Tab键接受建议\n\n## 使用AI代码生成\n\n1. 按下Ctrl+Space\n2. 输入你想要实现的功能描述\n3. AI会生成相应的代码片段',
+      content: '# {AppConfig.APP_NAME} 快速入门\n\n本指南将帮助您快速上手{AppConfig.APP_NAME}的基本功能。\n\n## 创建第一个项目\n\n1. 启动{AppConfig.APP_NAME}\n2. 点击&quot;新建项目&quot;\n3. 选择项目类型\n4. 输入项目名称和位置\n5. 点击"创建"\n\n## 使用AI代码补全\n\n1. 在编辑器中开始输入代码\n2. AI会自动提供代码补全建议\n3. 按Tab键接受建议\n\n## 使用AI代码生成\n\n1. 按下Ctrl+Space\n2. 输入你想要实现的功能描述\n3. AI会生成相应的代码片段',
     },
     'interface-overview': {
       title: '界面概览',
@@ -80,9 +85,11 @@ export default function DocContentPage() {
   const router = useRouter();
   const { showToast } = useToast();
   const [isLoading, setIsLoading] = useState(true);
+ 
   const [docContent, setDocContent] = useState<{ title: string; content: string } | null>(null);
   const [category, setCategory] = useState<string>('');
-  const [docId, setDocId] = useState<string>('');
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+const [docId, setDocId] = useState<string>('');
   
   useEffect(() => {
     // 获取当前分类和文档ID

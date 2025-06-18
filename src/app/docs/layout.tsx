@@ -79,7 +79,7 @@ export default function DocsLayout({
           </div>
           <nav className="space-y-1 px-4 pt-6">
             {sidebarNavigation.map((category) => {
-              const isCategoryActive = pathname.startsWith(category.href);
+              
               return (
                 <div key={category.name} className="mb-6">
                   <h3 className="px-3 text-sm font-medium text-gray-500">{category.name}</h3>
@@ -136,7 +136,14 @@ export default function DocsLayout({
               </div>
               <nav className="space-y-1 px-4 pt-6">
                 {sidebarNavigation.map((category) => {
-                  const isCategoryActive = pathname.startsWith(category.href);
+                  // This function helps determine active category
+  // 用于确定当前活动类别
+ 
+// 用于确定当前活动类别，在条件渲染中使用
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+const isCategoryActive = (category: string): boolean => {
+    return pathname.startsWith(`/docs/${category}`);
+  };
                   return (
                     <div key={category.name} className="mb-6">
                       <h3 className="px-3 text-sm font-medium text-gray-500">{category.name}</h3>

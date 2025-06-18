@@ -1,8 +1,8 @@
 import { Metadata } from "next";
-import Image from "next/image";
 import Footer from "@/components/Footer";
 import { AppConfig } from "@/lib/config";
-import { replaceAppName } from "@/lib/utils";
+import Link from "next/link";
+;
 
 export const metadata: Metadata = {
   title: `关于我们 | ${AppConfig.APP_NAME}`,
@@ -113,7 +113,7 @@ export default function AboutPage() {
               <div className="relative">
                 <blockquote className="text-xl italic font-semibold text-gray-900">
                   <p>
-                    "我们相信人工智能不是为了取代开发者，而是为了增强他们的能力，让他们能够专注于更有价值、更具创造性的工作。"
+                    &quot;我们相信人工智能不是为了取代开发者，而是为了增强他们的能力，让他们能够专注于更有价值、更具创造性的工作。&quot;
                   </p>
                 </blockquote>
                 <div className="mt-4 text-gray-600">
@@ -136,15 +136,15 @@ export default function AboutPage() {
               </p>
             </div>
             <div className="mt-10 flex items-center gap-x-6 lg:mt-0 lg:flex-shrink-0">
-              <a
+              <Link
                 href="/careers"
                 className="rounded-md bg-white px-3.5 py-2.5 text-sm font-semibold text-blue-600 shadow-sm hover:bg-blue-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
               >
                 查看职位
-              </a>
-              <a href="/contact" className="text-sm font-semibold leading-6 text-white">
+              </Link>
+              <Link href="/contact" className="text-sm font-semibold leading-6 text-white">
                 联系我们 <span aria-hidden="true">→</span>
-              </a>
+              </Link>
             </div>
           </div>
         </div>
