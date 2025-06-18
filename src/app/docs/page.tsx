@@ -20,6 +20,7 @@ type SearchResult = {
   path: string;
   description: string;
   category: string;
+  keywords?: string; // 可选的关键词字段，用于增强搜索
 };
 
 const docCategories = [
@@ -141,6 +142,37 @@ const searchableContent: SearchResult[] = [
     description: '让AI帮助您理解复杂的代码逻辑和实现',
     category: '核心功能',
   },
+  {
+    title: '智能重构',
+    path: '/docs/features/refactoring',
+    description: '使用AI辅助进行代码重构，改善代码质量和可维护性',
+    category: '核心功能',
+  },
+  {
+    title: '实时协作',
+    path: '/docs/features/collaboration',
+    description: '与团队成员实时协作编写和审查代码',
+    category: '核心功能',
+  },
+  // 集成与扩展
+  {
+    title: '插件系统',
+    path: '/docs/integrations/plugin-system',
+    description: `通过插件系统扩展${AppConfig.APP_NAME}的功能`,
+    category: '集成与扩展',
+  },
+  {
+    title: '版本控制',
+    path: '/docs/integrations/version-control',
+    description: '与Git等版本控制系统集成',
+    category: '集成与扩展',
+  },
+  {
+    title: '第三方工具集成',
+    path: '/docs/integrations/third-party',
+    description: '与其他开发工具和服务的集成方法',
+    category: '集成与扩展',
+  },
   // API参考
   {
     title: 'AI服务API',
@@ -154,220 +186,297 @@ const searchableContent: SearchResult[] = [
     description: `开发${AppConfig.APP_NAME}插件的API参考指南`,
     category: 'API参考',
   },
+  {
+    title: '主题定制API',
+    path: '/docs/api/theme-customization',
+    description: '自定义IDE主题和外观的API参考',
+    category: 'API参考',
+  },
+  // 进阶使用
+  {
+    title: '配置文件',
+    path: '/docs/advanced/configuration',
+    description: `${AppConfig.APP_NAME}的高级配置选项和定制方法`,
+    category: '进阶使用',
+  },
+  {
+    title: '性能优化',
+    path: '/docs/advanced/performance',
+    description: '优化IDE性能的方法和建议',
+    category: '进阶使用',
+  },
+  {
+    title: '自定义AI模型',
+    path: '/docs/advanced/custom-models',
+    description: '如何配置和使用自定义AI模型',
+    category: '进阶使用',
+  },
+  // 安装详情
+  {
+    title: 'Windows安装',
+    path: '/docs/getting-started/installation',
+    description: '在Windows系统上安装和配置软件',
+    category: '安装指南',
+    keywords: 'windows 安装 exe winget 下载',
+  },
+  {
+    title: 'macOS安装',
+    path: '/docs/getting-started/installation',
+    description: '在macOS系统上安装和配置软件',
+    category: '安装指南',
+    keywords: 'mac macOS dmg brew homebrew 下载',
+  },
+  {
+    title: 'Linux安装',
+    path: '/docs/getting-started/installation',
+    description: '在Linux系统上安装和配置软件',
+    category: '安装指南',
+    keywords: 'linux ubuntu debian fedora rpm deb appimage 下载',
+  },
+  // 系统要求
+  {
+    title: '系统要求',
+    path: '/docs/getting-started/installation',
+    description: '运行软件的最低和推荐系统配置要求',
+    category: '安装指南',
+    keywords: '处理器 内存 存储 配置 要求',
+  },
+  // 常见问题
+  {
+    title: '启动失败问题',
+    path: '/docs/getting-started/installation',
+    description: '解决软件启动失败的常见问题',
+    category: '问题解决',
+    keywords: '启动 失败 错误 日志',
+  },
+  {
+    title: 'AI功能不可用',
+    path: '/docs/getting-started/installation',
+    description: 'AI功能无法使用的问题排查',
+    category: '问题解决',
+    keywords: 'AI 功能 失效 网络 错误',
+  }
 ];
 
 export default function DocsPage() {
   const router = useRouter();
-  const [searchQuery, setSearchQuery] = useState('');
-  const [debouncedQuery, setDebouncedQuery] = useState('');
   const [searchResults, setSearchResults] = useState<SearchResult[]>([]);
   const [isSearching, setIsSearching] = useState(false);
-  const searchInputRef = useRef<HTMLInputElement>(null);
-
-  // 执行搜索逻辑 - 移除对searchableContent的依赖
+  const [showResults, setShowResults] = useState(false);
+  const [hasInput, setHasInput] = useState(false); // 跟踪是否有输入内容
+  
+  // 使用refs存储实际值，避免不必要的重渲染
+  const inputRef = useRef<HTMLInputElement>(null);
+  const searchQueryRef = useRef<string>('');
+  
+  // 执行搜索逻辑
   const performSearch = useCallback((query: string) => {
-    if (!query.trim()) {
+    const trimmedQuery = query.trim();
+    if (!trimmedQuery) {
       setSearchResults([]);
+      setShowResults(false);
       return;
     }
 
     setIsSearching(true);
+    setShowResults(true);
+    searchQueryRef.current = trimmedQuery;
     
     // 模拟异步搜索，实际项目中可能是API调用
     setTimeout(() => {
-      const normalizedQuery = query.toLowerCase().trim();
+      const normalizedQuery = trimmedQuery.toLowerCase();
       const results = searchableContent.filter(
         item =>
           item.title.toLowerCase().includes(normalizedQuery) ||
           item.description.toLowerCase().includes(normalizedQuery) ||
-          item.category.toLowerCase().includes(normalizedQuery)
+          item.category.toLowerCase().includes(normalizedQuery) ||
+          (item.keywords && item.keywords.toLowerCase().includes(normalizedQuery))
       );
       
       setSearchResults(results);
       setIsSearching(false);
     }, 100);
-  }, []); // 移除searchableContent依赖
+  }, []);
 
-  // 处理搜索框输入变化
-  const handleSearchInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const value = e.target.value;
-    setSearchQuery(value);
+  // 处理搜索提交
+  const handleSearchSubmit = useCallback(() => {
+    if (!inputRef.current) return;
+    const value = inputRef.current.value;
+    performSearch(value);
+  }, [performSearch]);
+
+  // 处理输入变化
+  const handleInputChange = () => {
+    if (inputRef.current) {
+      setHasInput(!!inputRef.current.value);
+    }
   };
 
-  // 处理搜索框按下回车
-  const handleSearchKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+  // 处理键盘事件
+  const handleInputKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === 'Enter') {
-      performSearch(searchQuery);
+      e.preventDefault();
+      handleSearchSubmit();
     }
   };
 
   // 清除搜索
   const clearSearch = () => {
-    setSearchQuery('');
-    setDebouncedQuery('');
-    setSearchResults([]);
-    if (searchInputRef.current) {
-      searchInputRef.current.focus();
+    if (inputRef.current) {
+      inputRef.current.value = '';
+      inputRef.current.focus();
+      setHasInput(false);
     }
+    searchQueryRef.current = '';
+    setSearchResults([]);
+    setShowResults(false);
   };
-
-  // 使用防抖处理搜索查询
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setDebouncedQuery(searchQuery);
-    }, 300);
-
-    return () => clearTimeout(timer);
-  }, [searchQuery]);
-
-  // 当防抖查询变化时执行搜索
-  useEffect(() => {
-    performSearch(debouncedQuery);
-  }, [debouncedQuery, performSearch]);
-
-  const DocsContent = () => (
-    <div>
-      <div className="mb-12">
-        <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">
-          文档中心
-        </h1>
-        <p className="mt-6 text-lg leading-8 text-gray-600">
-          欢迎来到{AppConfig.APP_NAME}文档中心。在这里，你可以找到关于{AppConfig.APP_NAME}的安装指南、功能介绍、API参考以及进阶使用技巧。无论你是初次使用还是有经验的开发者，这里都能找到帮助你充分利用{AppConfig.APP_NAME}的信息。
-        </p>
-      </div>
-      
-      {/* 搜索框 */}
-      <div className="mb-12">
-        <div className="relative">
-          <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
-            <svg className="h-5 w-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-              <path fillRule="evenodd" d="M9 3.5a5.5 5.5 0 100 11 5.5 5.5 0 000-11zM2 9a7 7 0 1112.452 4.391l3.328 3.329a.75.75 0 11-1.06 1.06l-3.329-3.328A7 7 0 012 9z" clipRule="evenodd" />
-            </svg>
-          </div>
-          <input
-            ref={searchInputRef}
-            type="text"
-            className="block w-full rounded-lg border border-gray-300 bg-white py-2 pl-10 pr-10 text-gray-900 focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
-            placeholder="搜索文档..."
-            value={searchQuery}
-            onChange={handleSearchInputChange}
-            onKeyDown={handleSearchKeyDown}
-          />
-          {searchQuery && (
-            <button 
-              className="absolute inset-y-0 right-0 flex items-center pr-3 text-gray-400 hover:text-gray-600"
-              onClick={clearSearch}
-            >
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
-              </svg>
-            </button>
-          )}
-        </div>
-      </div>
-
-      {/* 搜索结果 */}
-      {searchQuery && (
-        <div className="mb-12">
-          <div className="flex justify-between items-center mb-4">
-            <h2 className="text-xl font-semibold">搜索结果</h2>
-            <p className="text-sm text-gray-500">
-              {isSearching ? '搜索中...' : `找到 ${searchResults.length} 个结果`}
-            </p>
-          </div>
-          
-          {isSearching ? (
-            <LoadingSpinner text="正在搜索..." />
-          ) : searchResults.length > 0 ? (
-            <div className="space-y-4">
-              {searchResults.map((result) => (
-                <div key={result.path} className="bg-white p-4 rounded-lg border border-gray-200 hover:border-blue-300 hover:shadow-md transition-all">
-                  <Link href={result.path} className="block">
-                    <h3 className="text-lg font-semibold text-blue-600">{result.title}</h3>
-                    <p className="text-sm text-gray-500 mb-1">分类：{result.category}</p>
-                    <p className="text-gray-600">{result.description}</p>
-                  </Link>
-                </div>
-              ))}
-            </div>
-          ) : (
-            <div className="text-center py-8 bg-gray-50 rounded-lg border border-gray-200">
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-12 h-12 mx-auto text-gray-400 mb-3">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M15.182 16.318A4.486 4.486 0 0012.016 15a4.486 4.486 0 00-3.198 1.318M21 12a9 9 0 11-18 0 9 9 0 0118 0zM9.75 9.75c0 .414-.168.75-.375.75S9 10.164 9 9.75 9.168 9 9.375 9s.375.336.375.75zm-.375 0h.008v.015h-.008V9.75zm5.625 0c0 .414-.168.75-.375.75s-.375-.336-.375-.75.168-.75.375-.75.375.336.375.75zm-.375 0h.008v.015h-.008V9.75z" />
-              </svg>
-              <p className="text-gray-600 font-medium">没有找到与 "{searchQuery}" 相关的文档</p>
-              <p className="text-gray-500 text-sm mt-2">尝试使用不同的关键词，或浏览下方的文档分类</p>
-            </div>
-          )}
-        </div>
-      )}
-
-      {/* 当没有搜索时显示文档分类 */}
-      {!searchQuery && (
-        <div className="grid grid-cols-1 gap-y-12 gap-x-6 sm:grid-cols-2 lg:grid-cols-3">
-          {docCategories.map((category) => (
-            <div key={category.name} className="group relative">
-              <div className="inline-flex rounded-lg bg-blue-50 p-3 text-blue-700">
-                {category.icon}
-              </div>
-              <h3 className="mt-4 text-lg font-semibold leading-8 tracking-tight text-gray-900">
-                <Link href={category.href} className="hover:text-blue-600">
-                  {category.name}
-                </Link>
-              </h3>
-              <p className="mt-2 text-sm text-gray-600">
-                {category.description}
-              </p>
-              <ul className="mt-3 space-y-1">
-                {category.links.map((link) => (
-                  <li key={link.name}>
-                    <Link href={link.href} className="text-sm text-blue-600 hover:underline">
-                      {link.name}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-              <Link href={category.href} className="mt-4 block text-sm font-medium text-blue-600 hover:underline">
-                查看全部 →
-              </Link>
-            </div>
-          ))}
-        </div>
-      )}
-
-      {/* 帮助与支持 */}
-      <div className="mt-16 rounded-2xl bg-gray-50 p-8">
-        <h2 className="text-xl font-semibold text-gray-900">需要额外帮助？</h2>
-        <p className="mt-2 text-sm text-gray-600">
-          如果你在文档中没有找到需要的信息，或者遇到特殊问题，可以通过以下渠道获取支持。
-        </p>
-        <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2">
-          <div className="rounded-md bg-white p-4 shadow-sm">
-            <h3 className="text-base font-medium text-gray-900">社区论坛</h3>
-            <p className="mt-1 text-sm text-gray-600">
-              加入我们的社区论坛，与其他开发者交流问题和解决方案。
-            </p>
-            <Link href="/community" className="mt-3 inline-block text-sm font-medium text-blue-600 hover:underline">
-              访问论坛 →
-            </Link>
-          </div>
-          <div className="rounded-md bg-white p-4 shadow-sm">
-            <h3 className="text-base font-medium text-gray-900">技术支持</h3>
-            <p className="mt-1 text-sm text-gray-600">
-              联系我们的技术支持团队获取专业帮助。
-            </p>
-            <Link href="/support" className="mt-3 inline-block text-sm font-medium text-blue-600 hover:underline">
-              联系支持 →
-            </Link>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
 
   return (
     <ErrorBoundary>
-      <DocsContent />
+      <div>
+        <div className="mb-12">
+          <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">
+            文档中心
+          </h1>
+          <p className="mt-6 text-lg leading-8 text-gray-600">
+            欢迎来到{AppConfig.APP_NAME}文档中心。在这里，你可以找到关于{AppConfig.APP_NAME}的安装指南、功能介绍、API参考以及进阶使用技巧。无论你是初次使用还是有经验的开发者，这里都能找到帮助你充分利用{AppConfig.APP_NAME}的信息。
+          </p>
+        </div>
+        
+        {/* 搜索框 - 使用非受控方式 */}
+        <div className="mb-12">
+          <div className="relative flex">
+            <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
+              <svg className="h-5 w-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                <path fillRule="evenodd" d="M9 3.5a5.5 5.5 0 100 11 5.5 5.5 0 000-11zM2 9a7 7 0 1112.452 4.391l3.328 3.329a.75.75 0 11-1.06 1.06l-3.329-3.328A7 7 0 012 9z" clipRule="evenodd" />
+              </svg>
+            </div>
+            <input
+              ref={inputRef}
+              type="text"
+              className="block w-full rounded-l-lg border border-gray-300 bg-white py-2 pl-10 pr-3 text-gray-900 focus:border-blue-500 focus:outline-none focus:ring-blue-500 sm:text-sm"
+              placeholder="搜索文档..."
+              onKeyDown={handleInputKeyDown}
+              onChange={handleInputChange}
+              defaultValue=""
+            />
+            <button
+              onClick={handleSearchSubmit}
+              className="rounded-r-lg border border-l-0 border-gray-300 bg-gray-50 px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-100"
+            >
+              搜索
+            </button>
+            {hasInput && (
+              <button 
+                className="absolute inset-y-0 right-16 flex items-center pr-3 text-gray-400 hover:text-gray-600"
+                onClick={clearSearch}
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+            )}
+          </div>
+        </div>
+
+        {/* 搜索结果 */}
+        {showResults && (
+          <div className="mb-12">
+            <div className="flex justify-between items-center mb-4">
+              <h2 className="text-xl font-semibold">搜索结果</h2>
+              <p className="text-sm text-gray-500">
+                {isSearching ? '搜索中...' : `找到 ${searchResults.length} 个结果`}
+              </p>
+            </div>
+            
+            {isSearching ? (
+              <LoadingSpinner text="正在搜索..." />
+            ) : searchResults.length > 0 ? (
+              <div className="space-y-4">
+                {searchResults.map((result) => (
+                  <div key={result.path} className="bg-white p-4 rounded-lg border border-gray-200 hover:border-blue-300 hover:shadow-md transition-all">
+                    <Link href={result.path} className="block">
+                      <h3 className="text-lg font-semibold text-blue-600">{result.title}</h3>
+                      <p className="text-sm text-gray-500 mb-1">分类：{result.category}</p>
+                      <p className="text-gray-600">{result.description}</p>
+                    </Link>
+                  </div>
+                ))}
+              </div>
+            ) : (
+              <div className="text-center py-8 bg-gray-50 rounded-lg border border-gray-200">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-12 h-12 mx-auto text-gray-400 mb-3">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M15.182 16.318A4.486 4.486 0 0012.016 15a4.486 4.486 0 00-3.198 1.318M21 12a9 9 0 11-18 0 9 9 0 0118 0zM9.75 9.75c0 .414-.168.75-.375.75S9 10.164 9 9.75 9.168 9 9.375 9s.375.336.375.75zm-.375 0h.008v.015h-.008V9.75zm5.625 0c0 .414-.168.75-.375.75s-.375-.336-.375-.75.168-.75.375-.75.375.336.375.75zm-.375 0h.008v.015h-.008V9.75z" />
+                </svg>
+                <p className="text-gray-600 font-medium">没有找到与 "{searchQueryRef.current}" 相关的文档</p>
+                <p className="text-gray-500 text-sm mt-2">尝试使用不同的关键词，或浏览下方的文档分类</p>
+              </div>
+            )}
+          </div>
+        )}
+
+        {/* 当没有搜索时显示文档分类 */}
+        {!showResults && (
+          <div className="grid grid-cols-1 gap-y-12 gap-x-6 sm:grid-cols-2 lg:grid-cols-3">
+            {docCategories.map((category) => (
+              <div key={category.name} className="group relative">
+                <div className="inline-flex rounded-lg bg-blue-50 p-3 text-blue-700">
+                  {category.icon}
+                </div>
+                <h3 className="mt-4 text-lg font-semibold leading-8 tracking-tight text-gray-900">
+                  <Link href={category.href} className="hover:text-blue-600">
+                    {category.name}
+                  </Link>
+                </h3>
+                <p className="mt-2 text-sm text-gray-600">
+                  {category.description}
+                </p>
+                <ul className="mt-3 space-y-1">
+                  {category.links.map((link) => (
+                    <li key={link.name}>
+                      <Link href={link.href} className="text-sm text-blue-600 hover:underline">
+                        {link.name}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+                <Link href={category.href} className="mt-4 block text-sm font-medium text-blue-600 hover:underline">
+                  查看全部 →
+                </Link>
+              </div>
+            ))}
+          </div>
+        )}
+
+        {/* 帮助与支持 */}
+        <div className="mt-16 rounded-2xl bg-gray-50 p-8">
+          <h2 className="text-xl font-semibold text-gray-900">需要额外帮助？</h2>
+          <p className="mt-2 text-sm text-gray-600">
+            如果你在文档中没有找到需要的信息，或者遇到特殊问题，可以通过以下渠道获取支持。
+          </p>
+          <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2">
+            <div className="rounded-md bg-white p-4 shadow-sm">
+              <h3 className="text-base font-medium text-gray-900">社区论坛</h3>
+              <p className="mt-1 text-sm text-gray-600">
+                加入我们的社区论坛，与其他开发者交流问题和解决方案。
+              </p>
+              <Link href="/community" className="mt-3 inline-block text-sm font-medium text-blue-600 hover:underline">
+                访问论坛 →
+              </Link>
+            </div>
+            <div className="rounded-md bg-white p-4 shadow-sm">
+              <h3 className="text-base font-medium text-gray-900">技术支持</h3>
+              <p className="mt-1 text-sm text-gray-600">
+                联系我们的技术支持团队获取专业帮助。
+              </p>
+              <Link href="/support" className="mt-3 inline-block text-sm font-medium text-blue-600 hover:underline">
+                联系支持 →
+              </Link>
+            </div>
+          </div>
+        </div>
+      </div>
     </ErrorBoundary>
   );
 } 
