@@ -89,44 +89,27 @@ export default function InstallationPage() {
         </p>
         
         <div className="mt-6 space-y-6">
-          {/* Windows安装 */}
-          <div className="rounded-lg border border-gray-200 bg-white p-6">
-            <h3 className="text-lg font-medium text-gray-900">Windows系统</h3>
-            <ol className="mt-4 list-decimal pl-5 space-y-2 text-gray-600">
-              <li>从<a href="#" className="text-blue-600 hover:text-blue-800">官方网站</a>下载最新的Windows安装包（.exe文件）</li>
+          {/* Windows安装 - 置灰 */}
+          <div className="rounded-lg border border-gray-300 bg-gray-100 p-6 opacity-70">
+            <div className="flex items-center">
+              <h3 className="text-lg font-medium text-gray-500">Windows系统</h3>
+              <span className="ml-2 rounded-full bg-gray-300 px-2 py-0.5 text-xs font-medium text-gray-700">
+                暂不可用
+              </span>
+            </div>
+            <ol className="mt-4 list-decimal pl-5 space-y-2 text-gray-500">
+              <li>从<a href="#" className="text-gray-500 cursor-not-allowed">官方网站</a>下载最新的Windows安装包（.exe文件）</li>
               <li>运行下载的安装文件，根据安装向导进行操作</li>
               <li>在安装过程中选择您的首选设置和安装位置</li>
               <li>安装完成后，从开始菜单或桌面快捷方式启动{AppConfig.APP_NAME}</li>
             </ol>
-            <div className="mt-4 rounded-lg bg-gray-50 p-4">
+            <div className="mt-4 rounded-lg bg-gray-200 p-4">
               <div className="flex">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="h-5 w-5 text-blue-500">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="h-5 w-5 text-gray-500">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
-                <p className="ml-2 text-sm text-gray-700">
-                  <strong>提示：</strong> 您也可以使用Windows包管理器安装：<code className="bg-gray-100 px-1 py-0.5 rounded text-sm">winget install aiide</code>
-                </p>
-              </div>
-            </div>
-          </div>
-
-          {/* macOS安装 */}
-          <div className="rounded-lg border border-gray-200 bg-white p-6">
-            <h3 className="text-lg font-medium text-gray-900">macOS系统</h3>
-            <ol className="mt-4 list-decimal pl-5 space-y-2 text-gray-600">
-              <li>从<a href="#" className="text-blue-600 hover:text-blue-800">官方网站</a>下载最新的macOS安装包（.dmg文件）</li>
-              <li>打开下载的.dmg文件</li>
-              <li>将{AppConfig.APP_NAME}图标拖到Applications文件夹中</li>
-              <li>从启动器或应用程序文件夹打开{AppConfig.APP_NAME}</li>
-              <li>首次启动时，可能需要在系统偏好设置中允许来自已识别开发者的应用</li>
-            </ol>
-            <div className="mt-4 rounded-lg bg-gray-50 p-4">
-              <div className="flex">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="h-5 w-5 text-blue-500">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
-                <p className="ml-2 text-sm text-gray-700">
-                  <strong>提示：</strong> 您也可以使用Homebrew安装：<code className="bg-gray-100 px-1 py-0.5 rounded text-sm">brew install --cask aiide</code>
+                <p className="ml-2 text-sm text-gray-500">
+                  <strong>提示：</strong> 您也可以使用Windows包管理器安装：<code className="bg-gray-200 px-1 py-0.5 rounded text-sm">winget install aiide</code>
                 </p>
               </div>
             </div>

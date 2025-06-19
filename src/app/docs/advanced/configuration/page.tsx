@@ -100,9 +100,6 @@ export default function ConfigurationPage() {
                     Windows
                   </th>
                   <th scope="col" className="px-4 py-3 text-left text-xs font-medium uppercase tracking-wider text-gray-500">
-                    macOS
-                  </th>
-                  <th scope="col" className="px-4 py-3 text-left text-xs font-medium uppercase tracking-wider text-gray-500">
                     Linux
                   </th>
                 </tr>
@@ -116,9 +113,6 @@ export default function ConfigurationPage() {
                     %APPDATA%/ai-ide/config.json
                   </td>
                   <td className="px-4 py-4 text-sm text-gray-600">
-                    ~/Library/Application Support/ai-ide/config.json
-                  </td>
-                  <td className="px-4 py-4 text-sm text-gray-600">
                     ~/.config/ai-ide/config.json
                   </td>
                 </tr>
@@ -130,9 +124,6 @@ export default function ConfigurationPage() {
                     %APPDATA%/ai-ide/user-settings.json
                   </td>
                   <td className="px-4 py-4 text-sm text-gray-600">
-                    ~/Library/Application Support/ai-ide/user-settings.json
-                  </td>
-                  <td className="px-4 py-4 text-sm text-gray-600">
                     ~/.config/ai-ide/user-settings.json
                   </td>
                 </tr>
@@ -140,7 +131,7 @@ export default function ConfigurationPage() {
                   <td className="whitespace-nowrap px-4 py-4 text-sm font-medium text-gray-900">
                     项目配置
                   </td>
-                  <td className="px-4 py-4 text-sm text-gray-600" colSpan={3}>
+                  <td className="px-4 py-4 text-sm text-gray-600" colSpan={2}>
                     项目根目录/.ai-ide/config.json
                   </td>
                 </tr>
@@ -148,7 +139,7 @@ export default function ConfigurationPage() {
                   <td className="whitespace-nowrap px-4 py-4 text-sm font-medium text-gray-900">
                     工作区配置
                   </td>
-                  <td className="px-4 py-4 text-sm text-gray-600" colSpan={3}>
+                  <td className="px-4 py-4 text-sm text-gray-600" colSpan={2}>
                     项目根目录/.ai-ide/workspace.json
                   </td>
                 </tr>

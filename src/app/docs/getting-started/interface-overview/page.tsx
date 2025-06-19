@@ -58,7 +58,7 @@ export default function InterfaceOverviewPage() {
                 <path strokeLinecap="round" strokeLinejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 00-2.456 2.456zM16.894 20.567L16.5 21.75l-.394-1.183a2.25 2.25 0 00-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 001.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 001.423 1.423l1.183.394-1.183.394a2.25 2.25 0 00-1.423 1.423z" />
               </svg>
             </div>
-            <h3 className="text-lg font-medium text-gray-900">AI助手面板</h3>
+            <h3 className="text-lg font-medium text-gray-900">AI交互区域</h3>
             <p className="mt-2 text-gray-600">
               提供AI编程辅助功能，包括代码建议、自然语言聊天、相关API文档和代码生成。
             </p>
@@ -69,7 +69,7 @@ export default function InterfaceOverviewPage() {
                 <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 9.776c.112-.017.227-.026.344-.026h15.812c.117 0 .232.009.344.026m-16.5 0a2.25 2.25 0 00-1.883 2.542l.857 6a2.25 2.25 0 002.227 1.932H19.05a2.25 2.25 0 002.227-1.932l.857-6a2.25 2.25 0 00-1.883-2.542m-16.5 0V6A2.25 2.25 0 016 3.75h3.879a1.5 1.5 0 011.06.44l2.122 2.12a1.5 1.5 0 001.06.44H18A2.25 2.25 0 0120.25 9v.776" />
               </svg>
             </div>
-            <h3 className="text-lg font-medium text-gray-900">文件资源管理器</h3>
+            <h3 className="text-lg font-medium text-gray-900">工程管理区域</h3>
             <p className="mt-2 text-gray-600">
               浏览和管理项目文件，支持文件过滤、搜索和常见文件操作。
             </p>
@@ -132,7 +132,7 @@ export default function InterfaceOverviewPage() {
 
       {/* 详细功能介绍 - AI助手面板 */}
       <div className="mb-12">
-        <h2 className="text-2xl font-semibold text-gray-900">2. AI助手面板</h2>
+        <h2 className="text-2xl font-semibold text-gray-900">2. AI交互区域</h2>
         <p className="mt-2 text-base text-gray-600">
           位于右侧的AI助手面板是{AppConfig.APP_NAME}的独特功能，提供智能编程辅助：
         </p>
@@ -187,7 +187,7 @@ for (let i = 0; i < items.length; i++) {
 
       {/* 详细功能介绍 - 文件资源管理器 */}
       <div className="mb-12">
-        <h2 className="text-2xl font-semibold text-gray-900">3. 文件资源管理器</h2>
+        <h2 className="text-2xl font-semibold text-gray-900">3. 工程管理区域</h2>
         <p className="mt-2 text-base text-gray-600">
           位于左侧的文件资源管理器用于浏览和管理项目文件：
         </p>

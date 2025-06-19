@@ -7,20 +7,43 @@ import { AppConfig } from '@/lib/config';
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: '代码重构 | {AppConfig.APP_NAME}文档',
-  description: '{AppConfig.APP_NAME}智能代码重构功能文档，提高代码质量和可维护性。',
+  title: `AI代码重构 | ${AppConfig.APP_NAME}文档`,
+  description: `了解${AppConfig.APP_NAME}的智能代码重构功能，自动改进代码质量和结构。`,
 };
 
 export default function RefactoringPage() {
   return (
-    <div className="space-y-8">
+    <div className="space-y-8 opacity-70">
+      {/* 顶部横幅提示功能未上线 */}
+      <Alert className="border-yellow-300 bg-yellow-50">
+        <div className="flex items-center">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="h-5 w-5 text-yellow-700">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z" />
+          </svg>
+          <AlertTitle className="ml-2 text-yellow-800 text-lg font-semibold">
+            功能即将上线 - 智能重构功能目前还在开发中，敬请期待！
+          </AlertTitle>
+        </div>
+      </Alert>
+      
       <div className="mb-8">
-        <h1 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">代码重构</h1>
-        <p className="mt-4 text-lg leading-8 text-gray-600">
-          了解{AppConfig.APP_NAME}的智能代码重构功能，自动识别和优化代码结构，提高代码质量和可维护性。
+        <h1 className="text-3xl font-bold tracking-tight text-gray-500 sm:text-4xl">AI代码重构</h1>
+        <p className="mt-4 text-lg leading-8 text-gray-500">
+          {AppConfig.APP_NAME}的智能代码重构功能可以帮助您自动改进代码质量、优化结构，让您的代码更加简洁、高效和易于维护。
         </p>
       </div>
 
+      <Card className="border-gray-300">
+        <CardHeader>
+          <CardTitle className="text-xl text-gray-500">功能概述</CardTitle>
+        </CardHeader>
+        <CardContent>
+          <p className="text-gray-500">
+            AI代码重构利用先进的代码分析和机器学习技术，能够识别代码中的潜在问题和改进空间，并提供智能化的重构建议。它不仅可以发现并修复常见的代码气味和反模式，还能根据最佳实践对代码结构进行优化，提高代码的可读性、性能和可维护性。
+          </p>
+        </CardContent>
+      </Card>
+      
       <Card>
         <CardHeader>
           <CardTitle className="text-xl flex items-center gap-2">
@@ -485,18 +508,15 @@ function calculateDiscount(total) {
       </Card>
       
       {/* 底部行动号召 */}
-      <div className="mt-10 rounded-lg bg-gradient-to-r from-blue-500 to-blue-700 p-8 text-white shadow-lg">
-        <h2 className="text-2xl font-bold">提升您的代码质量</h2>
+      <div className="mt-10 rounded-lg bg-gray-200 p-8 text-gray-600 shadow-lg">
+        <h2 className="text-2xl font-bold text-gray-500">敬请期待</h2>
         <p className="mt-2 text-lg">
-          使用AI辅助重构，让您的代码更清晰、更高效、更易于维护。
+          我们正在努力开发智能重构功能，为您带来更加高效的代码优化体验。
         </p>
         <div className="mt-6 flex flex-wrap gap-4">
-          <Link href="/docs/getting-started/quick-start" className="rounded-md bg-white px-4 py-2 font-medium text-blue-700 hover:bg-blue-50">
-            开始使用
-          </Link>
-          <Link href="/docs/features/code-explanation" className="rounded-md border border-white px-4 py-2 font-medium text-white hover:bg-blue-600">
-            探索代码解释功能
-          </Link>
+          <button disabled className="rounded-md bg-gray-300 px-4 py-2 font-medium text-gray-500 cursor-not-allowed">
+            功能开发中
+          </button>
         </div>
       </div>
     </div>

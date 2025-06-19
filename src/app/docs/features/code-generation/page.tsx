@@ -4,7 +4,7 @@ import { Alert, AlertTitle } from "@/components/ui/alert";
 import { 
   Code, MessageSquare, Zap, BookOpen, FileCode, Terminal, 
   Settings, Package, ArrowRightLeft, CirclePlus, CheckCircle2, 
-  Layers, Lock, RefreshCcw, LayoutGrid
+  Layers, Lock, RefreshCcw, LayoutGrid, Bot
 } from 'lucide-react';
 import { AppConfig } from '@/lib/config';
 import Link from 'next/link';
@@ -60,7 +60,7 @@ export default function CodeGenerationPage() {
               <Code className="h-5 w-5 text-green-500 mt-0.5 flex-shrink-0" />
               <div>
                 <p className="font-medium">多语言支持</p>
-                <p className="text-sm text-gray-600">支持包括JavaScript、TypeScript、Python、Java、C#、Go等在内的多种编程语言</p>
+                <p className="text-sm text-gray-600">支持包括C、C++、Java、JavaScript、TypeScript、Python等在内的多种编程语言</p>
               </div>
             </div>
             
@@ -131,10 +131,20 @@ export default function CodeGenerationPage() {
           <div className="space-y-2">
             <h3 className="font-medium text-lg flex items-center gap-2">
               <Layers className="h-4 w-4 text-blue-600" />
-              多文件代码生成（Composer）
+              ASK模式
             </h3>
             <p className="text-gray-600">
-              使用Composer功能（<code className="bg-gray-100 px-1.5 py-0.5 rounded text-sm">Cmd/Ctrl + I</code>），您可以描述更复杂的功能需求，生成跨越多个文件的完整实现，如完整的组件、模块或应用程序。
+              使用ASK模式（<code className="bg-gray-100 px-1.5 py-0.5 rounded text-sm">Cmd/Ctrl + I</code>），您可以向AI提出特定问题，例如&quot;如何优化这段代码&quot;或&quot;这个函数有什么问题&quot;，AI将根据上下文提供针对性的解答和建议。
+            </p>
+          </div>
+          
+          <div className="space-y-2">
+            <h3 className="font-medium text-lg flex items-center gap-2">
+              <Bot className="h-4 w-4 text-blue-600" />
+              Agent模式
+            </h3>
+            <p className="text-gray-600">
+              使用Agent模式（<code className="bg-gray-100 px-1.5 py-0.5 rounded text-sm">Cmd/Ctrl + Shift + A</code>），AI可以主动分析您的代码库，执行复杂任务如重构代码、创建新功能或修复问题，能够自主操作并按照您的指示完成多步骤编码工作。
             </p>
           </div>
         </CardContent>

@@ -70,9 +70,9 @@ export default function QuickStartPage() {
                 <div className="flex h-8 w-8 items-center justify-center rounded-full bg-blue-100 text-blue-600">2</div>
               </div>
               <div>
-                <h3 className="text-base font-medium text-gray-900">代码生成</h3>
+                <h3 className="text-base font-medium text-gray-900">内联对话</h3>
                 <p className="mt-1 text-sm text-gray-600">
-                  使用快捷键 <kbd className="px-1 py-0.5 text-xs rounded border border-gray-300 bg-gray-50">Ctrl</kbd>+<kbd className="px-1 py-0.5 text-xs rounded border border-gray-300 bg-gray-50">Space</kbd> 打开AI命令面板，输入自然语言描述生成代码段。
+                  选择一段代码，右键单击并选择&quot;内联对话&quot;选项，可以在编辑器内直接与AI进行交流，询问代码相关问题或获取改进建议。
                 </p>
               </div>
             </li>
@@ -81,9 +81,9 @@ export default function QuickStartPage() {
                 <div className="flex h-8 w-8 items-center justify-center rounded-full bg-blue-100 text-blue-600">3</div>
               </div>
               <div>
-                <h3 className="text-base font-medium text-gray-900">代码解释</h3>
+                <h3 className="text-base font-medium text-gray-900">代码生成</h3>
                 <p className="mt-1 text-sm text-gray-600">
-                  选择一段代码，右键单击并选择&quot;解释代码&quot;选项，AI将提供详细的代码解释。
+                  使用快捷键 <kbd className="px-1 py-0.5 text-xs rounded border border-gray-300 bg-gray-50">Ctrl</kbd>+<kbd className="px-1 py-0.5 text-xs rounded border border-gray-300 bg-gray-50">Space</kbd> 打开AI命令面板，输入自然语言描述生成代码段。
                 </p>
               </div>
             </li>
