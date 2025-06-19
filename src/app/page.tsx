@@ -3,7 +3,6 @@ import { Card } from '@/components/ui/card';
 import Image from 'next/image';
 import Footer from '@/components/Footer';
 import { AppConfig } from '@/lib/config';
-;
 
 export default function RootPage() {
   return (
@@ -30,30 +29,6 @@ export default function RootPage() {
                   查看文档
                 </Button>
               </div>
-              
-              <div className="pt-6">
-                <p className="text-sm text-gray-500 mb-3">受到全球开发者的信任</p>
-                <div className="flex flex-wrap gap-6 items-center">
-                  <div className="grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all">
-                    <svg className="h-8 w-auto" viewBox="0 0 100 30" fill="currentColor">
-                      <rect width="100" height="30" fill="none"/>
-                      <text x="10" y="20" fontSize="14" fontWeight="bold">TechCorp</text>
-                    </svg>
-                  </div>
-                  <div className="grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all">
-                    <svg className="h-8 w-auto" viewBox="0 0 100 30" fill="currentColor">
-                      <rect width="100" height="30" fill="none"/>
-                      <text x="10" y="20" fontSize="14" fontWeight="bold">DevInc</text>
-                    </svg>
-                  </div>
-                  <div className="grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all">
-                    <svg className="h-8 w-auto" viewBox="0 0 100 30" fill="currentColor">
-                      <rect width="100" height="30" fill="none"/>
-                      <text x="10" y="20" fontSize="14" fontWeight="bold">CodeFirm</text>
-                    </svg>
-                  </div>
-                </div>
-              </div>
             </div>
             <div className="flex-1">
               <div className="relative w-full h-[300px] md:h-[400px] rounded-xl overflow-hidden shadow-lg border border-gray-200">
@@ -66,27 +41,6 @@ export default function RootPage() {
                   className="object-top"
                 />
                 <div className="absolute inset-0 bg-gradient-to-tr from-blue-500/10 to-transparent pointer-events-none"></div>
-              </div>
-            </div>
-          </section>
-
-          <section className="py-12 border-t border-b border-gray-200 bg-white">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-              <div>
-                <p className="text-4xl font-bold text-blue-600">500K+</p>
-                <p className="text-gray-600 mt-2">活跃用户</p>
-              </div>
-              <div>
-                <p className="text-4xl font-bold text-blue-600">35%</p>
-                <p className="text-gray-600 mt-2">开发效率提升</p>
-              </div>
-              <div>
-                <p className="text-4xl font-bold text-blue-600">25+</p>
-                <p className="text-gray-600 mt-2">支持的编程语言</p>
-              </div>
-              <div>
-                <p className="text-4xl font-bold text-blue-600">4.8/5</p>
-                <p className="text-gray-600 mt-2">用户满意度</p>
               </div>
             </div>
           </section>
@@ -119,14 +73,14 @@ export default function RootPage() {
                   基于上下文的代码补全建议，提高编码速度和准确性。实时学习您的编码风格和项目特点。
                 </p>
               </Card>
-              <Card className="p-6 border border-gray-200 shadow-md hover:shadow-lg transition-shadow">
-                <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <Card className="p-6 border border-gray-200 shadow-md hover:shadow-lg transition-shadow bg-gray-100">
+                <div className="w-12 h-12 bg-gray-200 rounded-lg flex items-center justify-center mb-4">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
                   </svg>
                 </div>
-                <h3 className="text-xl font-semibold mb-3">代码重构</h3>
-                <p className="text-gray-600">
+                <h3 className="text-xl font-semibold mb-3 text-gray-500">代码重构 (开发中)</h3>
+                <p className="text-gray-500">
                   自动识别并优化代码结构，提高代码质量和可维护性。智能提出重构建议，简化复杂逻辑。
                 </p>
               </Card>
@@ -203,7 +157,7 @@ export default function RootPage() {
                 </Button>
               </div>
               <p className="mt-6 text-sm text-blue-200">
-                支持 Windows, macOS 和 Linux 平台
+                支持Linux平台，Windows开发中
               </p>
             </div>
           </section>

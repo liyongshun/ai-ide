@@ -13,13 +13,13 @@ import { AppConfig } from "@/lib/config";
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 const PAGE_METADATA = {
   title: `下载 ${AppConfig.APP_NAME}`,
-  description: `下载最新版本的${AppConfig.APP_NAME}，支持Windows、macOS和Linux平台。`,
+  description: `下载最新版本的${AppConfig.APP_NAME}，支持Linux平台。`,
 };
 
 const downloadOptions = [
   {
     name: "Windows",
-    description: "适用于 Windows 10 及以上版本",
+    description: "支持中",
     href: "/download/windows",
     icon: (
       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
@@ -27,22 +27,7 @@ const downloadOptions = [
       </svg>
     ),
     versions: [
-      { name: `${AppConfig.APP_NAME} v2.5.0 - Windows 64位`, size: "187 MB", href: "/download/files/ai-ide-v2.5.0-win64.exe" },
-      { name: `${AppConfig.APP_NAME} v2.5.0 - Windows 32位`, size: "173 MB", href: "/download/files/ai-ide-v2.5.0-win32.exe" },
-    ],
-  },
-  {
-    name: "macOS",
-    description: "适用于 macOS 11.0 及以上版本",
-    href: "/download/macos",
-    icon: (
-      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
-        <path strokeLinecap="round" strokeLinejoin="round" d="M9 17.25v1.007a3 3 0 01-.879 2.122L7.5 21h9l-.621-.621A3 3 0 0115 18.257V17.25m6-12V15a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 15V5.25m18 0A2.25 2.25 0 0018.75 3H5.25A2.25 2.25 0 003 5.25m18 0V12a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 12V5.25" />
-      </svg>
-    ),
-    versions: [
-      { name: `${AppConfig.APP_NAME} v2.5.0 - Intel芯片`, size: "195 MB", href: "/download/files/ai-ide-v2.5.0-intel.dmg" },
-      { name: `${AppConfig.APP_NAME} v2.5.0 - Apple Silicon`, size: "192 MB", href: "/download/files/ai-ide-v2.5.0-arm64.dmg" },
+      { name: `${AppConfig.APP_NAME} ${AppConfig.LATEST_VERSION} - Windows 64位 (开发中)`, size: "敬请期待", href: "#" },
     ],
   },
   {
@@ -55,23 +40,23 @@ const downloadOptions = [
       </svg>
     ),
     versions: [
-      { name: `${AppConfig.APP_NAME} v2.5.0 - Debian/Ubuntu (.deb)`, size: "183 MB", href: "/download/files/ai-ide-v2.5.0.deb" },
-      { name: `${AppConfig.APP_NAME} v2.5.0 - Red Hat/Fedora (.rpm)`, size: "185 MB", href: "/download/files/ai-ide-v2.5.0.rpm" },
-      { name: `${AppConfig.APP_NAME} v2.5.0 - 通用 Linux (.tar.gz)`, size: "180 MB", href: "/download/files/ai-ide-v2.5.0.tar.gz" },
+      { name: `${AppConfig.APP_NAME} ${AppConfig.LATEST_VERSION} - Debian/Ubuntu (.deb)`, size: "183 MB", href: "/download/files/ai-ide-v2.5.0.deb" },
+      { name: `${AppConfig.APP_NAME} ${AppConfig.LATEST_VERSION} - Red Hat/Fedora (.rpm)`, size: "185 MB", href: "/download/files/ai-ide-v2.5.0.rpm" },
+      { name: `${AppConfig.APP_NAME} ${AppConfig.LATEST_VERSION} - 通用 Linux (.tar.gz)`, size: "180 MB", href: "/download/files/ai-ide-v2.5.0.tar.gz" },
     ],
   },
 ];
 
 const systemRequirements = {
   minimum: {
-    os: "Windows 10, macOS 11.0, Ubuntu 20.04 或其他相同级别的 Linux 发行版",
+    os: "Ubuntu 20.04 或其他相同级别的 Linux 发行版",
     processor: "多核处理器，1.8GHz 或更高",
     memory: "8 GB RAM",
     storage: "1 GB 可用空间",
     display: "1280 x 720 显示分辨率",
   },
   recommended: {
-    os: "Windows 11, macOS 13.0 或更新版本",
+    os: "Ubuntu 22.04 或更新版本",
     processor: "多核处理器，2.4GHz 或更高",
     memory: "16 GB RAM",
     storage: "2 GB 可用空间",
@@ -104,188 +89,215 @@ const [downloadCount, setDownloadCount] = useState(0);
     <>
       <div className="bg-white">
         {/* 下载横幅部分 */}
-        <div className="relative bg-gradient-to-r from-blue-600 to-blue-800 py-24 sm:py-32">
+        <div className="relative bg-gradient-to-r from-blue-600 to-blue-800 py-16">
           <div className="mx-auto max-w-7xl px-6 lg:px-8">
             <div className="mx-auto max-w-2xl text-center">
-              <h1 className="text-4xl font-bold tracking-tight text-white sm:text-6xl">
+              <h1 className="text-3xl font-bold tracking-tight text-white sm:text-5xl">
                 下载{AppConfig.APP_NAME}
               </h1>
-              <p className="mt-6 text-lg leading-8 text-gray-100">
-                获取最新版本的{AppConfig.APP_NAME}，体验智能编程的未来。无论您使用哪种平台，我们都能支持您的开发需求。
+              <p className="mt-4 text-lg leading-8 text-gray-100">
+                获取最新版本的{AppConfig.APP_NAME}，体验智能编程的未来。
               </p>
+              <div className="mt-6 flex items-center justify-center gap-x-6">
+                <a
+                  href="#download-options"
+                  className="rounded-md bg-white px-3.5 py-2 text-sm font-semibold text-blue-600 shadow-sm hover:bg-gray-100"
+                >
+                  立即下载
+                </a>
+                <Link href="/docs/getting-started/installation" className="text-sm font-semibold leading-6 text-gray-100 hover:text-white">
+                  安装指南 <span aria-hidden="true">→</span>
+                </Link>
+              </div>
             </div>
           </div>
         </div>
 
-        {/* 版本发布说明 */}
-        <div className="py-16 sm:py-24">
+        {/* 下载选项部分 */}
+        <div id="download-options" className="py-12">
           <div className="mx-auto max-w-7xl px-6 lg:px-8">
-            <div className="mx-auto max-w-2xl text-center">
-              <h2 className="text-base font-semibold leading-7 text-blue-600">最新版本</h2>
-              <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-                {AppConfig.APP_NAME} v2.5.0
-              </p>
-              <p className="mt-6 text-lg leading-8 text-gray-600">
-                发布日期: 2023年12月15日
-              </p>
+            <div className="mx-auto max-w-2xl text-center mb-8">
+              <span className="inline-flex items-center rounded-md bg-blue-50 px-2 py-1 text-xs font-medium text-blue-700 ring-1 ring-inset ring-blue-700/10 mb-2">v{AppConfig.LATEST_VERSION}</span>
+              <h2 className="text-2xl font-bold tracking-tight text-gray-900">选择您的平台</h2>
+              <p className="mt-2 text-sm text-gray-500">发布日期: {AppConfig.RELEASE_DATE}</p>
             </div>
-            <div className="mx-auto mt-16 max-w-2xl rounded-3xl border border-gray-200 p-8 sm:mt-20 sm:p-10">
-              <h3 className="text-lg font-semibold leading-7 text-gray-900">版本亮点:</h3>
-              <ul className="mt-6 space-y-4 text-base leading-7 text-gray-600">
-                <li className="flex gap-x-3">
-                  <svg className="h-6 w-5 flex-none text-blue-600" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                    <path fillRule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clipRule="evenodd" />
-                  </svg>
-                  增强的AI代码生成能力，支持更多编程语言和框架
-                </li>
-                <li className="flex gap-x-3">
-                  <svg className="h-6 w-5 flex-none text-blue-600" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                    <path fillRule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clipRule="evenodd" />
-                  </svg>
-                  全新的实时协作功能，允许团队成员同时编辑同一文件
-                </li>
-                <li className="flex gap-x-3">
-                  <svg className="h-6 w-5 flex-none text-blue-600" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                    <path fillRule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clipRule="evenodd" />
-                  </svg>
-                  优化的用户界面，提供更直观的操作体验
-                </li>
-                <li className="flex gap-x-3">
-                  <svg className="h-6 w-5 flex-none text-blue-600" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                    <path fillRule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clipRule="evenodd" />
-                  </svg>
-                  新增代码智能分析和性能优化建议功能
-                </li>
-                <li className="flex gap-x-3">
-                  <svg className="h-6 w-5 flex-none text-blue-600" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                    <path fillRule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clipRule="evenodd" />
-                  </svg>
-                  修复了50多个已知问题，提高了稳定性和性能
-                </li>
-              </ul>
-              <Link
-                href="/docs/changelog"
-                className="mt-8 text-sm font-semibold leading-6 text-blue-600"
-              >
-                查看完整更新日志 <span aria-hidden="true">→</span>
-              </Link>
-            </div>
-          </div>
-        </div>
-
-        {/* 下载选项 */}
-        <div className="bg-gray-50 py-24 sm:py-32">
-          <div className="mx-auto max-w-7xl px-6 lg:px-8">
-            <div className="mx-auto max-w-2xl text-center">
-              <h2 className="text-base font-semibold leading-7 text-blue-600">选择您的平台</h2>
-              <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-                获取适合您的版本
-              </p>
-              <p className="mt-6 text-lg leading-8 text-gray-600">
-                {AppConfig.APP_NAME}支持所有主流操作系统，选择您使用的平台开始下载。
-              </p>
-            </div>
-            <div className="mx-auto mt-16 max-w-2xl sm:mt-20 lg:max-w-none">
-              <div className="grid grid-cols-1 gap-y-10 gap-x-8 lg:grid-cols-3">
-                {downloadOptions.map((option) => (
-                  <div key={option.name} className="bg-white p-8 rounded-2xl shadow-sm border border-gray-200">
-                    <div className="flex items-center gap-x-4">
-                      <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-blue-600 text-white">
-                        {option.icon}
-                      </div>
-                      <div>
-                        <h3 className="text-lg font-semibold leading-8 tracking-tight text-gray-900">{option.name}</h3>
-                        <p className="text-sm leading-6 text-gray-600">{option.description}</p>
-                      </div>
+            
+            <div className="mx-auto max-w-3xl">
+              {downloadOptions.map((option) => (
+                <div key={option.name} className="mb-6 overflow-hidden rounded-lg border border-gray-200 bg-white">
+                  <div className="flex items-center gap-x-4 border-b border-gray-900/5 bg-gray-50 p-4">
+                    <div className="flex h-10 w-10 items-center justify-center rounded-md bg-blue-600 text-white">
+                      {option.icon}
                     </div>
-                    <div className="mt-6 border-t border-gray-200 pt-6">
-                      <ul role="list" className="space-y-4">
-                        {option.versions.map((version) => (
-                          <li key={version.name} className="flex justify-between gap-x-4">
-                            <div className="flex flex-col">
-                              <p className="text-sm font-medium leading-6 text-gray-900">{version.name}</p>
-                              <p className="text-xs leading-5 text-gray-500">{version.size}</p>
-                            </div>
-                            <button
-                              onClick={() => handleDownload(version.name, version.href)}
-                              className="rounded-md bg-blue-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
-                            >
-                              下载
-                            </button>
-                          </li>
-                        ))}
-                      </ul>
+                    <div>
+                      <h3 className="font-semibold leading-6 text-gray-900">{option.name}</h3>
+                      <p className="text-xs text-gray-500">{option.description}</p>
                     </div>
                   </div>
-                ))}
+                  <div className="divide-y divide-gray-100">
+                    {option.versions.map((version) => (
+                      <div key={version.name} className="flex items-center justify-between p-4">
+                        <div className="flex-1 pr-4">
+                          <p className="text-sm font-medium">{version.name}</p>
+                          {version.size && (
+                            <p className="text-xs text-gray-500">文件大小: {version.size}</p>
+                          )}
+                        </div>
+                        {version.href === "#" ? (
+                          <span className="inline-flex items-center rounded-full bg-gray-100 px-2.5 py-1 text-xs font-medium text-gray-600">
+                            即将推出
+                          </span>
+                        ) : (
+                          <button
+                            onClick={() => handleDownload(version.name, version.href)}
+                            className="inline-flex items-center gap-x-1.5 rounded-md bg-blue-600 px-3 py-1.5 text-sm font-semibold text-white shadow-sm hover:bg-blue-500"
+                          >
+                            <svg className="-ml-0.5 h-4 w-4" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                              <path d="M10.75 2.75a.75.75 0 00-1.5 0v8.614L6.295 8.235a.75.75 0 10-1.09 1.03l4.25 4.5a.75.75 0 001.09 0l4.25-4.5a.75.75 0 00-1.09-1.03l-2.955 3.129V2.75z" />
+                              <path d="M3.5 12.75a.75.75 0 00-1.5 0v2.5A2.75 2.75 0 004.75 18h10.5A2.75 2.75 0 0018 15.25v-2.5a.75.75 0 00-1.5 0v2.5c0 .69-.56 1.25-1.25 1.25H4.75c-.69 0-1.25-.56-1.25-1.25v-2.5z" />
+                            </svg>
+                            下载
+                          </button>
+                        )}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              ))}
+              
+              <div className="mt-8 rounded-lg bg-blue-50 p-4 text-sm">
+                <div className="flex">
+                  <div className="flex-shrink-0">
+                    <svg className="h-5 w-5 text-blue-600" viewBox="0 0 20 20" fill="currentColor">
+                      <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2h-1V9z" clipRule="evenodd" />
+                    </svg>
+                  </div>
+                  <div className="ml-3">
+                    <h3 className="font-medium text-blue-800">注意事项</h3>
+                    <div className="mt-1 text-blue-700">
+                      <p>下载后请按照<Link href="/docs/getting-started/installation" className="font-medium underline">安装指南</Link>进行安装。如遇问题，请访问我们的<Link href="/docs/support" className="font-medium underline">支持页面</Link>获取帮助。</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        {/* 版本亮点 */}
+        <div className="bg-gray-50 py-12">
+          <div className="mx-auto max-w-7xl px-6 lg:px-8">
+            <div className="mx-auto max-w-2xl lg:text-center mb-8">
+              <h2 className="text-2xl font-bold tracking-tight text-gray-900">版本亮点</h2>
+              <p className="mt-2 text-sm text-gray-600">了解{AppConfig.APP_NAME} {AppConfig.LATEST_VERSION}版本的新功能和改进</p>
+            </div>
+            
+            <div className="mx-auto max-w-3xl">
+              <div className="rounded-lg border border-gray-200 bg-white overflow-hidden">
+                <ul className="divide-y divide-gray-200">
+                  <li className="flex px-4 py-3">
+                    <svg className="h-5 w-5 flex-none mt-0.5 text-blue-600" viewBox="0 0 20 20" fill="currentColor">
+                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                    </svg>
+                    <span className="ml-3 text-sm">增强的AI代码生成能力，支持更多编程语言和框架</span>
+                  </li>
+                  <li className="flex px-4 py-3">
+                    <svg className="h-5 w-5 flex-none mt-0.5 text-blue-600" viewBox="0 0 20 20" fill="currentColor">
+                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                    </svg>
+                    <span className="ml-3 text-sm">全新的实时协作功能，允许团队成员同时编辑同一文件</span>
+                  </li>
+                  <li className="flex px-4 py-3">
+                    <svg className="h-5 w-5 flex-none mt-0.5 text-blue-600" viewBox="0 0 20 20" fill="currentColor">
+                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                    </svg>
+                    <span className="ml-3 text-sm">优化的用户界面，提供更直观的操作体验</span>
+                  </li>
+                  <li className="flex px-4 py-3">
+                    <svg className="h-5 w-5 flex-none mt-0.5 text-blue-600" viewBox="0 0 20 20" fill="currentColor">
+                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                    </svg>
+                    <span className="ml-3 text-sm">新增代码智能分析和性能优化建议功能</span>
+                  </li>
+                  <li className="flex px-4 py-3">
+                    <svg className="h-5 w-5 flex-none mt-0.5 text-blue-600" viewBox="0 0 20 20" fill="currentColor">
+                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                    </svg>
+                    <span className="ml-3 text-sm">修复了50多个已知问题，提高了稳定性和性能</span>
+                  </li>
+                </ul>
+                <div className="border-t border-gray-200 px-4 py-3">
+                  <Link href="/docs/changelog" className="text-sm font-medium text-blue-600 hover:text-blue-500">
+                    查看完整更新日志 <span aria-hidden="true">→</span>
+                  </Link>
+                </div>
               </div>
             </div>
           </div>
         </div>
 
         {/* 系统要求 */}
-        <div className="py-24 sm:py-32">
+        <div className="py-12">
           <div className="mx-auto max-w-7xl px-6 lg:px-8">
-            <div className="mx-auto max-w-2xl text-center">
-              <h2 className="text-base font-semibold leading-7 text-blue-600">系统要求</h2>
-              <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-                运行{AppConfig.APP_NAME}所需的配置
-              </p>
-              <p className="mt-6 text-lg leading-8 text-gray-600">
-                请确保您的系统满足以下要求，以获得最佳体验。
-              </p>
+            <div className="mx-auto max-w-2xl lg:text-center mb-8">
+              <h2 className="text-2xl font-bold tracking-tight text-gray-900">系统要求</h2>
+              <p className="mt-2 text-sm text-gray-600">运行{AppConfig.APP_NAME}所需的最低和推荐配置</p>
             </div>
-            <div className="mx-auto mt-16 max-w-4xl">
-              <div className="grid grid-cols-1 gap-x-8 gap-y-10 sm:grid-cols-2">
-                <div className="bg-white p-8 rounded-2xl shadow-sm border border-gray-200">
-                  <h3 className="text-lg font-semibold leading-8 text-gray-900 mb-4">最低配置</h3>
-                  <dl className="space-y-4">
-                    <div>
-                      <dt className="text-sm font-medium text-gray-500">操作系统</dt>
-                      <dd className="mt-1 text-sm text-gray-900">{systemRequirements.minimum.os}</dd>
-                    </div>
-                    <div>
-                      <dt className="text-sm font-medium text-gray-500">处理器</dt>
-                      <dd className="mt-1 text-sm text-gray-900">{systemRequirements.minimum.processor}</dd>
-                    </div>
-                    <div>
-                      <dt className="text-sm font-medium text-gray-500">内存</dt>
-                      <dd className="mt-1 text-sm text-gray-900">{systemRequirements.minimum.memory}</dd>
-                    </div>
-                    <div>
-                      <dt className="text-sm font-medium text-gray-500">存储空间</dt>
-                      <dd className="mt-1 text-sm text-gray-900">{systemRequirements.minimum.storage}</dd>
-                    </div>
-                    <div>
-                      <dt className="text-sm font-medium text-gray-500">显示器</dt>
-                      <dd className="mt-1 text-sm text-gray-900">{systemRequirements.minimum.display}</dd>
-                    </div>
-                  </dl>
-                </div>
-                <div className="bg-white p-8 rounded-2xl shadow-sm border border-gray-200">
-                  <h3 className="text-lg font-semibold leading-8 text-gray-900 mb-4">推荐配置</h3>
-                  <dl className="space-y-4">
-                    <div>
-                      <dt className="text-sm font-medium text-gray-500">操作系统</dt>
-                      <dd className="mt-1 text-sm text-gray-900">{systemRequirements.recommended.os}</dd>
-                    </div>
-                    <div>
-                      <dt className="text-sm font-medium text-gray-500">处理器</dt>
-                      <dd className="mt-1 text-sm text-gray-900">{systemRequirements.recommended.processor}</dd>
-                    </div>
-                    <div>
-                      <dt className="text-sm font-medium text-gray-500">内存</dt>
-                      <dd className="mt-1 text-sm text-gray-900">{systemRequirements.recommended.memory}</dd>
-                    </div>
-                    <div>
-                      <dt className="text-sm font-medium text-gray-500">存储空间</dt>
-                      <dd className="mt-1 text-sm text-gray-900">{systemRequirements.recommended.storage}</dd>
-                    </div>
-                    <div>
-                      <dt className="text-sm font-medium text-gray-500">显示器</dt>
-                      <dd className="mt-1 text-sm text-gray-900">{systemRequirements.recommended.display}</dd>
-                    </div>
-                  </dl>
+            
+            <div className="mx-auto max-w-3xl">
+              <div className="overflow-hidden rounded-lg border border-gray-200 bg-white">
+                <div className="grid grid-cols-1 divide-y divide-gray-200 md:grid-cols-2 md:divide-y-0 md:divide-x">
+                  <div className="p-5">
+                    <h3 className="text-base font-semibold text-gray-900 mb-4">最低配置</h3>
+                    <dl className="space-y-2 text-sm">
+                      <div className="flex justify-between">
+                        <dt className="font-medium text-gray-500">操作系统</dt>
+                        <dd className="text-gray-900">{systemRequirements.minimum.os}</dd>
+                      </div>
+                      <div className="flex justify-between">
+                        <dt className="font-medium text-gray-500">处理器</dt>
+                        <dd className="text-gray-900">{systemRequirements.minimum.processor}</dd>
+                      </div>
+                      <div className="flex justify-between">
+                        <dt className="font-medium text-gray-500">内存</dt>
+                        <dd className="text-gray-900">{systemRequirements.minimum.memory}</dd>
+                      </div>
+                      <div className="flex justify-between">
+                        <dt className="font-medium text-gray-500">存储空间</dt>
+                        <dd className="text-gray-900">{systemRequirements.minimum.storage}</dd>
+                      </div>
+                      <div className="flex justify-between">
+                        <dt className="font-medium text-gray-500">显示器</dt>
+                        <dd className="text-gray-900">{systemRequirements.minimum.display}</dd>
+                      </div>
+                    </dl>
+                  </div>
+                  
+                  <div className="p-5">
+                    <h3 className="text-base font-semibold text-gray-900 mb-4">推荐配置</h3>
+                    <dl className="space-y-2 text-sm">
+                      <div className="flex justify-between">
+                        <dt className="font-medium text-gray-500">操作系统</dt>
+                        <dd className="text-gray-900">{systemRequirements.recommended.os}</dd>
+                      </div>
+                      <div className="flex justify-between">
+                        <dt className="font-medium text-gray-500">处理器</dt>
+                        <dd className="text-gray-900">{systemRequirements.recommended.processor}</dd>
+                      </div>
+                      <div className="flex justify-between">
+                        <dt className="font-medium text-gray-500">内存</dt>
+                        <dd className="text-gray-900">{systemRequirements.recommended.memory}</dd>
+                      </div>
+                      <div className="flex justify-between">
+                        <dt className="font-medium text-gray-500">存储空间</dt>
+                        <dd className="text-gray-900">{systemRequirements.recommended.storage}</dd>
+                      </div>
+                      <div className="flex justify-between">
+                        <dt className="font-medium text-gray-500">显示器</dt>
+                        <dd className="text-gray-900">{systemRequirements.recommended.display}</dd>
+                      </div>
+                    </dl>
+                  </div>
                 </div>
               </div>
             </div>
@@ -293,37 +305,58 @@ const [downloadCount, setDownloadCount] = useState(0);
         </div>
 
         {/* 帮助支持 */}
-        <div className="bg-gray-50 py-24 sm:py-32">
+        <div className="bg-gray-50 py-12">
           <div className="mx-auto max-w-7xl px-6 lg:px-8">
-            <div className="mx-auto max-w-2xl text-center">
-              <h2 className="text-base font-semibold leading-7 text-blue-600">需要帮助？</h2>
-              <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-                获取安装和使用支持
-              </p>
-              <p className="mt-6 text-lg leading-8 text-gray-600">
-                如果您在下载或安装过程中遇到问题，我们提供多种支持渠道帮助您解决。
-              </p>
+            <div className="mx-auto max-w-2xl lg:text-center mb-8">
+              <h2 className="text-2xl font-bold tracking-tight text-gray-900">需要帮助？</h2>
+              <p className="mt-2 text-sm text-gray-600">我们提供多种支持渠道，帮助您解决问题</p>
             </div>
-            <div className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-8 sm:mt-20 lg:mx-0 lg:max-w-none lg:grid-cols-3">
-              <div className="flex flex-col rounded-lg border border-gray-200 bg-white p-8">
-                <h3 className="text-lg font-semibold text-gray-900">查阅文档</h3>
-                <p className="mt-4 text-sm text-gray-600">我们的帮助文档提供了详细的安装指南和常见问题解答，可能已经包含了您所遇到问题的解决方案。</p>
-                <div className="mt-auto pt-6">
-                  <Link href="/docs/installation" className="text-sm font-semibold leading-6 text-blue-600">查看安装指南 <span aria-hidden="true">→</span></Link>
+            
+            <div className="mx-auto max-w-3xl">
+              <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
+                <div className="rounded-lg border border-gray-200 bg-white p-5">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-md bg-blue-600 text-white mb-3">
+                    <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25" />
+                    </svg>
+                  </div>
+                  <h3 className="text-sm font-semibold text-gray-900">查阅文档</h3>
+                  <p className="mt-2 text-xs text-gray-600">详细的安装指南和常见问题解答，帮助您快速解决问题。</p>
+                  <div className="mt-4">
+                    <Link href="/docs/getting-started/installation" className="text-xs font-medium text-blue-600 hover:text-blue-500">
+                      查看安装指南 <span aria-hidden="true">→</span>
+                    </Link>
+                  </div>
                 </div>
-              </div>
-              <div className="flex flex-col rounded-lg border border-gray-200 bg-white p-8">
-                <h3 className="text-lg font-semibold text-gray-900">社区论坛</h3>
-                <p className="mt-4 text-sm text-gray-600">加入我们的社区论坛，与其他用户交流经验，分享技巧，共同解决问题。专业开发者和社区管理员也会在论坛中提供帮助。</p>
-                <div className="mt-auto pt-6">
-                  <Link href="/community" className="text-sm font-semibold leading-6 text-blue-600">访问社区论坛 <span aria-hidden="true">→</span></Link>
+                
+                <div className="rounded-lg border border-gray-200 bg-white p-5">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-md bg-blue-600 text-white mb-3">
+                    <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M7.5 8.25h9m-9 3H12m-9.75 1.51c0 1.6 1.123 2.994 2.707 3.227 1.129.166 2.27.293 3.423.379.35.026.67.21.865.501L12 21l2.755-4.133a1.14 1.14 0 01.865-.501 48.172 48.172 0 003.423-.379c1.584-.233 2.707-1.626 2.707-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0012 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018z" />
+                    </svg>
+                  </div>
+                  <h3 className="text-sm font-semibold text-gray-900">社区论坛</h3>
+                  <p className="mt-2 text-xs text-gray-600">加入我们的社区论坛，与其他用户交流经验，分享技巧，共同解决问题。</p>
+                  <div className="mt-4">
+                    <Link href="/community" className="text-xs font-medium text-blue-600 hover:text-blue-500">
+                      访问社区论坛 <span aria-hidden="true">→</span>
+                    </Link>
+                  </div>
                 </div>
-              </div>
-              <div className="flex flex-col rounded-lg border border-gray-200 bg-white p-8">
-                <h3 className="text-lg font-semibold text-gray-900">技术支持</h3>
-                <p className="mt-4 text-sm text-gray-600">如果您仍然无法解决问题，请联系我们的技术支持团队。我们的专业人员将在工作时间内尽快回复您的请求。</p>
-                <div className="mt-auto pt-6">
-                  <Link href="/support" className="text-sm font-semibold leading-6 text-blue-600">联系技术支持 <span aria-hidden="true">→</span></Link>
+                
+                <div className="rounded-lg border border-gray-200 bg-white p-5">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-md bg-blue-600 text-white mb-3">
+                    <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M16.5 3.75V16.5L12 14.25 7.5 16.5V3.75m9 0H18A2.25 2.25 0 0120.25 6v12A2.25 2.25 0 0118 20.25H6A2.25 2.25 0 013.75 18V6A2.25 2.25 0 016 3.75h1.5m9 0h-9" />
+                    </svg>
+                  </div>
+                  <h3 className="text-sm font-semibold text-gray-900">技术支持</h3>
+                  <p className="mt-2 text-xs text-gray-600">如果您仍然无法解决问题，请联系我们的技术支持团队获取专业帮助。</p>
+                  <div className="mt-4">
+                    <Link href="/support" className="text-xs font-medium text-blue-600 hover:text-blue-500">
+                      联系技术支持 <span aria-hidden="true">→</span>
+                    </Link>
+                  </div>
                 </div>
               </div>
             </div>

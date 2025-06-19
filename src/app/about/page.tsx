@@ -9,13 +9,6 @@ export const metadata: Metadata = {
   description: `${AppConfig.APP_NAME}是专为开发者打造的人工智能辅助编程工具，致力于提升编程效率和代码质量。`,
 };
 
-const stats = [
-  { name: '全球用户', value: '1,000,000+' },
-  { name: '企业客户', value: '500+' },
-  { name: '支持编程语言', value: '50+' },
-  { name: '每日生成代码', value: '1,000,000+ 行' },
-];
-
 const values = [
   {
     name: '开发者至上',
@@ -49,30 +42,6 @@ export default function AboutPage() {
               <p className="mt-6 text-lg leading-8 text-gray-600">
                 {AppConfig.APP_NAME}是一家致力于将人工智能应用于软件开发领域的技术创新公司。我们的使命是通过先进的AI技术赋能开发者，提高编程效率，减少重复工作，让开发者能够专注于解决真正有创造性的问题。
               </p>
-            </div>
-          </div>
-        </div>
-
-        {/* 数据统计 */}
-        <div className="bg-white py-24 sm:py-32">
-          <div className="mx-auto max-w-7xl px-6 lg:px-8">
-            <div className="mx-auto max-w-2xl lg:max-w-none">
-              <div className="text-center">
-                <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-                  全球开发者信赖的AI编程工具
-                </h2>
-                <p className="mt-4 text-lg leading-8 text-gray-600">
-                  自2021年成立以来，{AppConfig.APP_NAME}已经帮助全球数百万开发者提升了编程体验
-                </p>
-              </div>
-              <dl className="mt-16 grid grid-cols-1 gap-0.5 overflow-hidden rounded-2xl text-center sm:grid-cols-2 lg:grid-cols-4">
-                {stats.map((stat) => (
-                  <div key={stat.name} className="flex flex-col bg-gray-50 p-8">
-                    <dt className="text-sm font-semibold leading-6 text-gray-600">{stat.name}</dt>
-                    <dd className="order-first text-3xl font-semibold tracking-tight text-blue-600">{stat.value}</dd>
-                  </div>
-                ))}
-              </dl>
             </div>
           </div>
         </div>
@@ -117,7 +86,7 @@ export default function AboutPage() {
                   </p>
                 </blockquote>
                 <div className="mt-4 text-gray-600">
-                  — 张伟, {AppConfig.APP_NAME}创始人兼CEO
+                  — {AppConfig.APP_NAME}
                 </div>
               </div>
             </div>

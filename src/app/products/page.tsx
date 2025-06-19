@@ -80,60 +80,6 @@ const features = [
   },
 ];
 
-// 定义价格方案
-const tiers = [
-  {
-    name: "免费版",
-    id: "free",
-    price: "¥0",
-    description: "适合个人开发者和小型项目",
-    features: [
-      "基础AI代码补全",
-      "标准开发工具",
-      "社区支持",
-      "最多3个项目",
-      "单用户",
-    ],
-    cta: "立即下载",
-    href: "/download",
-  },
-  {
-    name: "专业版",
-    id: "pro",
-    price: "¥299",
-    frequency: "/月",
-    description: "适合专业开发者和中小型团队",
-    features: [
-      "高级AI代码补全与生成",
-      "代码解释与重构",
-      "优先级技术支持",
-      "无限项目",
-      "最多10个团队成员",
-      "协作功能",
-    ],
-    cta: "开始14天免费试用",
-    href: "/download?plan=pro",
-    mostPopular: true,
-  },
-  {
-    name: "企业版",
-    id: "enterprise",
-    price: "联系我们",
-    description: "适合大型企业和团队",
-    features: [
-      "全部AI功能无限制",
-      "私有化部署选项",
-      "专属客户成功经理",
-      "SLA保障",
-      "无限团队成员",
-      "高级安全与合规功能",
-      "定制化培训与支持",
-    ],
-    cta: "联系销售团队",
-    href: "/contact",
-  },
-];
-
 export default function ProductsPage() {
   const [selectedTab, setSelectedTab] = useState("ai-features");
   
@@ -218,12 +164,6 @@ export default function ProductsPage() {
                 <div className="py-16">
                   {features.map((feature) => (
                     <div key={feature.id} className={selectedTab === feature.id ? 'block' : 'hidden'}>
-                      <div className="mx-auto max-w-2xl lg:text-center">
-                        <h3 className="text-xl font-semibold leading-7 text-blue-600">{feature.name}</h3>
-                        <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-                          {feature.description}
-                        </p>
-                      </div>
                       <div className="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-5xl">
                         <dl className="grid grid-cols-1 gap-x-8 gap-y-16 lg:grid-cols-2">
                           {feature.items.map((item) => (
@@ -245,68 +185,6 @@ export default function ProductsPage() {
                   ))}
                 </div>
               </div>
-            </div>
-          </div>
-        </div>
-
-        {/* 价格部分 */}
-        <div id="pricing" className="bg-gray-50 py-24 sm:py-32">
-          <div className="mx-auto max-w-7xl px-6 lg:px-8">
-            <div className="mx-auto max-w-2xl text-center">
-              <h2 className="text-base font-semibold leading-7 text-blue-600">价格方案</h2>
-              <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-                为不同需求提供灵活方案
-              </p>
-              <p className="mt-6 text-lg leading-8 text-gray-600">
-                无论您是个人开发者还是大型企业，我们都有适合您的方案。选择最适合您需求的版本开始使用。
-              </p>
-            </div>
-            <div className="isolate mx-auto mt-16 grid max-w-md grid-cols-1 gap-8 lg:mx-0 lg:max-w-none lg:grid-cols-3">
-              {tiers.map((tier) => (
-                <div
-                  key={tier.id}
-                  className={`
-                    rounded-3xl p-8 ring-1 ring-gray-200 xl:p-10
-                    ${tier.mostPopular ? 'bg-white shadow-lg ring-2 ring-blue-600' : 'bg-white/60'}
-                  `}
-                >
-                  <div className="flex items-center justify-between gap-x-4">
-                    <h3 className="text-lg font-semibold leading-8 text-gray-900">{tier.name}</h3>
-                    {tier.mostPopular && (
-                      <span className="inline-flex items-center rounded-full bg-blue-100 px-2.5 py-0.5 text-xs font-medium text-blue-600">
-                        最受欢迎
-                      </span>
-                    )}
-                  </div>
-                  <p className="mt-4 text-sm leading-6 text-gray-600">{tier.description}</p>
-                  <p className="mt-6 flex items-baseline gap-x-1">
-                    <span className="text-4xl font-bold tracking-tight text-gray-900">{tier.price}</span>
-                    {tier.frequency && <span className="text-sm font-semibold leading-6 text-gray-600">{tier.frequency}</span>}
-                  </p>
-                  <a
-                    href={tier.href}
-                    className={`
-                      mt-6 block rounded-md px-3 py-2 text-center text-sm font-semibold leading-6 shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2
-                      ${tier.mostPopular 
-                        ? 'bg-blue-600 text-white hover:bg-blue-500 focus-visible:outline-blue-600' 
-                        : 'bg-white text-blue-600 ring-1 ring-inset ring-blue-200 hover:ring-blue-300'
-                      }
-                    `}
-                  >
-                    {tier.cta}
-                  </a>
-                  <ul role="list" className="mt-8 space-y-3 text-sm leading-6 text-gray-600">
-                    {tier.features.map((feature) => (
-                      <li key={feature} className="flex gap-x-3">
-                        <svg className="h-6 w-5 flex-none text-blue-600" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                          <path fillRule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clipRule="evenodd" />
-                        </svg>
-                        {feature}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              ))}
             </div>
           </div>
         </div>
