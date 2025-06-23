@@ -2,6 +2,8 @@
 
 # dependencies
 /node_modules
+invite-code/frontend/node_modules/
+invite-code/backend/target/
 /.pnp
 .pnp.*
 .yarn/*
