@@ -43,7 +43,7 @@ echo -e "${GREEN}后端构建成功!${NC}"
 
 # 启动后端服务
 echo -e "${YELLOW}正在启动后端服务...${NC}"
-java -jar target/invitecode-0.0.1-SNAPSHOT.jar &
+java -jar target/invite-code-0.0.1-SNAPSHOT.jar &
 BACKEND_PID=$!
 echo -e "${GREEN}后端服务已启动，PID: $BACKEND_PID${NC}"
 
