@@ -1,10 +1,8 @@
 # AI IDE 概览网站
 
-这是一个使用Next.js构建的AI IDE概览网站，展示了AI辅助编程工具的各种功能和特性。
+这是一个使用Next.js构建的AI IDE概览网站，展示了AI辅助编程工具的各种功能和特性。项目集成了邀请码管理系统，用于控制用户对AI IDE的访问权限。
 
 ## 构建说明
-
-由于项目中存在一些ESLint警告和错误，构建时需要使用`--no-lint`参数来跳过ESLint检查：
 
 ```bash
 # 安装依赖
@@ -13,8 +11,8 @@ npm install
 # 开发模式
 npm run dev
 
-# 构建项目（跳过ESLint检查）
-npx next build --no-lint
+# 构建项目
+npm run build
 
 # 启动生产服务器
 npm start
@@ -56,12 +54,48 @@ npm start
   - `download/`: 下载页面
   - `products/`: 产品页面
   - `about/`: 关于页面
+  - `invite/`: 邀请码系统页面
+    - `verify/`: 邀请码验证页面
+    - `admin/`: 管理员页面
 - `src/components/`: 共享组件
 - `src/lib/`: 工具函数和配置
+  - `api/`: API服务
+    - `inviteCodeApi.ts`: 邀请码API服务
+- `invite-code/`: 邀请码系统后端
+  - `backend/`: Spring Boot后端服务
+
+## 邀请码系统
+
+邀请码系统已集成到主网站中，包含以下功能：
+
+1. 邀请码验证 - 用户可以验证邀请码以获取AI IDE的访问权限
+2. 管理员仪表板 - 管理和监控邀请码的使用情况
+3. 邀请码生成 - 批量生成新的邀请码
+4. 邀请码详情 - 查看邀请码的详细信息和使用记录
+
+### 访问路径
+
+- 邀请码验证页面：`/invite/verify`
+- 管理员登录页面：`/invite/admin/login`
+- 管理员仪表板：`/invite/admin/dashboard`
+- 生成邀请码页面：`/invite/admin/generate`
+- 邀请码详情页面：`/invite/admin/codes/[id]`
+
+### 后端服务
+
+邀请码系统的后端使用Spring Boot开发，提供RESTful API服务。运行后端服务：
+
+```bash
+cd invite-code/backend
+mvn clean package
+java -jar target/invitecode-0.0.1-SNAPSHOT.jar
+```
 
 ## 技术栈
 
 - Next.js 15.3.3
 - React
 - TypeScript
-- Tailwind CSS 
+- Tailwind CSS
+- Spring Boot (后端服务)
+- MySQL (数据库) 
