@@ -18,6 +18,15 @@ const nextConfig = {
       allowedOrigins: ['localhost:3000'],
     },
   },
+  // 添加API代理配置
+  async rewrites() {
+    return [
+      {
+        source: '/api/:path*',
+        destination: 'http://localhost:8080/api/:path*', // 代理到后端服务
+      },
+    ];
+  },
 };
 
 export default nextConfig; 

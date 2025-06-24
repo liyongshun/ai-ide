@@ -16,5 +16,10 @@ export const AppConfig = {
    */
   RELEASE_DATE: process.env.NEXT_PUBLIC_RELEASE_DATE || '2023年12月15日',
   
+  /**
+   * 邀请码系统API URL
+   */
+  API_URL: process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8080/api',
+  
   // 其他配置项可以在此处添加
 }; 

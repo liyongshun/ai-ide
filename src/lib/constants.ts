@@ -8,6 +8,7 @@ export const NAVIGATION = {
     { name: '产品', href: '/products' },
     { name: '文档', href: '/docs' },
     { name: '下载', href: '/download' },
+    { name: '邀请码', href: '/invite/verify' },
     { name: '关于', href: '/about' },
   ],
   footer: [
