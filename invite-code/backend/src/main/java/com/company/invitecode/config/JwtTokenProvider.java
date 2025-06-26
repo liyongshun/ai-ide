@@ -50,6 +50,7 @@ public class JwtTokenProvider {
     public Authentication getAuthentication(String token) {
         Claims claims = Jwts.parser().setSigningKey(secretKey).parseClaimsJws(token).getBody();
         String username = claims.getSubject();
+        @SuppressWarnings("unchecked")
         List<String> roles = (List<String>) claims.get("roles");
         
         List<SimpleGrantedAuthority> authorities = roles.stream()

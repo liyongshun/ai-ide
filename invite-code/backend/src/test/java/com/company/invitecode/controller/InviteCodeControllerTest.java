@@ -2,7 +2,6 @@ package com.company.invitecode.controller;
 
 import com.company.invitecode.dto.InviteCodeDto;
 import com.company.invitecode.dto.request.GenerateInviteCodeRequest;
-import com.company.invitecode.dto.response.ApiResponse;
 import com.company.invitecode.service.InviteCodeService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Test;
