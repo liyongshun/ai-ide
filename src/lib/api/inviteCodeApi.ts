@@ -69,6 +69,15 @@ export interface UsageRecord {
   usedAt: string;
 }
 
+export interface AdminUser {
+  id: number;
+  username: string;
+  employeeId: string;
+  isAdmin: boolean;
+  createdAt: string;
+  updatedAt: string;
+}
+
 // 验证邀请码
 export const verifyInviteCode = (code: string, userId: string = '') => {
   return api.post<ApiResponse<unknown>>('/invite-codes/verify', { code, userId });
@@ -107,4 +116,36 @@ export const enableInviteCode = (id: string) => {
 // 管理员登录
 export const adminLogin = (username: string, password: string) => {
   return api.post<ApiResponse<TokenResponse>>('/auth/login', { username, password });
-}; 
+};
+
+// ===== 管理员管理相关API =====
+
+// 获取所有管理员
+export const getAllAdmins = () => {
+  return api.get<ApiResponse<AdminUser[]>>('/admin/users');
+};
+
+// 获取单个管理员信息
+export const getAdminById = (id: number) => {
+  return api.get<ApiResponse<AdminUser>>(`/admin/users/${id}`);
+};
+
+// 创建管理员
+export const createAdmin = (username: string, password: string, employeeId?: string) => {
+  return api.post<ApiResponse<AdminUser>>('/admin/users', { username, password, employeeId });
+};
+
+// 更新管理员信息
+export const updateAdmin = (id: number, username: string, password?: string, employeeId?: string) => {
+  return api.put<ApiResponse<AdminUser>>(`/admin/users/${id}`, { username, password, employeeId });
+};
+
+// 更新管理员密码
+export const updateAdminPassword = (id: number, oldPassword: string, newPassword: string) => {
+  return api.put<ApiResponse<boolean>>(`/admin/users/${id}/password`, { oldPassword, newPassword });
+};
+
+// 删除管理员
+export const deleteAdmin = (id: number) => {
+  return api.delete<ApiResponse<boolean>>(`/admin/users/${id}`);
+};

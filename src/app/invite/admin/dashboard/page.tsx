@@ -105,6 +105,12 @@ export default function AdminDashboard() {
           >
             生成邀请码
           </Link>
+          <Link 
+            href="/invite/admin/users" 
+            className="bg-green-600 text-white py-2 px-4 rounded-md hover:bg-green-700 transition-colors"
+          >
+            管理员管理
+          </Link>
           <button 
             onClick={handleLogout} 
             className="bg-gray-200 text-gray-800 py-2 px-4 rounded-md hover:bg-gray-300 transition-colors"

@@ -42,6 +42,7 @@ public class SecurityConfig {
                 .antMatchers("/auth/login").permitAll()
                 // 需要ADMIN角色的接口
                 .antMatchers("/invite-codes/generate").hasRole("ADMIN")
+                .antMatchers("/admin/**").hasRole("ADMIN")
                 // 其他邀请码接口，需要认证
                 .antMatchers("/invite-codes/**").authenticated()
                 // 其他请求允许通过
