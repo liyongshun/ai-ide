@@ -15,7 +15,7 @@ export default function AboutPage() {
       <div className="bg-white">
         {/* 公司简介 */}
         <div className="relative isolate overflow-hidden bg-gradient-to-b from-blue-50 via-white to-white pt-16">
-          <div className="mx-auto max-w-7xl px-6 py-24 sm:py-32 lg:px-8">
+          <div className="mx-auto max-w-4xl md:max-w-5xl lg:max-w-6xl xl:max-w-7xl px-6 py-24 sm:py-32 lg:px-8">
             <div className="mx-auto max-w-2xl text-center">
               <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
                 关于<span className="text-blue-600">{AppConfig.APP_NAME}</span>
@@ -41,7 +41,7 @@ export default function AboutPage() {
 
         {/* 使命与愿景 */}
         <div className="bg-white py-24 sm:py-32">
-          <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="mx-auto max-w-4xl md:max-w-5xl lg:max-w-6xl xl:max-w-7xl px-6 lg:px-8">
             <div className="lg:flex items-center gap-x-16">
               <div className="lg:w-1/2">
                 <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">我们的使命与愿景</h2>

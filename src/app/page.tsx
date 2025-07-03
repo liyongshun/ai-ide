@@ -8,7 +8,7 @@ export default function RootPage() {
   return (
     <>
       <div className="bg-white">
-        <div className="container mx-auto px-4 py-12">
+        <div className="container mx-auto max-w-4xl md:max-w-5xl lg:max-w-6xl xl:max-w-7xl px-4 py-12">
           <section className="flex flex-col md:flex-row items-center justify-between gap-8 mb-16">
             <div className="flex-1 space-y-6">
               <div className="inline-flex items-center px-4 py-2 rounded-full bg-blue-100 text-blue-800 text-sm font-medium mb-2">
@@ -88,7 +88,7 @@ export default function RootPage() {
           </section>
 
           <section className="py-16 bg-blue-50 -mx-4 px-4 rounded-lg">
-            <div className="container mx-auto">
+            <div className="container mx-auto max-w-4xl md:max-w-5xl lg:max-w-6xl xl:max-w-7xl">
               <h2 className="text-3xl font-bold text-center mb-4">为何选择我们</h2>
               <p className="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
                 我们的{AppConfig.APP_NAME}不仅是一款开发工具，更是您的智能编程伙伴

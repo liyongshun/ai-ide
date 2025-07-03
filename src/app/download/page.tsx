@@ -90,7 +90,7 @@ const [downloadCount, setDownloadCount] = useState(0);
       <div className="bg-white">
         {/* 下载横幅部分 */}
         <div className="relative bg-gradient-to-r from-blue-600 to-blue-800 py-16">
-          <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="mx-auto max-w-4xl md:max-w-5xl lg:max-w-6xl xl:max-w-7xl px-6 lg:px-8">
             <div className="mx-auto max-w-2xl text-center">
               <h1 className="text-3xl font-bold tracking-tight text-white sm:text-5xl">
                 下载{AppConfig.APP_NAME}
@@ -115,7 +115,7 @@ const [downloadCount, setDownloadCount] = useState(0);
 
         {/* 下载选项部分 */}
         <div id="download-options" className="py-12">
-          <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="mx-auto max-w-4xl md:max-w-5xl lg:max-w-6xl xl:max-w-7xl px-6 lg:px-8">
             <div className="mx-auto max-w-2xl text-center mb-8">
               <span className="inline-flex items-center rounded-md bg-blue-50 px-2 py-1 text-xs font-medium text-blue-700 ring-1 ring-inset ring-blue-700/10 mb-2">v{AppConfig.LATEST_VERSION}</span>
               <h2 className="text-2xl font-bold tracking-tight text-gray-900">选择您的平台</h2>
@@ -186,7 +186,7 @@ const [downloadCount, setDownloadCount] = useState(0);
         
         {/* 版本亮点 */}
         <div className="bg-gray-50 py-12">
-          <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="mx-auto max-w-4xl md:max-w-5xl lg:max-w-6xl xl:max-w-7xl px-6 lg:px-8">
             <div className="mx-auto max-w-2xl lg:text-center mb-8">
               <h2 className="text-2xl font-bold tracking-tight text-gray-900">版本亮点</h2>
               <p className="mt-2 text-sm text-gray-600">了解{AppConfig.APP_NAME} {AppConfig.LATEST_VERSION}版本的新功能和改进</p>
@@ -238,7 +238,7 @@ const [downloadCount, setDownloadCount] = useState(0);
 
         {/* 系统要求 */}
         <div className="py-12">
-          <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="mx-auto max-w-4xl md:max-w-5xl lg:max-w-6xl xl:max-w-7xl px-6 lg:px-8">
             <div className="mx-auto max-w-2xl lg:text-center mb-8">
               <h2 className="text-2xl font-bold tracking-tight text-gray-900">系统要求</h2>
               <p className="mt-2 text-sm text-gray-600">运行{AppConfig.APP_NAME}所需的最低和推荐配置</p>
@@ -306,7 +306,7 @@ const [downloadCount, setDownloadCount] = useState(0);
 
         {/* 帮助支持 */}
         <div className="bg-gray-50 py-12">
-          <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="mx-auto max-w-4xl md:max-w-5xl lg:max-w-6xl xl:max-w-7xl px-6 lg:px-8">
             <div className="mx-auto max-w-2xl lg:text-center mb-8">
               <h2 className="text-2xl font-bold tracking-tight text-gray-900">需要帮助？</h2>
               <p className="mt-2 text-sm text-gray-600">我们提供多种支持渠道，帮助您解决问题</p>

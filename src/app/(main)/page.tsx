@@ -104,7 +104,7 @@ export default function Home() {
       {/* Hero section */}
       <div className="relative overflow-hidden bg-gradient-to-b from-blue-50 via-white to-white">
         <div className="pt-16 pb-80 sm:pb-40 lg:pb-48 lg:pt-24">
-          <div className="relative mx-auto max-w-7xl px-4 sm:static sm:px-6 lg:px-8">
+          <div className="relative mx-auto max-w-4xl md:max-w-5xl lg:max-w-6xl xl:max-w-7xl px-4 sm:static sm:px-6 lg:px-8">
             <div className="sm:max-w-2xl">
               <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
                 AI驱动的智能IDE
@@ -146,7 +146,7 @@ export default function Home() {
 
       {/* 特性部分 */}
       <div className="bg-white py-24 sm:py-32">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+        <div className="mx-auto max-w-4xl md:max-w-5xl lg:max-w-6xl xl:max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center">
             <h2 className="text-base font-semibold leading-7 text-blue-600">提升生产力</h2>
             <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
@@ -178,7 +178,7 @@ export default function Home() {
 
       {/* 用户评价部分 */}
       <div className="bg-white py-24 sm:py-32">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+        <div className="mx-auto max-w-4xl md:max-w-5xl lg:max-w-6xl xl:max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center">
             <h2 className="text-base font-semibold leading-7 text-blue-600">用户反馈</h2>
             <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
@@ -206,7 +206,7 @@ export default function Home() {
 
       {/* CTA部分 */}
       <div className="bg-blue-600">
-        <div className="mx-auto max-w-7xl px-6 py-24 sm:py-32 lg:px-8 lg:flex lg:items-center lg:justify-between">
+        <div className="mx-auto max-w-4xl md:max-w-5xl lg:max-w-6xl xl:max-w-7xl px-6 py-24 sm:py-32 lg:px-8 lg:flex lg:items-center lg:justify-between">
           <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
             准备好提升您的开发效率了吗？
             <br />

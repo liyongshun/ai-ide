@@ -205,7 +205,7 @@ const isCategoryActive = (category: string): boolean => {
 
           {/* 内容 */}
           <main className="flex-1 bg-white">
-            <div className="mx-auto max-w-4xl px-4 pt-10 pb-24 sm:px-6 lg:px-8">
+            <div className="mx-auto max-w-3xl md:max-w-4xl lg:max-w-5xl xl:max-w-6xl px-4 pt-10 pb-24 sm:px-6 lg:px-8">
               {children}
             </div>
           </main>

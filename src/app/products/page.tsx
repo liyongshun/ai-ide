@@ -88,7 +88,7 @@ export default function ProductsPage() {
       <div className="bg-white">
         {/* 产品概述 */}
         <div className="relative bg-gradient-to-b from-blue-50 via-white to-white py-24 sm:py-32">
-          <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="mx-auto max-w-4xl md:max-w-5xl lg:max-w-6xl xl:max-w-7xl px-6 lg:px-8">
             <div className="mx-auto max-w-2xl text-center">
               <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
                 {AppConfig.APP_NAME}产品介绍
@@ -127,7 +127,7 @@ export default function ProductsPage() {
 
         {/* 特性部分 */}
         <div id="features" className="py-24 sm:py-32">
-          <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="mx-auto max-w-4xl md:max-w-5xl lg:max-w-6xl xl:max-w-7xl px-6 lg:px-8">
             <div className="mx-auto max-w-2xl text-center">
               <h2 className="text-base font-semibold leading-7 text-blue-600">全面的功能</h2>
               <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
@@ -140,7 +140,7 @@ export default function ProductsPage() {
             
             {/* 特性标签页 */}
             <div className="mt-16 overflow-hidden bg-white">
-              <div className="mx-auto max-w-7xl">
+              <div className="mx-auto max-w-4xl md:max-w-5xl lg:max-w-6xl xl:max-w-7xl">
                 <div className="border-b border-gray-200">
                   <nav className="-mb-px flex justify-center space-x-8" aria-label="Tabs">
                     {features.map((feature) => (
@@ -191,7 +191,7 @@ export default function ProductsPage() {
 
         {/* CTA部分 */}
         <div className="bg-blue-600">
-          <div className="mx-auto max-w-7xl px-6 py-24 sm:py-32 lg:px-8 lg:flex lg:items-center lg:justify-between">
+          <div className="mx-auto max-w-4xl md:max-w-5xl lg:max-w-6xl xl:max-w-7xl px-6 py-24 sm:py-32 lg:px-8 lg:flex lg:items-center lg:justify-between">
             <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
               准备好提升您的开发效率了吗？
               <br />
